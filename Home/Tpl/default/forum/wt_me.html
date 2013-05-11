@@ -1,0 +1,105 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>微贴-与我相关</title>
+     <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+   </script>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css_3.css">    
+        
+         <script language=JavaScript>        
+          function deletedweitie(id){
+    	   apprise('确定删除这一篇微贴？', {'confirm':true},function(r){		
+				if(r){		
+					$.post(SITE_URL+"Forum/deletedweitie",{weitie_id:id},function(txt){		
+						   window.location.reload();
+						});
+				}	
+			})
+       }
+       function re_xiugai(id,md){
+    	    apprise('确定要修改此篇微贴？', {'confirm':true},function(r){		
+				if(r){		
+				window.location.href=SITE_URL+"Forum/wt_publish/_t_y/"+id+"/x_id/"+md;
+				}	
+			})
+       }             
+       </script>
+  </head>
+  <body>
+        <!-- layout::public:header::60 -->
+      <div class="forum_in_center">
+    <div class="in_left_all">
+        <div class="hh"></div>
+        <div class="in_left">
+              <div class="menu"> <a href="__URL__/wt_me/t_y_p/my" class="<eq name='t_y_p' value='my'>menu_on</eq>">我的微贴</a><a href="__URL__/wt_me/t_y_p/comment_me" class="<eq name='t_y_p' value='comment_me'>menu_on</eq>">最新评论</a><a href="__URL__/wt_me/t_y_p/pt_me" class="<eq name='t_y_p' value='pt_me'>menu_on</eq>">我的参与</a></div>
+              <div class="in_left_content" style="margin-top:12px;">             
+              <volist name="content" id="vo">
+              
+              <eq name="t_y_p" value="comment_me">
+              <div class="every1">
+             <span> <empty name="vo['last_comment_user_id']"><span class="no_comment_user">没找到该用户</span><else />{$vo.last_comment_user_id|getUserSpace=uname}</empty>
+            对帖子：
+           </span>                   
+                              
+              <div class="title"><a target="_blank"  href="{:U('Forum/ewt_display',array('s_t_y'=>$vo['weitie_id'],'w_t'=>md($vo['weitie_id'])))}"  title="{$vo.title}">{$vo.title}</a></div>                     
+                                   给了新回复：     
+
+   
+              </div>
+              
+              
+              
+              <else />
+              
+              
+              <div class="every1">
+                        <div class="title"><img src="__PUBLIC__/images/button/topic.gif" /><a target="_blank" class='<eq name="t_y_p" value="comment_me"> <eq name="vo['last_comment_is_read']" value="1">no_read</eq></eq>' href="{:U('Forum/ewt_display',array('s_t_y'=>$vo['weitie_id'],'w_t'=>md($vo['weitie_id'])))}"  title="{$vo.title}">{$vo.title}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>                     
+                        <table class="show1">
+                            <tr>                                
+                                <td >
+                                
+                                <div class="wt_uname">
+                                <eq name="t_y_p" value="my">&nbsp;&nbsp;
+                                <input type="hidden" value="{$vo.weitie_id|md}" id="x_id">
+                                  <a href="javascript:void(0)" onclick="deletedweitie({$vo.weitie_id},this)">删除</a>&nbsp;<a href="javascript:void(0)" onclick="re_xiugai({$vo.weitie_id},'{$vo.weitie_id|md}')">修改</a>
+                                <else />                           
+                                <empty name="vo['last_comment_user_id']"><span class="no_comment_user">没找到该用户</span><else />{$vo.last_comment_user_id|getUserSpace=uname}</empty>
+                                </eq>                     
+                                </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><span>{$vo.ctime|friendlyDate}</span></td>
+                            </tr>
+                        </table>
+                               <!--   查看回复       -->
+                        <div class="answ">                                  
+                               <eq name="t_y_p" value="my">
+                                                                                                    评论/阅读<br />({$vo.count_comment})/({$vo.read_times})
+                                <else />
+                                                                                              最后回复:<br />({$vo.count_comment})/({$vo.read_times})                                
+                                </eq>                       
+                       </div>                                           
+                   </div>
+                   
+                   </eq>
+                   
+              </volist>                          
+              </div>
+        <div class="page_wowo" style="width:768px;text-align:center;height:40px;margin-top:35px;background-color:#fff;float:right;">{$page}</div> 
+        </div>
+    </div>
+    <div>
+    <!-- layout::public:forum_right::60 -->
+    </div>
+      </div>
+       <include file="Public:root" />
+  </body>
+</html>

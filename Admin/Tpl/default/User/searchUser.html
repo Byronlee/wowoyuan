@@ -1,0 +1,31 @@
+ <include file="Public:header" />
+ <div id="searchUser_div">
+  	<div class="page_tit">搜索用户 </div>
+	
+	<div class="form2">
+	<form method="post" action="{:U('User/doSearchUser')}">
+    <dl class="lineD">
+      <dt>关键字:</dt>
+      <dd>
+        <input name="keywords" id="email" type="text" value="">
+        <p>支持模糊查询</p>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>查询条件:</dt>
+      <dd>
+        <select name="select">
+  <option value="1">用户昵称</option>
+  <option value="2">用户ID</option>
+  <option value="3">用户名</option>
+  </select>
+      </dd>
+    </dl>
+	
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+	</form>
+  </div>
+  </div>
+ <include file="Public:_footer" />

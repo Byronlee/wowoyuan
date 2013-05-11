@@ -1,0 +1,58 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">站点配置</div>
+  
+  <div class="form2">
+  	<form method="post" action="{:U('/Global/doSetSiteOpt')}">
+    <dl class="lineD">
+      <dt>站点名称：</dt>
+      <dd>
+        <input name="site_name" type="text" value="{$site['sitename']}">
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>站点英文名称:</dt>
+      <dd>
+        <input name="site_nameEN" type="text" value="{$site['sitename_EN']}">
+   
+      </dd>
+    </dl>
+       
+    
+     <dl class="lineD">
+      <dt>域名备案：</dt>
+      <dd>
+        <input name="site_icp" type="text" value="{$site['site_icp']}">
+       
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>网站主：</dt>
+      <dd>
+        <input name="site_owner" type="text" value="{$site['siteowner']}">
+       
+      </dd>
+    </dl>
+     
+    <dl class="lineD">
+      <dt>站点状态：</dt>
+      <dd>
+        <p><label>
+        	<input name="site_closed" type="radio" value="1" <eq name="site['site_closed']" value="1">checked</eq>>关闭
+        </label></p>
+       <p>
+        <label>
+        	<input name="site_closed" type="radio" value="0" <eq name="site['site_closed']" value="0">checked</eq>>开启
+        </label></p>
+      </dd>
+    </dl>
+  
+  
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+    </form>
+  </div>
+
+</div>
+<include file="../Public/_footer" />

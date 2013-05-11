@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="shortcut icon" href="__PUBLIC__/images/wo.png" type="image/x-icon" />
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+<script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script> 
+<script type="text/javascript" src="__PUBLIC__/javascript/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/javascript/jq.js"></script>  
+<script type="text/javascript" src="__PUBLIC__/javascript/js.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/apprise.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun_layout.css"/> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun_public.css"/>       
+<script type="text/javascript" src="__PUBLIC__/javascript/flash.js"></script>       
+<script type="text/javascript" src="__PUBLIC__/javascript/notice.js"></script> 
+<script type="text/javascript">
+<!--
+$(document).ready(function(){	   
+    $('.set').live('mouseover',function(){
+  	$(this).find('.set_con').show();
+    });
+    $('.set').live('mouseout',function(){
+    	$(this).find('.set_con').hide();	
+     });
+});
+
+-->
+</script>
+<title>{$page_title}</title>  
+</head>
+<body>   
+        <div class="shancun_all_head">
+            <div class="header"><!-- 头部 begin -->
+                                     
+                <div class="logo"><a href="{:SITE_URL}url=home" >Wowoyuan</a></div>               
+                <div class="nav">
+                       <ul>
+                        <li>
+                            <a href="{:SITE_URL}url=flash" class="fb14">闪存</a>
+                        </li>
+                        <li class="set">
+                            <a href="{:SITE_URL}url=forum" class="fb14">微社</a>
+                             <div class="set_con">
+                               <span><a href="{:U('Forum/wt_me/t_y_p/my')}">我的微贴</a></span><br />
+                                <span><a href="{:U('Forum/wt_me/t_y_p/comment_me')}">最新评论</a></span><br />                                      
+                                </div>
+                         
+                        </li>
+                        <li class="set">
+                            <a href="{:SITE_URL}url=trade" class="fb14">商场</a>
+                            <div class="set_con">
+                               <span><a href="{:U('Trade/manage/type/shelve')}">最新上架</a></span><br />
+                                <span><a href="{:U('Trade/manage/type/I_shelve')}">我的交易</a></span><br />
+                               <span><a href="{:U('Trade/shelve')}">上架宝贝</a></span><br />            
+                                </div>
+                        </li>
+                        <li class="set">
+                            <a href="#" class="fb14">设置</a> 
+                              <div class="set_con">
+                               <span><a href="{:U('Index/information')}">基本信息</a></span><br />
+                                <span><a href="{:U('Index/setAccount')}">帐号设置</a></span><br />
+                               <span><a href="{:U('Index/setAvatar')}">修改头像</a></span><br />
+                               <span><a href="{:SITE_URL}out">退出</a></span> <br />              
+                                </div>                  
+                        </li>                     
+                    </ul>              
+                    <form action="{:U('Index/s_result')}" id="quick_search_form" method="post">
+                     <input type="hidden" id="hidden_input" name="tag" value=1/>
+                        <div class="soso"><label id="_header_search_label" style="display: block;" onclick="$(this).hide();$('#_header_search_text').focus();">闪存/名字/宝贝/关键字</label><input type="text" class="so_text" value="" name="key" id="_header_search_text" onblur="if($(this).val()=='') $('#_header_search_label').show();"/><input name="" type="button" onclick="$('#quick_search_form').submit()" class="so_btn hand br3"/></div>
+                        <script>
+                            if($('#_header_search_text').val()=='')
+                                $('#_header_search_label').show();
+                            else
+                                $('#_header_search_label').hide();
+                        </script>
+                    </form>
+                </div>                                      
+            </div>                                     
+            </div>
+
+ 

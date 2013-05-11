@@ -1,0 +1,40 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">商场统计</div>
+  
+  <div class="form2" style="font-size:17px;">
+  	
+    <dl class="lineD">
+      <dt>上架商品总数：</dt>
+      <dd>
+    {$data['all']}
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>谈判中的商品数量：</dt>
+      <dd>
+       {$data['consult']}
+      </dd>
+    </dl>
+       
+    
+     <dl class="lineD">
+      <dt>未交易的商品数量：</dt>
+      <dd>
+        {$data['onSale']}
+       
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>交易成功的商品数量：</dt>
+      <dd>
+        {$data['success']}
+       
+      </dd>
+    </dl>
+     
+
+  </div>
+
+</div>
+<include file="../Public/_footer" />

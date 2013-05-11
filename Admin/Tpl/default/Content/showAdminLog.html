@@ -1,0 +1,26 @@
+<include file="../Public/_header" />
+
+<php>
+$info = unserialize($data);
+echo '<h1>本页面内容仅供系统管理员定位系统操作使用，谢谢。</h1>';
+echo '<h1>操作位置：'.$info['0'].'</h1>';
+if( $type=='1' ){
+	echo '<h2>增加的内容</h2>';
+	if( $info['1'] ){
+		dump($info['1']);
+	}else{
+		echo $info['0'];
+	}
+}
+if( $type == '2' ){
+	echo '<h2>删除的内容</h2>';
+	dump($info['1']);
+}
+if( $type == '3' ){
+	echo '<h2>修改前的内容</h2>';
+	dump($info['1']);
+	echo '<h2>修改后的内容</h2>';
+	dump($info['2']);
+}
+</php>
+<include file="../Public/_footer" />

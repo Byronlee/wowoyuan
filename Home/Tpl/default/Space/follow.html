@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>{$page_title}</title>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+         <script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+         <script type="text/javascript" src="__PUBLIC__/javascript/flash.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css.css">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/space.css">       
+        <script>
+</script>       
+</head>
+<body>
+         <include file="Public:header" />
+         <div class="space_center">
+            <div class="space_user">
+                        <div class="space_user_head">{$user_detail_info.user_id|getUserSpace=uvatar}</div>
+                        <div class="space_user_info"><span class="space_user_name">{$user_detail_info.username}</span><br />                                        
+                         <span class="space_user_fans">
+
+                          <a href="{:U('Space/follow',array('uid'=>$user_id,'type'=>'following','ui_'=>md($user_id)))}">关注&nbsp;<strong>{$user_detail_info.following}</strong>&nbsp;人</a>&nbsp;&nbsp;
+                          <a href="{:U('Space/follow',array('uid'=>$user_id,'type'=>'follower','ui_'=>md($user_id)))}">粉丝&nbsp;<strong>{$user_detail_info.follower}</strong>&nbsp;人</a>&nbsp;&nbsp;
+                           <a href="{:U('Space/index',array('uid'=>$user_id,'type'=>'flash','ui_'=>md($user_id)))}">闪存&nbsp;<strong>{$user_detail_info.flashs}</strong></a>&nbsp;&nbsp;
+                              <a href="{:U('Space/index',array('uid'=>$user_id,'type'=>'weitie','ui_'=>md($user_id)))}">微贴&nbsp;<strong>{$user_detail_info.weities}</strong></a>
+                         </span><br />
+                           <div style="width:530px;min-height:40px;font-size:15px; float:left;margin-top:20px;"><strong style="color:#668B8B;font-size:18px;">介绍：</strong> {$user_detail_info.description}</div>
+                          <span class="user_detail">                   
+                                
+			                           <php>if($m_id!=$user_id){</php>
+			                               <div id="follow_list_{$user_id}" class="relatives" style="font-weight: normal;">
+						                       <script>document.write(followState('{$user_detail_info.followState}','dolistfollow',{$user_id}));</script>								                                                
+				                           </div>
+				                                                                   
+				                        <php>}else{</php>	                                             
+			                                            <a href="{:U('Index/information')}" style="font-size:20px;color:#000;">编辑个人信息</a>
+			                         <php>}</php>
+                           </span>         
+                        </div>      
+             </div>
+             <div class="bian"></div>
+          <div class="space_type">
+                  <a class="<eq name='type' value='following'>on</eq> " href="{:U('Space/follow',array('uid'=>$user_id,'type'=>'following','ui_'=>md($user_id)))}">关注</a>
+                  <a class="<eq name='type' value='follower'>on</eq>"  href="{:U('Space/follow',array('uid'=>$user_id,'type'=>'follower','ui_'=>md($user_id)))}">粉丝</a>
+         </div> 
+         
+         
+         <div class="space_content">
+               <div class="follow_peple">  
+               <div style="min-height:1200px">
+				      <php>if($list){</php>     
+				      <volist id="vo" name="list">
+				          <div class="follows"> 
+				                  {$vo.user_id|getUserSpace=uvatar}               
+				                  <div class="follow_info"> 
+				                      <span class="uname"> {$vo.user_id|getUserSpace=uname}</span><br />                      
+				                      <span>{$vo.grade_class}</span><br />  
+				                      <span><present name="vo['profession']">{$vo.profession}<else />未填写</present></span><br />                                                             
+				                      <span><present name="vo['academy']">{$vo.academy}<else />未填写</present></span><br />
+					              </div>	
+					       </div>	
+				       </volist>
+				        <php>}else{</php>
+				            <span class="no_user">噢..还没有用户呢....</span>
+				        <php>}</php>
+      </div>
+       <div class="page_wowo" style="width:568px;text-align:center;height:40px;margin-top:35px;background-color:#fff;float:left;">{$page}</div> 
+      </div>
+     
+     
+     <php>if($m_id==$user_id){</php>                            
+                        <div class="scoll space_content_right" style="padding-top:35px;padding-left:5px;padding-bottom: 60px;">
+                              <strong>最近访客</strong><br />
+                              <volist name="guest" id="vo">                  
+                              <div class="Euser">
+                                   {$vo.user_id|getUserSpace=uvatar}                                   
+                                   <div class="user_in">
+                                    <span class=username>{$vo.user_id|getUserSpace=uname}</span><br />
+                                    <span class=us>{$vo.ctime|friendlyDate}</span><br /> 
+                                 
+                                    </div>
+                              </div>
+                                 </volist>
+                            </div>                        
+                         <php>}else{</php>
+     
+           <div class="space_content_right">
+                <div class="user_detail_info">
+                        <span>详细资料</span> 
+                      <ul>
+                         <li> 学校：成都大学</li>
+                         <li> 专业：<present name="user_detail_info['profession']">{$user_detail_info.profession}<else />未填写</present> </li>
+                         <li> 学院：<present name="user_detail_info['academy']">{$user_detail_info.academy}<else />未填写</present></li>
+                         <li>  邮箱：<br /><present name="user_detail_info['mailadres']">{$user_detail_info.mailadres}<else />未填写</present></li>
+                         <li>  年级：<present name="user_detail_info['grade']">{$user_detail_info.grade}&nbsp;级<else />未填写</present></li>
+                         <li>  班级：<present name="user_detail_info['class']"> {$user_detail_info.class}&nbsp;班<else />未填写</present></li>
+                         <li>  性别：<eq name="user_detail_info.user_gender" value="1">男<else/>女</eq> </li>
+                         <li>  生日：<notempty name="user_detail_info['year']">{$user_detail_info.year}&nbsp;年</notempty><notempty name="user_detail_info['month']">{$user_detail_info.month}&nbsp;月</notempty><notempty name="user_detail_info['day']">{$user_detail_info.day}&nbsp;日</notempty></li>
+                         <li> QQ：<notempty name="user_detail_info['user_qq']">{$user_detail_info.user_qq}<else />未填写</notempty></li>
+                        </ul>
+                </div>                  
+           </div>  
+           <php>}</php>     
+         </div> 
+         <div class="clear"></div>
+         </div>
+
+<!-- layout::public:root::60 -->
+
+
+
+</body>
+</html>

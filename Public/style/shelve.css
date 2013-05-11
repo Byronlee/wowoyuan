@@ -1,0 +1,557 @@
+@CHARSET "UTF-8";
+
+/*+++++++++++++++++++++++++-
+    窝窝圆|物品上架|shelve.html
+  +++++++++++++++++++++++++*/
+/*    物品上架       */
+
+/*a {
+	color: #000000;
+}*/
+ul{
+	list-style:none;
+}
+.shelve li {
+	list-style: none;
+	margin: 10px;
+}
+.shelve span {
+	
+	margin-right: 30px;
+	height:20px;
+	color:#CD6600;
+	font-weight:bold;
+/*	text-decoration: underline;*/
+	font-size:16px;
+}
+.cal p{
+	margin:-20px 140px;
+	color:#bebebe;
+	font-size:18px;
+	float:right;
+	width:200px;
+}
+.shelve span img{margin-top:-5px;}
+.shelve .tips {
+	width:140px;
+	height:80px;
+	border: 1px solid #dbdbdb;
+	-webkit-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+/*	marign-right:20px;
+*/	margin-top:-105px;
+	float:right;
+color:#000;
+  font-weight:normal;
+	
+}
+.shelve .tips_t {
+		width:140px;
+	height:10px;
+	margin-top:-35px;
+	float:right;
+	color:#000;
+	 font-weight:normal;
+}
+.formtips{
+	color:#000 !important;
+	 font-weight:normal !important;
+	 text-decoration: none !important;
+}
+.border {
+	background-color: #CCCCCC;
+	padding-top: 20px;
+}
+
+/*  所有输入框外面的层     */
+.allinput div {
+/*	border-bottom: 1px solid #dbdbdb;*/
+	min-width:100px;
+	padding: 10px;
+	margin-left: 70px;
+	margin-right: 10px;
+}
+
+.center {
+	width: 1000px;
+    margin: 0 auto;
+    min-height: 950px;
+   margin-top: 20px;
+   background-color: white;
+   -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  -webkit-border-radius: 5px;
+   border-radius: 5px;
+   padding: 5px;
+}
+
+.shelve {
+	font-size: 15px;
+	width: 100%;
+	height: 100%;
+}
+
+input {
+	width: 220px;
+	height: 30px;
+	font-size: 15px;
+	font-family: Arial;
+	font-weight: bold; 
+	/* chrome浏览器识别 */ 
+	-webkit-border-radius : 4px;	
+	/*     IE浏览器识别                  */
+	-khtml-border-radius: 4px;
+	/*      FF浏览器识别                  */
+	-moz-border-radius: 4px;
+}
+
+/*  填写价格的文本框       */
+.pritable input {
+	width: 100px;
+	height: 30px;
+}
+.trade-way {
+	height: 30px;
+}
+
+/*   交易方式中的单选按钮      */
+.trade-way input {
+	width: 15px;
+	height: 17px;
+}
+
+.trade-way span {
+	margin-right: 20px;
+}
+
+/*   带有文本框的表格  */
+.shelve table {
+	margin-left: 20px;
+}
+
+/*   市场价格       */
+#shoppri {
+	margin-left: 17px;
+}
+
+/*     中间的横条        */
+.bar-1 {
+	color: #EE7600;
+	font-weight:bold;
+	width: 230px;
+	/*	background-color:#000000;  */
+	font-size: 25px;
+	margin: 20px auto 20px 20px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dbdbdb;
+}
+
+/*   上架,左边        */
+.shelve-left {
+	width: 615px;
+	float: left;
+	margin-right:20px;
+	/*	border: 1px solid #878787; */
+}
+
+/*   上架,右边,   */
+.shelve-right {
+	width: 355px;
+	height: 705px;
+	margin-top: 55px;	
+	border-left: 1px solid #878787;	
+	float: left;
+}
+#goods_name{
+	width:270px;
+}
+/*    显示商品图片     */
+#preview{
+    margin-left:-10px;
+    height: 280px;width: 300px; border:solid 1px paleGoldenrod;
+    border-bottom:solid 1px paleGoldenrod !important;
+	text-align:center;
+	color:#bebebe;
+	font-size:18px;
+	overflow:hidden;
+}
+#showpic img{
+	max-height: 280px;
+	max-width: 300px;
+}
+
+
+.shelve-right div {
+	margin: 0px 10px 10px;
+	border-bottom: 1px dotted #dbdbdb;
+	padding-bottom: 3px;
+}
+
+/*  右边,列表的用户名    */
+.shelve-right a {
+	margin-right: 4px;
+}
+
+/*  商品详细情况文本框     */
+.shelve-left textarea {
+	resize:none;
+	width: 220px;
+	height: 100px;
+	
+	margin:0px 30px;
+}
+
+#prompt {
+	width: 150px;
+	height: 95px;
+	border: 1px solid #dbdbdb;
+	float: right;
+	margin: 0;
+}
+/*   提交按钮     */
+.shelve .button {
+	width: 130px;
+	height: 40px;
+	backgroud-color: #000000;
+	border: 1px solid #dbdbdb;
+	color:#000;
+	font-size: 18px;
+	margin-left: 130px;
+	cursor: pointer;
+}
+.shelve .button:hover,.shelve .button:focus,.shelve .button:active {
+	color:#fff;
+}
+.failed_img{
+	margin: -65px 0px;
+    border-style: none;
+    float: right;
+    width: 140px;
+   background-color: green;
+   height: 40px;
+   color: black;
+    font-size: 18px;	
+}
+
+
+
+
+
+/*   右边头部      */
+.right-head {
+	width:300px;
+	
+	font-size:20px;
+	color:#4F94CD;
+	margin-bottom:30px;
+}
+.tes{
+	margin: 0px 0px 0px !important;
+	border-bottom: hidden !important;
+padding-bottom:0px !important;
+	width: 200px;
+text-overflow: ellipsis;
+white-space: nowrap;
+overflow: hidden;
+}
+.tes a{
+	color:green;
+	
+}
+.tes a:hover{
+	text-decoration :underline;
+}
+/*      包围注册按钮的层          */
+.allinput #out-btn {
+	margin:-65px 20px;
+	border-bottom: none;
+	float:right;
+	width:120px;
+	background-color:green;
+	
+}
+
+/*  商品分类    */
+.cal select {
+	margin-right: 100px;
+	font-size: 15px;
+	font-family: Tahoma, Arial, sans-serif;
+	width: 90px;
+	height: 30px;
+}
+
+/*     辅助元素 ,两边不要浮动元素         */
+.clear {
+	clear: both;
+}
+/*+++++++++++++++++++++++++
+    窝窝圆|关于我们|about.html
+  +++++++++++++++++++++++++*/
+/*  包含左右的大层        */
+.inclu{
+	margin:100px auto 20px;
+	width:750px;
+	min-height:800px;
+	padding-top:40px;
+	border: 1px solid #dbdbdb;
+	-webkit-border-radius:8px;
+	-khtml-border-radius:8px; 
+	-moz-border-radius:8px; 
+     border-radius: 8px;
+     background-color:#FFF;
+     -webkit-box-shadow:10px 10px 10px #000;
+     -moz-box-shadow:10px 10px 10px #000;
+     box-shadow:10px 10px 10px #000;
+     
+}
+/*  页面左边的导航栏     */
+.aboutl {
+	width:100px;
+/*	height:150px;*/
+/*	border: 1px solid #dbdbdb;*/
+	font-size: 20px;
+	font-family:kaiti;
+	color:#486682;
+	cursor: pointer;
+	float:left;
+	margin-left:35px;
+	margin-top:150px;
+	padding-top:50px;
+	padding-bottom:50px;
+	border-right: 1px solid #dbdbdb;
+}
+.aboutl div{
+	width:100px;
+	margin:10px 10px;
+}
+/*  页面右边的变化文本 ,选项卡  */
+.menudiv {
+	width: 600px;
+/*	height: 400px;*/
+	margin-left:10px;
+	font-size:15px;
+	color:#888;
+	float:left;
+	position:relative;
+/*	top:-70px;*/
+}
+.clear{
+	clear:both;
+}
+.menudiv div {
+	padding: 20px;
+	line-height: 28px;
+	padding-bottom:50px;
+}
+/*  循环查找符合条件是改变menu的class属性为off   */
+.off {
+	color: #FF0000;
+	font-weight: bold;
+}
+/*    头部右边的两张图片    */
+.inclu .oneim{
+	position:relative;
+	top:-34px;
+	left:465px;
+}
+.inclu .twoim{
+	height:50px;
+	width:720px;
+	
+	
+	
+}
+.inclu .twoim a{
+	float:right;
+	cursor:pointer;
+}
+/*    我要留言文本框     */
+#con_one_4 textarea{
+	width:400px;
+	height:80px;
+	margin-bottom:10px;
+	resize:none;
+}
+/*    我要留言提交按钮    */
+#con_one_4 input{
+	width:70px;
+	height:30px;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.9);
+	border: 1px solid #dbdbdb;
+	cursor:pointer;
+}
+/*   选项卡变化     */
+#con_one_4 .button:hover,#con_one_4 .button:focus,#con_one_4 .button:active {
+	text-shadow: 0 0 5px rgba(82, 168, 236, 0.5);
+}
+#con_one_4 span{
+	font-size:17px;
+}
+#con_one_2 ul{
+	position:relative;
+	left:-40px;
+}
+/*  ------------------
+    everylist显示微区中帖子列表    
+      ----------------  */
+.center .lefts{	
+	float:left;
+        margin-top: 40px;
+        margin-left: 25px;
+}
+.center .rights{
+	width:840px;
+	float:right;
+        margin-top: 65px;
+        margin-right: 0px;
+/*        background-color:#dbdbdb;*/
+/*	border: 1px solid #dbdbdb; */
+}
+/*   介绍板块信息      */
+.head1{
+	width:300px;
+	height:40px;
+	font-size:18px;
+	line-height:40px;
+	margin-top:20px;
+	border-bottom: 1px solid #dbdbdb;
+}
+.head1 span{
+	font-size:24px;
+	font-family:kaiti;
+	font-weight:bold;
+	color:#003399;
+}
+/*  每一条记录     */
+.every1{
+	width:800px;
+	height:37px;
+	border-bottom: 1px solid #dbdbdb;
+	float:left;
+}
+.every1:hover{
+	background-color:#EEEEE0;
+}
+.content img{
+	width:37px;
+	height:36px;
+}
+/*  每一条记录的table  */
+.show1{
+/*	border:1px solid #dbdbdb; */
+	width:120px;
+	height:30px;
+	float:left;
+	position:relative;
+	top:-2px;
+}
+/*    每一条记录的标题       */
+.title{
+	width:560px;
+	height:37px;
+	line-height:37px;
+	font-size:19px;
+	color:#343434;
+	font-family:kaiti;
+	float:left;
+	margin-left:10px;
+	margin-right:50px;
+}
+.title a{
+	color:#006699;
+}
+.answ{
+	height:30px;
+	line-height:30px;
+	font-size:15px;
+/*	margin-left:50px;*/
+	float:left;
+}
+.show1 tr td {
+	padding:0px;
+}
+.fabtn{
+	margin-top:20px;
+	width:50px;
+	height:30px;
+	font-size:18px;
+	text-align:center;
+	line-height:30px;
+	background-color:#dbdbdb;
+	float:left;
+}
+/*+++++++++++++++++++++++++
+    窝窝圆|排行榜|paihang.html
+  +++++++++++++++++++++++++*/
+.rightx{
+	width:700px;
+/*	border:1px solid #dbdbdb;*/
+	float:left;
+}
+/*     每条排行榜        */
+.rightx .everyl{
+	font-size:16px;
+	height:30px;
+	line-height:30px;
+	border-bottom:1px solid #dbdbdb;
+}
+.rightx .everyl:hover{
+	background-color:#FCFCFC;
+}
+.ima{
+	height:20px;
+	float:left;
+    margin:3px 2px 2px 5px;
+}
+/*     排行榜名字     */
+.pname{
+	width:300px;
+	float:left;
+	margin-right:200px;
+}
+.phname{
+	width:300px;
+	margin-left:23px;
+	margin-right:200px;
+	float:left;
+}
+.nub{
+	float:left;
+}
+/*  导航栏     */
+.head2{
+	width:600px;
+	height:40px;
+	border:1px solid #dbdbdb;
+	line-height:40px;
+	font-family:kaiti;
+	font-size:20px;
+	-webkit-border-radius:4px;
+	-khtml-border-radius:4px; 
+	-moz-border-radius:4px; 
+     border-radius: 4px;
+}
+#showall_7{
+	width:300px;
+	height:60px;
+	margin-left:20px;
+}
+#showall_7 table{
+	float:left;
+	margin-left:0px;
+}
+#showall_7 .showall_6{
+	float:left;
+}
+.showall_6 img {
+width: 60px;
+height: 60px;
+}
+.formtips{
+	margin-left:20px;
+}
+#about{
+	background:url('/Public/images/bottom/bg.png');
+}

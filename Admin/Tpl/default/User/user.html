@@ -1,0 +1,113 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">用户管理</div>
+  <!-------- 用户列表 -------->
+  <form action="doDeleteUser" name="deleUser" method="post">
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+	<button class="btn_a" type="submit" >删除用户</button>
+  </div>
+  <!-- 详细的用户列表      -->
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;">
+		<input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+    	<label for="checkbox"></label>
+	</th>
+    <th class="line_l">ID</th>
+    <th class="line_l">用户信息</th>
+    <th class="line_l">用户组</th>
+    <th class="line_l">注册时间</th>
+    <th class="line_l">状态</th>
+    <th class="line_l">操作</th>
+  </tr>
+
+  <!--  -------- 输出用户的信息  - - - -- -         -->
+  
+  <volist id="vo" name="res">
+	  <tr overstyle='on' id="user_{$vo.user_id}">
+	  	<if condition="0 == $vo['isAdmin'] && $mid != $vo.user_id">
+	    	<td><input type="checkbox" name="checkbox[]" id="checkbox2" onclick="checkon(this)" value="{$vo.user_id}"></td>
+		<else />
+	    	<td><input type="checkbox" name="checkbox[]" id="checkbox2" value="" disabled></td>
+	    </if>
+	    <td>{$vo.user_id}</td>
+	    <td>
+			<div style="float:left;margin-right:10px;border:1px solid #8098A8;height:30px;padding:1px;width:30px;""><img src="{$vo.user_id|getUserFace}" width="30"></div>
+			<div style="float:left"><space uid="vo.uid" class="fn" target="_blank"><a href="{:SITE_URL}space/index/uid/{$vo.user_id}/ui_/{$vo.user_id|md}" target="_blank">{$vo['username']}</a></space><br>{$vo.mailadres}</div></td>
+	
+	    <td>
+			<php>if($vo['isAdmin']==1){</php>管理员<php>}else{</php>普通用户<php>}</php>
+			
+		</td>
+	    <td>{$vo['regtime']|date="Y-m-d H:i",###}</td>
+	    <td><eq name="vo['userlock']" value="0">正常<else/>锁定</else></eq></td>
+	    <td>
+			
+			
+			<a href="{:U('User/editUser', array('uid'=>$vo['user_id']))}">编辑</a>
+			<if condition="0 == $vo['isAdmin'] && $mid != $vo['user_id']">
+	    		<a href="__URL__/deleteUser/id/{$vo['user_id']}" onclick="confirm('删除成功后将无法恢复，确认继续？')">删除</a>
+			<else />
+				<span>删除</span>
+	    	</if>
+		</td>
+	  </tr>
+  </volist>
+
+  </table>
+  </div>
+ 
+
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	<button class="btn_a" type="submit" >删除用户</button>
+  </div>
+  </form>
+</div>
+
+<script>
+	//鼠标移动表格效果
+	$(document).ready(function(){
+		$("tr[overstyle='on']").hover(
+		  function () {
+		    $(this).addClass("bg_hover");
+		  },
+		  function () {
+		    $(this).removeClass("bg_hover");
+		  }
+		);
+	});
+	
+	function checkon(o){
+		if( o.checked == true ){
+			$(o).parents('tr').addClass('bg_on') ;
+		}else{
+			$(o).parents('tr').removeClass('bg_on') ;
+		}
+	}
+	
+	function checkAll(o){
+		if( o.checked == true ){
+			$('input[name="checkbox"]').attr('checked','true');
+			$('tr[overstyle="on"]').addClass("bg_on");
+		}else{
+			$('input[name="checkbox"]').removeAttr('checked');
+			$('tr[overstyle="on"]').removeClass("bg_on");
+		}
+	}
+
+	//获取已选择用户的ID数组
+	function getChecked() {
+		var uids = new Array();
+		$.each($('table input:checked'), function(i, n){
+			uids.push( $(n).val() );
+		});
+		return uids;
+	}
+
+
+</script>
+
+<include file="Public:_footer" />

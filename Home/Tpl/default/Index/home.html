@@ -1,0 +1,201 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>        
+           <title>{$page_title}</title>    
+            <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>             
+          <link href="__PUBLIC__/style/stylesheep.css" rel="stylesheet" type="text/css" />
+          <link href="__PUBLIC__/style/css.css" rel="stylesheet" type="text/css" />
+          <link href="__PUBLIC__/style/home.css" rel="stylesheet" type="text/css" />      
+          <script type="text/javascript" src="__PUBLIC__/javascript/js.js"></script>        
+    </head>
+    <body onload="bodyload()">
+   <include file="Public:header" />
+        <div  id="home_center">                                           
+                        <div class="home_left">
+                            <include file="Public:apps" />
+                              <div class="scoll">
+                              <strong>欢迎新同学</strong><br />
+                              <volist name="data_user" id="vo">                  
+                              <div class="Euser">{$vo.user_id|getUserSpace=uvatar}                                   
+                                   <div class="user_in">
+                                    <span class=username>{$vo.user_id|getUserSpace=uname}</span><br />
+                                    <span class=us>{$vo.profession}</span><br /> 
+                                    <span class=us>{$vo.academy}</span>
+                                    </div>
+                              </div>
+                                 </volist>
+                            </div>  
+                              <div class="shixing">      
+                                 <img src="__PUBLIC__/images/bottom/shuxing.png"/> &nbsp;WOWOYUAN
+                              </div>
+                        </div>
+            <div id="home_zhongjian">
+                  <div id="home_zhongjian_top">                 
+                    <div id="sc1" class="tttt">                   
+                        <A id="first" onMouseOver="showdetaildiv('at1','sc1',this)"   href="#">最新微贴</A>
+                        <A onMouseOver="showdetaildiv('at2','sc1',this)"   href="#">最新回复</A>
+                        <A onMouseOver="showdetaildiv('at3','sc1',this)"  href="#">金典微贴</A>
+                        <A onMouseOver="showdetaildiv('at4','sc1',this)"  href="#">热门活动</A>
+                    </div>                    
+                     <div  id="at1" class="top_content" >
+                        <div class="lines"></div>
+                        <table  >
+                        
+                          <volist name="all_wt" id="vo">                        
+                                     <tr>
+                                        <td class="td_t">
+                                               <div class="title"><img src="__PUBLIC__/images/button/topic_new.gif" />&nbsp;<a target="_blank" href="{:SITE_URL}Forum/ewt_display/s_t_y/{$vo.weitie_id}/w_t/{$vo.weitie_id|md}" title="{$vo.title}">{$vo.title}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>                    
+                                       </td>
+                                       <td>
+                                                 <div class="author">{$vo.user_id|getUserSpace=uname}</div>                                      
+                                       </td>
+                                     </tr>  
+                           </volist>    
+                    
+                        </table>
+                    </div>
+                    <div  id="at2" class="top_content" >
+                        <div class="lines"></div>
+                        <table  >                       
+                         <volist name="all_comment" id="vo">                        
+                                     <tr>
+                                        <td class="td_t">
+                                               <div class="title"><img src="__PUBLIC__/images/button/topic.gif" /><a target="_blank" href="{:SITE_URL}Forum/ewt_display/s_t_y/{$vo.weitie_id}/w_t/{$vo.weitie_id|md}" title="{$vo.title}">{$vo.title}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>                    
+                                       </td>
+                                       <td>
+                                                 <div class="author">
+                                                 <eq name="vo['last_comment_user_id']" value="0">
+                                                 {$vo.user_id|getUserSpace=uname}
+                                                 <else/>
+                                                 {$vo.last_comment_user_id|getUserSpace=uname}
+                                                 </eq>                                                 
+                                                 </div>                                      
+                                       </td>
+                                     </tr>  
+                           </volist>                        
+                        </table>
+                    </div>
+                    <div  id="at3" class="top_content" >
+                        <div class="lines"></div>
+                        <table  >                       
+                         <volist name="spacial_wt" id="vo">                        
+                                     <tr>
+                                        <td class="td_t">
+                                               <div class="title"><img src="__PUBLIC__/images/button/topic.gif" /><a target="_blank" href="{:SITE_URL}Forum/ewt_display/s_t_y/{$vo.weitie_id}/w_t/{$vo.weitie_id|md}" title="{$vo.title}">{$vo.title}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>                    
+                                       </td>
+                                       <td>
+                                                 <div class="author">{$vo.user_id|getUserSpace=uname}</div>                                      
+                                       </td>
+                                     </tr>  
+                           </volist>                        
+                        </table>
+                    </div>
+
+                    <div  id="at4" class="top_content" >
+                        <div class="lines"></div>
+                        <table  >                       
+                         <volist name="hot_activit" id="vo">                        
+                                     <tr>
+                                        <td class="td_t">
+                                               <div class="title"><img src="__PUBLIC__/images/button/topic.gif" /><a target="_blank" href="{:SITE_URL}Forum/ewt_display/s_t_y/{$vo.weitie_id}/w_t/{$vo.weitie_id|md}" title="{$vo.title}">{$vo.title}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>                    
+                                       </td>
+                                       <td>
+                                                 <div class="author">{$vo.user_id|getUserSpace=uname}</div>                                      
+                                       </td>
+                                     </tr>  
+                           </volist>                        
+                        </table>
+                    </div>
+                  </div>
+            
+                 <div id="home_zhongjian_center">
+                
+                    <div id="sc2" class="tttt">
+                        <A id="first_shancun" onMouseOver="showdetaildiv('at5','sc2',this)"   href="#">全园闪存</A>
+                        <A onMouseOver="showdetaildiv('at6','sc2',this)"   href="#">好友闪存</A>
+                        <A onMouseOver="showdetaildiv('at7','sc2',this)"  href="#">我的闪存</A>
+                    </div>
+                    <div id="at5" class="center_content" >
+                    <div class="lines"></div>
+                       <ul class="feed_list"> 
+                          <volist name="data_all" id="vo">
+                                <li class="IndexEline" id="list_{$vo.flash_id}">
+                                   <div class="headpic_s">{$vo.user_id|getUserSpace=uvatar}</div>
+                                   <div class="shancon"><span>{$vo.user_id|getUserSpace=uname}</span>：{$vo.flash_body|format}
+                                      <div class="dosth">	                                    	                                         	                                    
+                                          {$vo.posttime|friendlyDate}                                           
+					                     </div>	
+                                   </div>                                                                     	                                                                       	                                   	                                     
+					                     <div class="clear"></div>				             					                    				           					          					              					             
+                                  </li>
+                         </volist>
+                        </ul>
+                  </div>                                                       
+                    <div id="at6" class="center_content" >
+                      <div class="lines"></div>
+                       <ul class="feed_list"> 
+                          <volist name="data_friend" id="vo">
+                                <li class="IndexEline" id="list_{$vo.flash_id}">
+                                   <div class="headpic_s">{$vo.user_id|getUserSpace=uvatar}</div>
+                                   <div class="shancon"><span>{$vo.user_id|getUserSpace=uname}</span>：{$vo.flash_body|format}
+                                      <div class="dosth">	                                    	                                         	                                    
+                                          {$vo.posttime|friendlyDate}                                           
+					                     </div>	
+                                   </div>                                                                     	                                                                       	                                   	                                     
+					                     <div class="clear"></div>				             					                    				           					          					              					             
+                                  </li>
+                         </volist>
+                        </ul>
+                  </div>
+                    
+                    <div id="at7" class="center_content" >
+                       <div class="lines"></div>
+                    <ul class="feed_list"> 
+                          <volist name="data_me" id="vo">
+                                <li class="IndexEline" id="list_{$vo.flash_id}">
+                                   <div class="headpic_s">{$vo.user_id|getUserSpace=uvatar}</div>
+                                   <div class="shancon"><span>{$vo.user_id|getUserSpace=uname}</span>：{$vo.flash_body|format}
+                                    <div class="dosth">	                                    	                                         	                                    
+                                          {$vo.posttime|friendlyDate}                                           
+					                     </div>	
+                                   </div>                                                                     	                                                                       
+	                                    	  <div class="clear"></div>			             					                    				           					          					              					             
+                                  </li>
+                         </volist>
+                        </ul>
+                  </div>
+            
+            </div>
+             <div id="home_zhongjian_bottom">
+                    <div id="bottom_title"><a href="javascript:void(0);">园内最新上架宝贝</a></div>
+                  
+                   <div id="scrollbody1">
+                        <table>
+                            <tr>
+                             <volist name="new_goods" id="vo">
+                                <td id="scroll3">
+                                    <table>
+                                        <tr>                                                                                                        
+                                             <td><div class="Pic1"><a href="{:SITE_URL}Trade/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank" title={$vo.goods_name}><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}"/></a></div></td>                                                  
+                                          </tr>
+                                    </table>
+                                </td>
+                                </volist>  
+                                <td id="scroll4">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                                   
+                </div>    
+            </div> 
+            <div class="clear"></div>                         
+        </div>
+              
+         <include file="Public:root" />
+           
+    </body>
+</html>

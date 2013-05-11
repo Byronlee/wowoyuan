@@ -1,0 +1,15 @@
+<li class="Ecomm Eline" id="list_{$data.comment_id}" style="width: 483px;">
+                            <div class="headpic">{$data.user_id|getUserSpace=uvatar}</div>
+                            <div class="shancon" style="width: 430px;">{$data.user_id|getUserSpace=uname}：{$data.comment_body|format}</div>
+                            <div class="list_bot"> 
+	                            <span class="right">
+	                                <div class="time">{$data.ctime|friendlyDate}</div>
+	                                <div class="dosth">	                                    
+	                                           {$data.operate}  
+	                                            <a href="javascript:void(0)" onclick="reply('{$data.user_id|getUserName}',{$flash_id},{$data.comment_id})">回复</a>                                   
+					               </div>
+					             
+					           </span> 					           
+					       </div>					       
+					      <br />
+  </li>

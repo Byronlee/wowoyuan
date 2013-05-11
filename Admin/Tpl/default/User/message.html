@@ -1,0 +1,43 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">消息群发</div>
+  
+  <form method="post" action="{:U('admin/User/doSendMessage')}">
+  <div class="form2">
+    <dl class="lineD">
+      <dt>收件人：</dt>
+      <dd>
+        <select name="user_group_id">
+            <option value="0">全部用户</option>
+            <volist name="user_group_list" id="vo">
+            <option value="{$vo.user_group_id}">{$vo.title}</option>
+            </volist>
+        </select>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>发送方式：</dt>
+      <dd>
+        <label><input name="type" type="radio" value="0" checked>站内信</label><br/>
+        <label><input name="type" type="radio" value="1">Email</label>
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>标题：</dt>
+      <dd>
+        <input name="title"type="text" value="">
+      </dd>
+    </dl>
+    <dl class="">
+      <dt>正文：</dt>
+      <dd>
+      <textarea name="content" id="content" cols="50" rows="10"></textarea>
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+  </div>
+  </form>
+</div>
+<include file="../Public/_footer" />

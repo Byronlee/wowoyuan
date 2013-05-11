@@ -1,0 +1,91 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>微区-{$class}</title>
+     <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+      <!-- layout::public:header::60 -->
+       <script type="text/javascript" src="__PUBLIC__/xheditor/xheditor-1.1.12-zh-cn.min.js"></script>
+       <script type="text/javascript" src="__PUBLIC__/javascript/wo_vote_teacher.js"></script>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+       <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css_3.css"> 
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/editor.css"> 
+       <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css.css"> 
+        <link rel="stylesheet" href="__PUBLIC__/style/wowobang.css" type="text/css" media="all" />
+      <script language=JavaScript>          
+         function paingming(m,p){     
+        	 var a=parseInt(m);
+        	 var b=parseInt(p);
+        	 var t=(a+b);    	
+         html=t+'&nbsp;F';       	       	
+         	return html;
+           }   
+           </script>
+  </head>
+  <body>
+       
+      <div onselectstart = "return false"; onpaste="return false" oncopy="return false;" oncut="return false;" class="t_forum_in_center">
+        <!-- layout::public:forum_right::60 -->
+     
+    
+    <div class="in_left_all">
+        <div class="hh"></div>
+        <div class="t_in_left in_left">
+              <div class="menu"><span><strong class="s_1">欢迎来到&nbsp;&nbsp;&nbsp;</strong><strong class="s_2">{$class}</strong></span></div>
+              <div class="in_left_content" style="margin-top:12px;">                                          
+               <div class="t_rcomment_t ">   
+               
+               <div class="make_teacher" >
+                <div class="lab">投票:&nbsp;&nbsp;教师姓名:<strong>{$teacher_Info[0]['teacher_name']}</strong>&nbsp;&nbsp;所在学院:<strong>{$teacher_Info[0]['xueyuan']}</strong></div>
+               
+                <div class="comment_teacher"  style=" margin-left:20px; width:760px;">                                                        
+                      <div class="comment_looking">
+                      <ul>
+                      <li>本活动具有局限性，数据仅供参考</li>
+                      <li>客观真实的投好每一票，以便提高数据可靠性</li>
+                      <li>每一票，请认真填好说明，以便他人参考</li>
+                      <li>若给你带来不利，请联系我们</li>
+                      </ul>
+                  </div>                          
+                 <textarea style="width:450px;height:70px;font-size:18px; font-family:kaiti;" id="teacher_comment_content"  class="xheditor {skin:'nostyle'}" {forcePtag:true} onkeydown="keyRecomment(event)"></textarea>
+                  <p class="t_rr" style="width:300px;"><a href="javascript:void(0);" onclick="comment_teacher({$teacher_Info[0]['teacher_id']})" >好了，开始投票</a> </p>                                                  
+                  </div>                              
+               </div>               
+			</div>
+             {$teacher_Info[0]['opereate']}
+                <php>$m=1;</php>
+       <ul class="t_comment_list">
+          <volist name="data" id="vo">        
+              <li class="t_Ewt_line" id="t_list_{$vo.comment_id}">
+                            <div class="headpic"><span class="lou"><strong>
+                           <script>document.write(paingming('{$m}','{$vo.p_m_times}'));</script>   
+                            
+                            </strong></span></div>
+                            <div class="comment_time">&nbsp;{$vo.ctime|friendlyDate}&nbsp;&nbsp;{$vo.user_id|getUserSpace=uname}</div>                                                                                                                                     
+                            <div class="t_comment_con comment_con">{$vo.content}</div>                        
+	                        <div class="t_recomment recomment">      
+	                              <!-- 如果是管理员或者这条评论的主人都有删除功能 -->	                              
+	                              <eq name="vo['opreate']" value="3"><a href="javascript:void(0)" onclick="deleted_teacher_comment({$vo.comment_id})">删除</a></eq>  
+					       </div>
+                  <php>$m++;</php>
+               </li>
+               </volist>
+         </ul>                                                                                                              
+              </div>
+      
+        </div>
+        
+       <div class="page_wowo" style="width:800px;text-align:center;height:40px;margin-top:35px;background-color:#fff;float:left;">{$page}</div> 
+      
+    </div>
+  <div class="clear"></div>
+      </div>
+       <include file="Public:root" />
+  </body>
+</html>
+
+
+

@@ -1,0 +1,411 @@
+/*====================================================
+//		FileName:global.css
+//		Summary: 系统全局样式表文件
+//		
+//===================================================*/ /*  全局部分  */
+a:link,a:visited {
+	font-size: 12px;
+	font-family: verdana, sans-serif;
+	color: #2951A5;
+	text-decoration: none;
+}
+
+a:hover {
+	font-size: 12px;
+	font-family: verdana, sans-serif;
+	color: #F00;
+	text-decoration: none;
+}
+
+form {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+
+img {
+	border: 0px;
+}
+
+body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	font-family: verdana, sans-serif;
+	background: #EFF3FF;
+}
+
+/* head 部分 */
+#head {
+	margin: 5px;
+	padding: 10px 20px;
+	background: #00A6EF url('/Public/images/main_bg.gif');
+	height: 50px !important;
+	height: 70px;
+}
+
+#logo {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 18pt;
+	font-family: "黑体", sans-serif;
+	color: #FFF;
+	padding-top: 10px;
+	float: left;
+}
+
+#version {
+	font-style: italic;
+	font-weight: bold;
+	font-size: 10pt;
+	font-family: verdana, sans-serif;
+	padding-top: 20px;
+	margin-left: 10px;
+	float: left;
+}
+
+/* 左边菜单部分 */
+.menu {
+	margin: 5px;
+	padding: 1px;
+	border: 1px solid #B5CFE7;
+	background: #FFF;
+	width: 130px;
+}
+
+.menu-head {
+	background: url('/Public/images/menu_head.gif');
+	height: 24px;
+}
+
+.menu-head a:link,.menu-head a:visited,.menu-head a:hover {
+	background: url(../images/max.gif) no-repeat 8px top;
+	color: #FFF;
+	font-weight: bold;
+	display: block;
+	line-height: 24px;
+	padding-left: 2.2em;
+}
+
+.menu ul {
+	display: none;
+}
+
+.menu li {
+	display: block;
+	width: 100%;
+	background: url(../images/dotline.gif) repeat-x center bottom;
+}
+
+.menu li a:link,.menu li a:visited {
+	padding: .5em 2.2em;
+	background: url(../images/dot_1.gif) no-repeat 10px 7px;
+	color: #2951A5;
+	display: block;
+}
+
+.menu li a:hover {
+	background-color: #EFF3FF;
+	color: #F00;
+}
+
+#menu-box {
+	background: #FFF;
+	border: 1px solid #B5CFE7;
+	width: 90%;
+	margin-left: 5px;
+}
+
+/* 主体样式 */
+.main-box {
+	background: #FFF;
+	border: 1px solid #B5CFE7;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
+
+.head-dark-box {
+	margin: 2px;
+	padding: .5em 1em;
+	border-left: 10px solid #0152AE;
+	background: #318ADE;
+	color: #FFF;
+	font-weight: bold;
+}
+
+.head-light-box {
+	margin: 2px;
+	padding: .5em 1em;
+	background: #DEEFFF;
+	border-left: 10px solid #B5D7F7;
+	font-weight: bold;
+}
+
+.body-box {
+	margin: 2px;
+	padding: 1em;
+	line-height: 150%;
+	background: #F7FBFF;
+	color: #00309C;
+}
+
+.white-box {
+	margin: 2px;
+	background: #FFF;
+}
+
+/* 表格样式 */
+.alt-table {
+	width: 100%;
+	border-top: 2px solid #6BBAEF;
+	font-size: 12px;
+	font-family: verdana, sans-serif;
+	color: #00309C;
+}
+
+.alt-table td {
+	padding: .4em 0 .4em 3em;
+	border-bottom: 1px solid #C6E7FF;
+}
+
+.dark-row {
+	background-color: #EFF7FF;
+}
+
+.light-row {
+	background-color: #FFF;
+}
+
+.row-bg0 {
+	background-color: #FFF;
+}
+
+.row-bg1 {
+	background-color: #EFF7FF;
+}
+
+.width-24percent {
+	width: 24%;
+}
+
+.width-20percent {
+	width: 20%;
+}
+
+.td-button {
+	text-align: right;
+}
+
+/* 表单元素样式 */
+.text-box {
+	font-size: 12px;
+	font-family: verdana, sans-serif;
+	color: #00309C;
+	border: 1px solid #84AED6;
+}
+
+.button {
+	border: 1px solid #B6B3AF;
+	padding: 1px 4px 0;
+	background: url(../images/buttonface.gif) repeat-x;
+	height: 21px;
+}
+
+/* 必埴信息 */
+.require-field {
+	background-image: url(../images/star.gif);
+	background-repeat: no-repeat;
+	background-position: 1.6em .7em;
+}
+
+/* 登录页面样式 */
+#login-box {
+	width: 360px;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 140px;
+}
+
+#login-form {
+	margin: 2px;
+	padding-left: 8em;
+	background: #FFF url(../images/login.jpg) no-repeat 20px 15px;
+}
+
+#login-form table {
+	width: 100%;
+	font-size: 12px;
+	font-family: verdana, sans-serif;
+	color: #00309C;
+	border-left: 2px solid #6BBAEF;
+	background: #F7FBFF;
+}
+
+#login-form table td {
+	padding: .4em 1em;
+	border-bottom: 1px solid #C6E7FF;
+}
+
+.login-msg {
+	margin: 2px;
+	padding: 5px;
+	background: #F7FBFF url(../images/alert.gif) no-repeat 2em center;
+	padding-left: 6em;
+	color: #F00;
+}
+
+/* 显示信息的样式 */
+.error-msg {
+	background: #F7FBFF url(../images/alert.gif) no-repeat 2em center;
+	padding-left: 6em;
+	color: #F00;
+}
+
+.success-msg {
+	background: #F7FBFF url(../images/success.gif) no-repeat 2em center;
+	padding-left: 6em;
+	color: #00309C;
+}
+
+.tip-msg {
+	background: #F7FBFF url(../images/tip.gif) no-repeat 2em center;
+	padding-left: 6em;
+	color: #00309C;
+}
+
+/* 导航条样式 */
+#navigator {
+	margin: 2px;
+	padding: .4em 1em;
+	background: #DEEFFF;
+	border-left: 10px solid #B5D7F7;
+}
+
+/* 尾部sql信息样式 */
+.foot-sql {
+	margin: 2px;
+	padding: .2em 1em;
+	background: #DEEFFF;
+	border-right: 10px solid #B5D7F7;
+	text-align: right;
+	font-size: 10px;
+	font-family: verdana, sans-serif;
+	clear: both;
+}
+
+/* 分页显示的页码样式 */
+.page-bar {
+	margin-right: 1em;
+	float: right;
+}
+
+.page-bar img {
+	margin-left: 3px;
+	border: 0;
+}
+
+.tool-bar {
+	margin-left: 1.5em;
+	float: left;
+}
+
+.checkList {
+	width: 5%;
+}
+
+/* 图片样式 */
+.thumbnail {
+	border: 1px solid #000;
+	padding: 1px;
+}
+
+.preview-pic {
+	border: 1px solid #000;
+	padding: 1px;
+	width: 100px;
+}
+
+/* 图片列表用的样式 */
+.thumb-div {
+	width: 100px;
+	height: 100px;
+	margin-top: 20px !important;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+	text-align: center;
+}
+
+.thumb-div img {
+	border: 1px solid #000;
+	padding: 1px;
+	width: 100px;
+}
+
+/*显示图片页用的样式*/
+#left-image {
+	float: left;
+	padding: 2px;
+	width: 500x;
+}
+
+#right-info {
+	float: left;
+	width: auto;
+}
+
+#close-div {
+	margin: 2px;
+	padding: .2em 3em;
+	text-align: right;
+}
+
+/* 其它样式 */
+.red-font {
+	color: #F00;
+}
+
+#function-list {
+	margin-left: 1em;
+}
+
+#function-list li {
+	background: url(../images/dot_2.gif) no-repeat left 3px;
+	padding-left: 1.4em;
+}
+
+.float-div {
+	float: left;
+	margin-right: 5px;
+}
+
+.clear-both {
+	height: 20px !important;
+	clear: both !important;
+}
+
+.center {
+	text-align: center;
+}
+
+.not-display {
+	display: none;
+}
+
+.article-title {
+	background: url(../images/text_logo.gif) no-repeat left 0px;
+	display: block;
+	padding-left: 1.3em;
+}
+
+.pic-title {
+	background: url(../images/pic_logo.gif) no-repeat left 0px;
+	display: block;
+	padding-left: 1.3em;
+}

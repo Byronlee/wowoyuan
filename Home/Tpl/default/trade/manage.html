@@ -1,0 +1,107 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+     <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+	   <script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+	   <script type="text/javascript" src="__PUBLIC__/javascript/apprise-1.5.full.js"></script>
+	   <script type="text/javascript" src="__PUBLIC__/javascript/wo_trade_mange.js"></script>	   
+	   <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/apprise.css" />
+        <title>窝窝园--宝贝流动</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="wowoyuan" content="窝窝园"/>
+        <meta name="keywords" content="窝窝，窝窝园，园，窝园,电子商务，电子，商品"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/qiantai_1.css">                     
+    </head>
+    <body>
+    <include file="Public:header" />
+        <div id="center_hwtj">
+            <div id="all" style="height:2095px;">
+                <div id="hwtj_left">
+                    <div id="hwtj_left_div">
+
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <span class="spanwowo_a">园内宝贝流动</span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="cursor:pointer"  >
+                                    <span id="spanwowo_1" >
+                                    
+                                     <a class="<eq name='type' value='marketed'>on</eq>" href="{:U('Trade/manage',array('type'=>'marketed'))}">最新卖出宝贝</a>
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span id="spanwowo_2"><a class="<eq name='type' value='shelve'>on</eq>" href="{:U('Trade/manage',array('type'=>'shelve'))}">最新上架宝贝</a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span class="spanwowo_b"><img src="__PUBLIC__/images/bottom/gwc.png"/> 我的交易</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td   style="cursor:pointer">
+                                    <span id="spanwowo_3"><a class="<eq name='type' value='I_shelve'>on</eq>" href="{:U('Trade/manage',array('type'=>'I_shelve'))}">我上架的宝贝</a></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td    style="cursor:pointer">
+                                    <span id="spanwowo_4"> <a class="<eq name='type' value='I_mak'>on</eq>" href="{:U('Trade/manage',array('type'=>'I_mak'))}">我买过的宝贝</a></span>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="aa_t">
+                       <span class="tttt_q">[温馨提示]</span><br /><div><p>&nbsp;&nbsp;如果你一件宝贝有多件库存，只需要交易成功后，再次上传即可。<br />&nbsp;&nbsp;&nbsp;请及时对你的宝贝的交易状态进行确认或者取消，系统将会对处于7天后的且处于谈判状态下的交易自动的取消该项交易。</p>
+                   </div> </div>
+                    
+                </div>
+                <div class="hwtj_right" id="right1">
+                    <table class="hw_tupian"  border="0" cellspacing="0" cellpadding="0">
+                        <tr class="mang">
+                            <td class="hw_caidan">宝贝图片</td>
+                            <td class="hw_caidan">宝贝名称</td>
+                            <td class="hw_caidan">宝贝单价</td>                          
+                            <td class="hw_caidan">宝贝主人</td>
+                            <td class="hw_caidan">交易状态</td>
+                             <td class="hw_caidan"><div style="width:80px;">交易方式</div></td>
+                            <td class="hw_caidan">上架时间</td>
+                            <td class="hw_caidan">操作</td>
+                        </tr>
+                        <volist name="backData" id="vo">
+                        <tr>
+                            <td><a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank" title={$vo.goods_name}><img src="__PUBLIC__/images/temp/{$vo.host_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}"/></a></td>
+                            <td><div  class="master_g" style="font-size:14px;color:#6c6c6c;">{$vo.goods_name}</div></td>
+                            <td><div  class="master_g" style="font-weight:bold;">{$vo.a_price}&nbsp;￥</div></td>
+                            <td><div  class="master_g canl_t">{$vo.user_id}</div></td>
+                            <td>{$vo.is_sale}</td>
+                            <td><span class="tra_way">{$vo.trade_way}</span></td>
+                            <td>{$vo.shelve_time|date="Y-m-d",###}</td>
+                            <td>{$vo.operate}                           
+                                <input type="button" value={$vo.goods_id} style="display:none;" class="goods_id"/>
+                                <input type="button" value={$vo.goods_id|md} style="display:none;" class="d_"/>
+                            </td>
+                        </tr>
+                        </volist>                       
+                    </table>                  
+                </div>             
+            </div>               
+             <div class="page_wowo" style="width:768px;text-align:center;height:30px;background-color:#fff;float:right;"><eq name="miid" value="3">这是最新记录哦，赶快来淘自己心仪的宝贝吧<else />{$page}</eq></div>                                  
+        </div>
+        <include file="Public:root" />
+    </body>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    
+        <!-- layout::Public:header::60 -->
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>窝窝园--交易</title>
+         <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+        <link rel="stylesheet" href="__PUBLIC__/style/AllSheet.css" type="text/css"  />
+        <link rel="stylesheet" href="__PUBLIC__/style/style.css" type="text/css" media="all" />       
+        <script type="text/javascript" src="__PUBLIC__/javascript/jquery.jcarousel.pack.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/javascript/func.js"></script>
+            <script type="text/javascript">
+$(document).ready(function(){	   
+    	    $('#slider1').s3Slider({
+    	        timeOut: 4000 
+    	    });
+    
+});
+</script>
+    </head>
+    <body>
+   
+        <div class="center">
+            <div class="border">
+                <div class="center-left">
+                
+                    <!--   ******   第一行,左边 ,分类展示   ******    -->
+                    <div class="onerl"> 
+
+                    <php>$m=1;</php>
+                   <php>foreach($menu as $key =>$value){</php>
+                        <table id="table-top">
+                            <tr>
+                               <td style="border-left-style:hidden;"><a href="__URL__/showall/first/{$m}/a_d/{$m|md}" target="_blank"><span class="first">{$key}</span></a></td>
+                                <php>$n=1;</php>
+                                <php>foreach($value as $values){</php>
+                                
+                                <td><a href="__URL__/showall/first/{$m}/second/{$n}/a_d/{$m+$n|md}" target="_blank">{$values}</a></td>
+                                <php>$n++;}</php>
+                            </tr>
+                        </table>
+                       <php>$m++;}</php>
+                    </div>
+                    <!--      第一行,左边结束             --> 
+     <div id="slider1">
+        <ul id="slider1Content">
+            <li class="slider1Image">
+                <a href=""><img src="__PUBLIC__/images/a_d/6.png" alt="1" /></a>
+                <span class="left">我没有在窝窝园，就在窝窝园路上....</span></li>
+            <li class="slider1Image">
+                <a href=""><img src="__PUBLIC__/images/a_d/3.png" alt="2" /></a>
+                <span class="right">窝窝园，对粉丝轻松排名，看看你在什么位置吧....</span></li>
+            <li class="slider1Image">
+                <a href=""><img src="__PUBLIC__/images/a_d/4.png" alt="3" /></a>
+                <span class="right">窝窝园，是针对我们成大学生量身打造的一个综合的社交平台。缘分就在你的一指之间...</span></li>
+            <li class="slider1Image">
+                <a href=""><img src="__PUBLIC__/images/a_d/5.png" alt="4" /></a>
+                <span class="left">数不尽的宝贝任你选，你也不要忘记分享你的宝贝哦...</span></li>
+            <li class="slider1Image">
+               <a href=""> <img src="__PUBLIC__/images/a_d/8.png" alt="5" /></a>
+                <span class="right">窝窝园，微贴，为你解决各种意想不到的疑惑，你今天心得的分享真是他明天的希望...</span></li>
+            <div class="clear slider1Image"></div>
+        </ul>
+    </div>             
+                    <!--   ******* 第二行,左边********        -->
+                    <div class="tworl">
+                        <!--    第二行,左边,里面   -->
+                     <php>$j=0;$first=1;$k=1;$c=1;</php>
+                     
+
+ <php>foreach($menu as $key => $value){</php>
+               <div class="www_zzjs_net">
+                            <div class="wwwzzjsnet">
+                                <ul>
+                                    <li><span >{$key}</span></li>
+                                      <php>$a=1;</php>
+									<php>foreach($value as $keys => $values){</php>								          
+									<li><span id="{$c}{$a}" onmouseover="setTab('{$c}','{$a}',<?php echo count($value)?>)" class="<eq name="keys" value='0'>on<else/>''</eq>">{$values}</span></li>                                  
+                                    <php>$a++;}</php>                                  
+                                </ul>
+                            </div>
+                            <php>$j=1;</php>
+							<php>$second=1;foreach($value as $keys => $values){</php>
+							<!--   getList取出数据 -->
+							<php>$list = getList($first,$second);</php>
+							
+							<div class="char_zzjs"  id="index-{$c}-{$j}" style="display: <eq name="keys" value="0">block<else/>none</eq>">
+							
+                                <table class="home_1" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                <!--   <?php echo $first.'AND'.$second; ?>  -->
+									<volist name="list" id="vo">
+                                        <td>
+                                            <a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank"><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}" title="{$vo.goods_name}" /></a>
+                                            <p>{$vo.goods_name}<br /><strong>&nbsp;{$vo.a_price}&nbsp;&nbsp;</strong>￥</p>
+                                        </td>
+                                        
+										</volist>
+                                       
+
+                                    </tr>
+                                </table>
+                            </div>
+                         
+							<php>$second++;$j++;}</php>
+							 </div>
+ <php>$first++;$k++;$c++;}</php>                         
+                    </div>
+                    
+                </div>
+                <!--    左边,结束    -->
+             
+               <include file="trade:trade_left" />             
+            </div>              
+        </div>
+    <include file="Public:root" />
+    </body>
+</html>
+
+

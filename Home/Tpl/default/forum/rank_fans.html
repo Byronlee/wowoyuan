@@ -1,0 +1,104 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>微区-{$class}</title>
+     <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+	</script>
+       <script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css_3.css"> 
+         <script type="text/javascript" src="__PUBLIC__/javascript/flash.js"></script>
+        <link rel="stylesheet" href="__PUBLIC__/style/wowobang.css" type="text/css" media="all" />  
+        <script language=JavaScript>         
+        function paingming(m,p){     
+       	 var a=parseInt(m);
+       	 var b=parseInt(p);
+       	 var t=(a+b); 
+        	if(t<=5){       	
+       			 html='<img src="/Public/images/button/'+t+'.png"/>';       	 
+      			  }else{
+       				 html=t;       			
+       	      }
+        	return html;
+          }
+        
+   $(document).ready(function(){
+          var i=$('#i_position').find('.i_p').val();
+          if(i){
+        	  $('#i_possition').html(i);
+         }else{
+        	  $('#i_possition').html('100名以后！');
+         }
+           
+         });     
+        </script>
+  </head>
+  <body>
+        <!-- layout::public:header::60 -->
+      <div class="forum_in_center">
+    <div class="in_left_all">
+        <div class="hh"></div>
+        <div class="in_left">
+              <div class="menu"><span><strong class="s_1">欢迎来到&nbsp;&nbsp;&nbsp;</strong><strong class="s_2">{$class}</strong></span></div>
+              <div class="in_left_content" style="margin-top:12px;">   
+              
+              
+   
+              <div class="head8">&nbsp;您在粉丝榜排名&nbsp;<span id="i_possition"></span>，共有<span>{$my_follower}</span>名粉丝</div>
+                    <div class="head9"><div class="paiming">排名</div><div class="name">用户名</div><div class="zhishu">粉丝人数</div><div class="xueyuan">所在学院</div><div class="visit">专业</div><div class="guanzhu">关注状态</div></div>
+                    <php>$m=1;</php>
+                   <volist name="data" id="vo">
+                <div class="fan_data" style="display:<eq name="vo['user_id']" value="$uid" >none;</eq>" id="<eq name="vo['user_id']" value="$uid">i_position</eq>">
+                        <div class="data_paiming">
+                        <input type="hidden" value="{$m}" class="i_p">
+                       <script>document.write(paingming('{$m}','{$vo.p_m_times}'));</script>                                                                 
+                            <php>$m++;</php>                         
+                       </div>
+                       <div class="data_name">
+                           <a href="">{$vo.user_id|getUserSpace=uname}</a>
+                      </div>
+                      <div class="data_zhishu">
+                           {$vo.follower}
+                      </div>
+                      <div class="data_xueyuan">
+                              {$vo.academy}
+                                                                                 
+                      </div>
+                      <div class="data_visit">
+                           {$vo.profession}
+                     </div>
+                     <div class="data_fan_guanzhu">
+                     
+                        <div id="follow_list_{$vo.user_id}" class="relatives">
+			             <script>  document.write(followState('{$vo.followState}','dolistfollow','{$vo.user_id}'));</script>			
+
+					                                                
+	                         </div>
+                      </div>
+                </div>                
+                    </volist>                                                
+              <div class="clear"></div>
+              </div>
+        <div class="page_wowo" style="width:768px;text-align:center;height:40px;margin-top:35px;background-color:#fff;float:right;">{$page}</div> 
+        </div>
+    </div>
+ 
+    <div>
+    <!-- layout::public:forum_right::60 -->
+    </div>
+       <div class="clear"></div>
+      </div>
+       <include file="Public:root" />
+  </body>
+</html>
+
+
+
+
+
+
+
+

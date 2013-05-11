@@ -1,0 +1,16 @@
+                      
+  <li class="Eline" id="list_{$data.0.flash_id}">
+          <div class="headpic">{$data.0.user_id|getUserSpace=uvatar}</div>
+            <div class="shancon">{$data.0.user_id|getUserSpace=uname}：{$data.0.flash_body|format}</div>
+                <div class="list_bot"> 
+	                    <span class="right">
+	                      <div class="time">{$data.0.posttime|friendlyDate}</div>
+	                         <div class="dosth">	                                
+	                    <a href="javascript:void(0)" onclick="deleted({$data.0.flash_id},{$data.0.user_id})" >删除</a>&nbsp;|                                    
+                             <a href="javascript:void(0)" id="comment" rel="comment" minid="{$data.0.flash_id}" >评论(0)&nbsp;&nbsp;</a>                                         
+					               </div>					             
+					           </span> 					           
+					       </div>
+					        <div id="comment_list_{$data.0.flash_id}" class="every allcomment "  minid="{$data.0.flash_id}" rel="{$data.0.user_id}"></div>
+					      <br />
+</li>                    

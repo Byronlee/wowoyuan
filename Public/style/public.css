@@ -1,0 +1,309 @@
+@CHARSET "UTF-8";
+/*   IE,FF中CSS兼容代码,设置CSS默认属性值    */
+ul li {
+	list-style:none;
+}
+/*   IE,FF中CSS兼容代码,设置CSS默认属性值      */
+/*   公共的CSS文件,用公共文件里面的HTML   */
+
+/*    top层         */
+.top{width:100%;font-size:20px;font-family:Georgia, Arial, Helvetica, Sans-Serif;	margin-right:25px;}
+/*    注册页面CSS    */
+input{	width:225px;	height:32px;	font-size:15px;	font-family:Arial;	font-weight:bold;}
+/*   注册按钮    */
+.regibutton{
+	width:100px;
+	margin:5px auto 10px 20px;
+	border-width: 1px;
+	cursor: pointer;
+}
+.regibuttom:hover{
+	background:#008cdd
+}
+/*  body    */
+.regi{	background-color:#cccccc;   
+/*	background:url(/wowoyuan/images/button/);  */
+}
+/*  中间方框部分    */
+.regi_1{
+	background-color:#FFFFFF;
+	border: 1px solid #878787;
+/*	margin:200px auto 20px ;  */
+}
+/*  中间框导航条   */
+.regi_2{color:#191970;font-size:20px;border-bottom: 1px solid #878787;margin:10px 20px 10px 20px;padding-bottom:10px;	          
+}
+/*    使文本全部居中显示  */
+.regi_3{	width:800px;	margin:100px auto 20px;}
+/*     辅助元素 ,两边不要浮动元素         */
+.clear{	clear:both;}
+/**
+ *  设置头像中的CSS
+ *                */
+#previewImg1{	   width:120px;    height:120px;   overflow:hidden; }
+#previewImg2{	    width:50px;      height:50px;   overflow:hidden;}
+#previewImg3{	    width:30px;   height:30px;   overflow:hidden;}
+.setAva-center{
+	width:1000px;
+	min-height:600px;
+	margin:20px auto;
+	background-color:#FFF;
+	border:1px solid #3c3c3c;
+	-moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+	
+}
+.setAva-class{	margin-top:50px;	margin-bottom:20px;	width:1000px;	height:50px;	}
+.setAva-center .reg_pic_left{	width:1000px;	height:450px;	}
+.setAva-center .selectpic span {
+font-size: 20px;
+padding-right: 5px;
+padding-top: 10px;
+color: #9D9D9D;
+width: 80px;
+height: 35px;
+background-color: #F3F3F1;
+float: left;
+}
+ .setAva-center #yulan span {
+float: left;
+margin-left: 35px;
+padding-top: 150px;
+padding-left: 15px;
+font-size: 20px;
+color: #9D9D9D;
+width: 70px;
+height: 150px;
+background-color: #F3F3F1;
+}
+.setAva-center .selectpic{padding-left:35px;	padding-top:15px;	width:500px;	margin-left:50px;}
+.setAva-center #photo{
+	float: left;
+	margin-left: 50px;
+    width: 300px;
+    height: 300px;
+   
+    margin-right:50px;
+/*  padding-left:20px;*/
+/*    background: url('/Public/images/uploads/avatar/default/default.png'); */
+}
+/* 使图片水平和垂直居中 */
+
+.setAva-center #photo_1{ border: 1px solid #E5E5E5;vertical-align:middle;	}
+.setAva-center .selectpic p {
+font-size: 13px;
+padding-left: 75px;
+margin-left:60px;
+color: #8E8E8E;
+}
+.setAva-center #pre{
+	float: left;
+    width: 400px;
+    height: 300px;
+    padding-left:40px;
+    border-left: 1px solid #E5E5E5;
+}
+#pre span{
+	float:left;
+	margin-right:50px;
+	border: 1px solid #E5E5E5;
+	padding:1px;
+}
+
+.setAva-center .upload_img{width:1000px;height:400px;margin-left:50px;}
+  /* 提交按钮用这一段CSS    */
+#submit-input,#submit-input-1{
+	
+	height: 35px;
+    width: 80px;
+   cursor:pointer;
+    margin: 30px 60px;
+   background-color: green;
+   border-style: hidden;
+   font-size: 18px;
+   -moz-border-radius: 5px;
+-khtml-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+}
+.setAva-center #form2 input{position:relative;	top:-160px;	right:-800px;}
+
+/*  鼠标经过显示白色   */
+#submit-input:hover{
+	color:#fff;
+}
+.setAva-center .selectpic input {
+font-size: 15px;
+float: left;
+height:20px;
+padding-left: 50px;
+}
+.setAva-center #moban_p {
+background: url('/Public/images/bottom/bg-box-line.jpg');
+height: 30px;
+width: 575px;
+margin:0 auto;
+}
+.setAva-class p{
+	display: block;
+	margin-left:450px;
+	font-size:20px;
+	color: #9C5959;
+	text-shadow: 0 1px 3px #C4BDA6;
+}
+/*   设置帐号信息     */
+.tb_setAcc{
+	width:750px;
+	height:300px;
+	margin-left:270px;
+	
+}
+.account-button{margin-left:700px;}
+.tb_setAcc .error{	width:200px;}
+.input-text{	width:250px;}
+/*  设置个人信息    CSS  */
+.tb-setInfo{margin-left:250px;	width:800px;	height:700px;	}
+.selectSex{	width:20px;}
+.descri-myself{	width:260px;	height:130px;	resize:none;}
+.tb-setInfo .fill-birthday input{   width:50px;   height:20px;    margin-right:20px;}
+.tb-setInfo #tb-two-tr{	width:300px;}
+.tb-setInfo #school-name{	color:#878787;}
+.tb-setInfo tr td{	border-bottom: 1px solid #E5E5E5;}
+.tb-setInfo tr .error{	border:none;}
+.tb-setInfo select{	width:200px;	height:30px;}
+.tb-setInfo .class{	margin-right:20px;	width:40px;}
+/* success error    页面     */
+#success-error{
+	background:url('/Public/images/bottom/bg.png');
+}
+#success-error .setAva-center,.Prompt{
+	margin-top:100px;
+	width:700px;
+	min-height:200px;
+	-moz-border-radius: 4px;
+    -khtml-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+#success-error .message-error{
+	padding-top:30px;
+	padding-left:40px;
+	width:450px;
+	height:60px;
+	margin:0 auto;
+	
+}
+#success-error .user{
+	margin-left:30px;
+	padding-top:15px;
+	width:300px;
+	font-size:20px;
+	color:#000;
+	font-weight:bold;
+	
+}
+#success-error .from{
+	font-size:20px;
+	color:#000;
+	font-weight:bold;
+	float:right;	
+	width:22%;height:30px;
+
+	padding-left:600px;
+}
+#success-error .setAva-center,.Prompt{
+	-moz-box-shadow:2px 2px 10px #000;
+-webkit-box-shadow:2px 2px 10px #000;
+box-shadow:2px 2px 10px #000;
+overflow:hidden;
+	
+}
+
+
+
+
+
+/*找回密码页面的css*/
+.Prompt{
+	background-color:#fff;
+	padding:10px;
+	margin:0 auto;
+	margin-top:80px;
+	
+}
+.ico_key{
+	float:left;font-size:18px;margin:10px 110px;
+	background:url('/Public/images/button/ico_key.gif')no-repeat 0 center;
+	padding-left: 40px;
+	color:#FF7F00;
+}
+.not,.Prompt p{
+	float:left;
+	margin-left:110px;
+	width:560px;
+}
+.btn_w{
+	float:left;
+	width:100px;
+	height:31px;
+	border-style:hidden;	
+	margin:-50px 480px;
+	background-color:#007400;
+	-moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+
+.btn_w1{
+	float:right;
+	width:100px;
+	height:31px;
+	border-style:hidden;	
+	margin:5px 200px;
+	background-color:#007400;
+	-moz-border-radius: 3px;
+    -khtml-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.btn_w:hover,.btn_w1:hover{color:#fff;}
+
+
+.error{
+	text-align:left;
+	float:left;
+	margin-top:25px;
+padding-top:4px;
+min-width:400px;
+height:28px;
+
+font-size:18px;
+/*margin-top:-33px;*/
+}
+.checkout{
+	font-family: 宋体;
+margin: 0 auto;
+width: 480px;
+font-size: 15px;
+line-height: 37px;
+height: 560px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

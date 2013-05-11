@@ -1,0 +1,73 @@
+<include file="Public:header" />
+<div class="so_main">
+  <!-------- 添加/编辑表情 -------->
+  <div id="editTpl_div">
+  	<div class="page_tit"><eq name="type" value="edit">编辑表情<else/>添加表情</eq></div>
+	
+	<div class="form2">
+	<eq name="type" value="edit"><form method="post" action="{:U('Global/doEditExpression')}">
+	<else/><form method="post" action="{:U('Global/doAddExpression')}"></eq>
+	<input type="hidden" name="expression_id" value="{$expression['expression_id']}">
+    <dl class="lineD">
+      <dt>名称：</dt>
+      <dd>
+        <input name="title" type="text" value="{$expression['title']}"> *
+        <p>简单达意，如“拥抱”，“胜利”</p>
+	  </dd>
+    </dl>
+	
+	<dl class="lineD">
+      <dt>类型：</dt>
+      <dd>
+        <input id="type" name="type" type="text" value="{$expression['type']}"> *
+        <p>表情的应用类型，如“mini”</p>
+	  </dd>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>表情缩写：</dt>
+      <dd>
+        <input name="emotion" type="text" value="{$expression['emotion']}"> *
+        <p>如“/拥抱”、“/胜利”</p>
+	  </dd>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>文件名：</dt>
+      <dd>
+        <input id="filename" name="filename" type="text" value="{$expression['filename']}"> *
+        <p>位于/images/expression/mini/类型下，如“hug.gif”、“victory.gif”</p>
+	  </dd>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>预览：</dt>
+      <dd>
+      	<div style="margin-right:10px;border:1px solid #8098A8;height:30px;width:30px;padding:1px;"">
+			<img id="preview" src="__PUBLIC__/images/expression/{$expression['filename']}" width="30">
+		</div>
+	  </dd>
+    </dl>
+	
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+	</form>
+  </div>
+  </div>
+</div>
+<script type="text/javascript">
+	var preview_path = '__PUBLIC__/images/expression/';
+	$(document).ready(function(){
+		if ($('#type').val() != '' && $('filename').val() != '') {
+			$('#preview').attr('src', preview_path+'/'+$('#filename').val());
+		}
+	});
+	$('#filename').blur(function(){
+		if ($('#type').val() != '' && $('filename').val() != '') {
+			$('#preview').attr('src', preview_path+'/'+$('#filename').val());
+		}
+	});
+</script>
+
+<include file="Public:footer" />

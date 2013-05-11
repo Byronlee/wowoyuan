@@ -1,0 +1,185 @@
+
+/*   IE,FF中CSS兼容代码,设置CSS默认属性值      */
+.center{
+    font-family:Arial, Helvetica, sans-serif;
+
+    min-height:1490px;
+    width: 1000px;
+    margin: 0 auto;
+    padding-top:3px;
+    margin-top:20px;
+    background-color:#fff;
+    -moz-border-radius: 5px;
+   -khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding: 5px;
+	overflow:hidden;
+	   
+	border-style:hidden;
+
+}
+/*   中间,左边           */
+.center-left{
+    width:765px;
+   height:1400px;
+    float:left;
+    margin-top:10px;
+    margin-left:-5px;
+}
+/*     中间 ,右边       */
+.center-right{
+    width:257px;
+    height:1350px;
+    padding-top:2px;
+    border-left:1px solid #BFBEBE;
+    margin-top:-15px;
+ /*   margin-left:10px;*/
+    float:left;
+    font-size:17px;
+    font-family: kaiti;
+}
+.share{
+    margin:20px;
+    width:1160px;
+    height:500px;
+    background-color:#99FF99
+}
+
+
+/*  鼠标点击切换效果   */
+/*
+p,form,ul,dl,ol,li,dt,dd,h1,h2,h3 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+} */
+p{
+    font-family:12px;
+}
+
+/* 绝对定位的元素的位置相对于最近的已定位祖先元素，如果元素没有已定位的祖先元素，那么它的位置相对于最初的包含块。
+*/
+.www_zzjs_net {
+    position: relative;
+    top: 0px;
+    left: 0;
+    width: 773px;
+    height:230px;
+    margin-top:10px;
+    
+
+
+}
+/*   导航条        */
+.wwwzzjsnet {
+    font-size: 18px;
+    height: 30px;
+    width:748px;
+    line-height: 32px;
+    padding: 0 3px;
+    font-family: helvetica, arial;
+   /* background: url(/Public/images/button/bcktool.png);*/
+    background-color:#dddddd;
+ /*   -moz-box-shadow: 0px 1px 10px #666, inset 1px 1px 0px #a4a4a4; /* inset creates a inner-shadow */
+ /* -khtml-box-shadow: 0px 1px 10px #666;
+  -webkit-box-shadow: 0px 1px 10px #666;*/
+}
+
+.wwwzzjsnet ul {
+    position: relative;
+    top: 3px;
+    height: 30px;
+    min-width:160px;
+    z-index: 13;
+}
+
+.wwwzzjsnet ul li {
+    float: left;
+    width: 80px;
+    height: 30px;
+    margin-right: 20px;
+    text-align: center;
+    border-bottom: hidden !important;
+
+}
+
+
+.wwwzzjsnet span {
+	width:100px;
+    display: inline-block;
+    cursor: pointer;
+   
+   /* color: #d0d0d0; */
+    
+}
+
+.wwwzzjsnet .on {
+    -moz-border-radius: 2px; /* Firefox */
+                -webkit-border-radius: 2px; /* Safari and Chrome */
+                border-radius: 2px; /* Browsers that Support it like Opera */
+    
+    background-color:#fff;
+    color: #3F6C18;
+    /* Setting the transition property for all Browsers */
+	/*-moz-transition: all 0.5s ease-in-out;  */            /* Firefox */
+ /*   -webkit-transition: all 0.5s ease-in-out;     */               /* Safari and Chrome */
+  /*  -o-transition: all 0.5s ease-in-out;     */                  /* Opera */
+  /*  transition: all 0.5s ease-in-out;      */                /* Browsers that Support it */
+    
+    height:30px;
+}
+.char_zzjs {
+   
+    position: absolute;
+    width: 765px;
+    left: 0;
+    top: 30px;
+    
+    line-height: 25px;
+    z-index: 18;
+    font-size: 20px;
+    height:170px;
+}
+.char_zzjs{
+	
+}
+
+.home_1{
+    min-width: 141px;
+    height:170px;
+    font:kaiti;
+    font-size: 20px;
+    text-align: center;
+    margin-top:10px;
+   
+}
+.home_1 td{
+	padding-left:9px;
+}
+
+.home_1 img{
+    width:141px;
+    height:136px;
+  /*  border:6px solid #fff;*/
+    border-bottom-style:hidden;
+/*     -moz-box-shadow: 0px 1px 10px #666, inset 1px 1px 0px #a4a4a4; /* inset creates a inner-shadow */
+/*  -khtml-box-shadow: 0px 1px 10px #666;
+  -webkit-box-shadow: 0px 1px 10px #666;*/
+}
+.home_1 p,.allthings p{
+	font-size:12px;
+	background-color:#DAF8FF;
+	width:141px;
+	margin-top:0px;
+	height:45px;
+	padding-top:10px;
+	line-height:19px;
+	text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+     overflow: hidden;
+     text-align:center;
+    
+}
+.home_1 p strong{color:red;}
+

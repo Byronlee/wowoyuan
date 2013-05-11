@@ -1,0 +1,26 @@
+              
+<div class="navbox">
+  <ul class="nav">
+    <div class="class_all">园内&#8226微区</div>    
+     <php>$m=1;</php>
+       <php>foreach($menut as $key =>$value){</php>
+                       
+       <li id="class_first">{$key}</li>
+                <php>$n=1;</php>
+                <php>foreach($value as $values){</php>
+                                
+        <li>   
+            <php>if($m==4&&$n==1){</php>
+          <a href="__URL__/rank_teacher/_first/{$m}/_se/{$n}/class_fs/{$m+$n|md}" class="class_second">{$values}</a>
+          <php>}else if($m==4&&$n==2){</php>
+          <a href="__URL__/rank_fans/_first/{$m}/_se/{$n}/class_fs/{$m+$n|md}" class="class_second">{$values}</a>
+          <php>}else{</php>
+          <a href="__URL__/forum_class/_first/{$m}/_se/{$n}/class_fs/{$m+$n|md}" class="class_second">{$values}</a>
+          <php>}</php>
+          </li>
+                   <php>$n++;}</php>
+              <php>$m++;}</php>
+
+  </ul>
+</div>
+

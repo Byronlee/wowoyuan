@@ -1,0 +1,30 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">注册配置</div>
+  
+  <div class="form2">
+  	<form method="post" action="{:U('Global/doSetRegisterOpt')}">
+    <dl class="lineD">
+      <dt>注册方式：</dt>
+      <dd>
+        <label>
+        	<input name="register_type" type="radio" value="1" <eq name="site['register_type']" value="1">checked</eq>>关闭注册
+        </label>
+        <br>
+ 	
+        <label>
+        	<input name="register_type" type="radio" value="3" <eq name="site['register_type']" value="3">checked</eq>>公开注册
+        </label>
+      </dd>
+    </dl>
+    
+    
+    
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+    </form>
+  </div>
+
+</div>
+<include file="Public:_footer" />

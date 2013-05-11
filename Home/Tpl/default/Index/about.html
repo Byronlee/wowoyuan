@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <link rel="shortcut icon" href="__PUBLIC__/images/wo.png" type="image/x-icon" />
+<link rel="stylesheet" href="__PUBLIC__/style/shelve.css" type="text/css" media="all" />
+<script type="text/javascript"  src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+<script type="text/javascript"  src="__PUBLIC__/javascript/shelve.js"></script>
+<title>窝窝园--关于</title>
+</head>
+<body id="about"  onload="onabout()">
+<div class="center" style="padding-bottom:80px;">
+
+<div class="inclu">
+<div class="twoim">
+<a href="{:SITE_URL}url=home"><img src="__PUBLIC__/images/button/home.png" /></a></div>
+<div class="aboutl" id="aboutl">
+<div id="one1" onclick="setTab('one',1)">关于窝窝</div>
+<div id="one2" onclick="setTab('one',2)">联系我们</div>
+<div id="one3" onclick="setTab('one',3)">急征队友</div>
+<div id="one4" onclick="setTab('one',4)">意见锦集</div>
+</div>
+<!--   右边选项卡       -->
+<div class="menudiv">
+
+	<!--  1  -->
+	<div id="con_one_1">
+	<span><strong>关于窝窝圆</strong></span><br/>
+	   {$wo['about_wowoyuan']}
+	   <span style="float:right;margin-top:20px; clear:both;"><strong>Form：窝窝园</strong></span>
+	</div>
+	<!-- 2  -->
+	<div id="con_one_2" style="display:none; margin-top:20px;">
+	<ul>
+	<li>李江华</li>
+	<li>QQ:422483459</li>
+	<li>微博:http://weibo.com/u/1973129637</li>
+	<li>邮箱:lbyronlee@gmail.com</li>
+	<li>张强</li>
+	<li>QQ:402883004</li>
+	<li>微博:http://weibo.com/SimleGate</li>
+	<li>邮箱:SimleGate@163.com</li>
+	<li>李睿</li>
+	<li>QQ:1229668446</li>
+	<li>微博:http://weibo.com/n/橘子小睿</li>
+	<li>邮箱:1229668446@qq.com</li>
+	<li>姜莲叶</li>
+	<li>QQ:178020084</li>
+	<li>微博:http://weibo.com/n/dioen</li>
+	<li>邮箱:178020084@qq.com</li>
+	</ul>
+	</div>
+	<!--  3  -->
+	<div id="con_one_3" style="display:none; margin-top:55px;">
+	<span><strong>欢迎加入NOON团队</strong></span><br />
+	{$wo['join_us']}
+	<span style="float:right;margin-top:20px; clear:both;"><strong>Form：NOON</strong></span>
+	    </div>
+<div id="con_one_4" style="display:none;margin-top:150px;"">
+
+{$wo['ad']}<br />
+<span>说说你的建议:</span><br />
+
+<textarea name="" id="adviseText" /></textarea><br />
+<input type="submit" class="button" id="upadvise" value="提交" />
+
+</div>
+</div>
+<div class="clear"></div>
+</div>
+
+</div>
+</body>
+</html>

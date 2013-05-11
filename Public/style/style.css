@@ -1,0 +1,535 @@
+
+.notext {
+	font-size: 0;
+	line-height: 0;
+	text-indent: -4000px;
+}
+
+.left,.alignleft {
+	float: left;
+	display: inline;
+}
+
+.right,.alignright {
+	float: right;
+	display: inline;
+}
+
+/*    中间两侧的竖杄1�61�1�77            */
+.border { /*	border:1px solid #e8e8e8;    */
+	margin-top:20px;
+	height:1300px;
+    width:1050px;
+	
+}
+
+
+
+#header {
+	margin: 20px 20px 0 20px;
+	text-decoration: none;
+}
+
+/*  第一行，左�Z1�1�77     */
+.onerl {
+	/*border: 1px solid #006400;*/
+	width: 400px;
+	height: 200px;
+	float: left;
+	margin-top:-30px;
+	font-size:15px;
+	font-family:SimSun;
+}
+.onerl{
+
+width:400px;
+height:200px;
+
+}
+.onerl table td{
+border-left:1px solid #666666;
+text-align:center;
+font-size: 18px;
+padding: 0px 4px;
+
+color: #3c3c3c;
+}
+.onerl table{
+margin-left:-3px;
+}
+.onerl a{
+text-decoration:none;
+color: #999;
+/*font-weight: bold;*/
+}
+.onerl a:hover{
+	color:red;
+	text-decoration: underline;
+}
+#table-top{
+	margin-top:20px;
+
+}
+.first{
+border-left-width:0px;
+color:#ff0000;
+width:80px;
+text-decoration:underline ;
+font-weight:bold;
+
+}
+#tongji{
+    margin:8px 55px;
+    padding: 0px 10px;
+
+}
+#tongji td{
+     border-left-style: hidden;
+     color: #5b00ae;
+}
+/*  第一衄1�7中间     */
+
+
+
+
+.nickname {
+      width: 100%;
+      text-align: center;
+      font-size: 20px;
+      margin-top: 10px;
+}
+
+.address {
+    width: 100%;
+      text-align: center;
+      font-size: 20px;
+      margin-top: -10px;
+}
+.onerrb{
+    margin-left: 5px;
+    width: 100%;
+}
+
+/*    关攖1�1�77,粉���1�1�77,微�U1�1�77         */
+.attention,.fans,.weitie {
+	float: left;
+	text-align: center;
+	width: 50px;
+	/*	background-color:#000000;      */
+}
+
+/*   中闉1�1�77 ,右�Z1�1�77,里面屄1�61�1�77         */
+.center-right-in {
+	
+/*	
+	border-bottom: 1px solid #BFBEBE;*/
+	margin-left:6px;
+	float:left;
+/*	border: 1px  solid #FFF6de;  */
+}
+
+.attention,.fans {
+	border-right: 1px solid #dbdbdb;
+}
+
+/*  中闉1�1�77,右�Z1�1�77,头像屄1�61�1�77      */
+.portrait {
+	width: 165px;
+	height: 200px;
+	border: 2px solid #dbdbdb;/* chrome浏覻器识刄1�7*/ -webkit-border-radius :
+	9px;
+	/*     IE浏覻器识刄1�7                 */
+	-khtml-border-radius: 9px;
+	/*      FF浏覻器识刄1�7                 */
+	-moz-border-radius: 9px;
+	border-radius: 9px;
+	overflow: hidden;
+        margin-left: 20px;
+}
+
+.portrait img {
+	width: 165px;
+	height: 200px;
+}
+
+.slider-nav {
+	width: 92px;
+	height: 18px;
+	position: absolute;
+	bottom: 9px;
+	right: 6px;
+	z-index: 3;
+}
+
+.slider-nav a {
+	width: 18px;
+	height: 18px;
+	background: #d7d7d8;
+	margin: 0 5px 0 0;
+}
+
+.slider-nav a.active {
+	background: #39393d;
+}
+
+/*  第二行左辄1�7    */
+.tworl {
+	width: 778px;
+	/*border: 1px solid #dbdbdb;
+	border-top: 20px solid #F5F5F5;*/
+	height: 1050px;
+	float: left;
+	margin-top:21px;
+}
+
+/*   中闉1�1�77,右�Z1�1�77,导航杄1�61�1�77   */
+.tworrbar {
+	font-size: 25px;
+	width: 200px;
+	height: 30px;
+	padding-top: 5px;
+	text-align: center;
+	border-width: 1px; /* chrome浏覻器识刄1�7*/ -webkit-border-radius : 5px;
+	/*     IE浏覻器识刄1�7                 */
+	-khtml-border-radius: 5px;
+	/*      FF浏覻器识刄1�7                 */ -moz-border-radius : 5px;
+	border-radius: 5px;
+	background-color: #008cdd;
+	-moz-border-radius: 5px;
+}
+
+/*  中闉1�1�77,右�Z1�1�77,里面的所有div标��1�1�77     */
+.tworr div {
+	margin: 10px;
+	float: left;
+}
+
+/*    滑动桄1�61�1�77    */
+.jcarousel-container {
+	position: relative;
+}
+
+
+
+
+#slider1 {
+	border:3px solid #dddddd;
+    width: 360px; /* important to be same as image width */
+    height: 170px; /* important to be same as image height */
+   /* position: relative; /* important */
+     float:left;
+     margin:-136px 388px;
+	overflow: hidden; /* important */
+}
+#slider1 img{
+    border: 0px;
+    height: 170px;
+    width: 360px;
+}
+
+#slider1Content {
+    width: 360px; /* important to be same as image width or wider */
+    height:170px;
+    position: relative;
+	top: -16px;
+	margin-left: -40px;
+}
+.slider1Image {
+    float: left;
+    position: relative;
+	display: none;
+}
+.slider1Image span {
+    position: absolute;
+	font: 10px/15px Arial, Helvetica, sans-serif;
+    padding: 10px 8px;
+    width: 20px;
+    height:15px !important;
+    background-color: #000;
+    filter: alpha(opacity=70);
+    -moz-opacity: 0.7;
+	-khtml-opacity: 0.7;
+    opacity: 0.7;
+    color: #fff;
+    display: none;
+    text-align:center;
+    line-height:15px;
+    text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+     overflow: hidden;
+    
+}
+.clear {
+	clear: both;
+}
+
+.left {
+	top: 0;
+    left: 0;
+    margin:0px 0px 0px 0px !important;
+	width:360px !important;
+	height: 15px !important;
+	overfolw:hidden;
+}
+.right {
+	right: -15px;
+	bottom: 6px;
+	float:left !important;
+	margin:0px 350px !important;
+	width: 360px !important;
+	height: 15px !important;
+	overfolw:hidden;
+	padding-top:-5px !important;
+	padding-left:10px !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.jcarousel-clip {
+	
+	
+	overflow: hidden;
+	float:left;
+	width: 347px;
+	height: 160px;
+}
+
+.jcarousel-list {
+	
+	overflow: hidden;
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.jcarousel-list li,.jcarousel-item {
+	float: left;
+	list-style: none;
+	width: 347px;
+	height: 160px;
+	position: relative;
+}
+/*    物品上架       */
+.shelve{
+	font-size:15px;
+	background-color:#000000;
+	width:500px;
+}
+
+.zhuyi{
+    text-decoration: underline;
+    color: red;
+    
+}
+
+
+
+
+
+
+/*-------------部分统计的1�7 CSS  ------------*/
+#bufentongji{
+    width:240px;
+    height:800px;
+    float:left;
+    margin-left:2px;
+    border-top: 1px  solid #fff;
+}
+#showall_0 {
+    border-style: solid;
+    border-bottom-style: hidden;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    position: absolute;
+    top: 156px;
+    left: 902px;
+    width: 300px;
+    height: 1035px;
+}
+#showall_1 {
+    border-style: solid;
+    border-bottom-color: #d8d8eb;
+    border-left-style: hidden;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    width: 230px;
+    height: 170px;
+    position: absolute;
+    left: 25px;
+
+}
+.showall_2{
+   
+    font-size: 16px;
+
+}
+.showall_2 img{
+    width: 60px;
+    height: 60px;
+
+}
+#showall_12{
+   border-top: 1px solid #BFBEBE;
+  
+}
+.showall_4{
+    width: 260px;
+    margin-top:10px;
+    font-size: 20px;
+    
+
+}
+.tt_mm a:hover{
+	text-decoration: underline;
+}
+.showall_4 a{
+	color:#3F6C18
+}
+.right-bottom{
+	margin-left:5px;
+	width:235px;
+	height:395px;
+/*	border-left: 1px solid #BFBEBE;*/
+	
+	
+}
+
+
+
+#showall_7{
+   
+    width: 235px;
+    height: 70px;
+    margin-left:4px;
+    padding-top:2px;
+}
+
+.showall_5{
+   
+    font-family: kaiti;
+    font-size: 17px;
+    float:left;
+    margin-left:2px;
+    height:62px;
+    font-size:15px;
+    overflow: hidden;
+  
+}
+.fuck{
+	width:165px;
+	text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+     overflow: hidden;
+}
+
+.fuck a{
+	color:green;
+	
+}
+.fuck a:hover{
+	text-decoration :underline;
+}
+.showall_5 .price{
+	color:red;
+}
+.showall table{
+	
+}
+
+.showall_6{
+	border: 1px  solid #fff;
+	width: 62px;
+    height: 62px;
+    padding-left:2px;
+    padding-top:2px;
+    float:left;
+}
+.showall_6 a{
+	
+}
+.showall_6 img{
+	float:left;
+    width: 60px;
+    height: 60px;
+
+}
+#showall_8{
+   
+    width: 250px;
+    height: 120px;
+   
+}
+#showall_9{
+    
+    width: 260px;
+    height: 100px;
+   
+}
+#showall_10{
+   
+    width: 260px;
+    height: 100px;
+    
+}
+
+
+
+#main_root_1{
+   
+    position:absolute;
+    width:800px;
+    height:70px;
+    z-index:1;
+    top:1350px;
+    font-size: 16px;
+    font-family: kaiti;
+}
+.main_root_2{
+    position:absolute;
+    left:350px;
+    top:20px;
+}

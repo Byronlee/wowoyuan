@@ -1,0 +1,60 @@
+<include file="Public:header" />
+<div class="so_main">
+
+  <div class="page_tit">编辑用户</div>
+  <form method="post" action="{:U('User/doEditUser')}">
+  	<input type="hidden" name="uid" value="{$u.user_id}" />
+  </eq>
+  
+  <div class="form2">
+    <dl class="lineD">
+      <dt>Email：</dt>
+      <dd>
+        <input name="mailadres" id="email" type="text" onblur="" value="{$u.mailadres}" disabled /><span id="prompt1">&nbsp;</span>
+        <p>用户进行登录的帐号</p>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>密码：</dt>
+      <dd>
+        <input name="password" id="password" type="text" onblur="" /><span id="prompt1">&nbsp;</span>
+        <p>用户进行登录的密码</p>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>昵称：</dt>
+      <dd>
+        <input name="username" id="uname" type="text" onblur="" value="{$u.username}"><span id="prompt1">&nbsp;</span>
+        <p>2-10位个中英文、数字、下划线和中划线组成</p>
+    </dl>
+  
+    <dl class="lineD">
+      <dt>性别：</dt>
+      <dd>
+      <!-- thinkphp框架嵌套使用,只需要用一次! -->
+        <label><input name="user_gender" type="radio" value="1" <eq name="u['user_gender']" value="1">checked</eq> />男</label>
+        <label><input name="user_gender" type="radio" value="0" <eq name="u['user_gender']" value="0">checked</eq> />女</label>
+    </dl>
+	<dl class="lineD">
+      <dt>是否锁定：</dt>
+      <dd>
+        <label><input name="userlock" type="radio" value="1" <eq name="u['userlock']" value="1">checked</eq> />是</label>
+        <label><input name="userlock" type="radio" value="0" <eq name="u['userlock']" value="0">checked</eq> />否</label>
+    </dl> 
+	<dl class="lineD">
+      <dt>用户组：</dt>
+      <dd>
+        <select name="userGroup">
+        <option value="0" <eq name="u['isAdmin']" value="0">selected="selected"</eq>>普通用户</option>
+        <option value="1" <eq name="u['isAdmin']" value="1">selected="selected"</eq>>管理员</option>
+        </select>
+      </dd>
+    </dl>
+	
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+  </div>
+  </form>
+</div>
+<include file="Public:footer" />

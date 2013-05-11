@@ -1,0 +1,37 @@
+
+<include file="Public:_header" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/public.css" /> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/apprise.css" /> 
+<div class="setAva-center">
+<!--  提示栏    -->
+<div class="setAva-class"><p>账户设置</p><div id="moban_p"></div></div>
+<table class="tb_setAcc">
+<tr>
+<td>邮箱:</td>
+<td>{$email}</td>
+</tr>
+<tr>
+<td>初始密码:</td>
+<td class="input-text"><input class="" id="original-pas" type="password" /> </td>
+<td class="or-err error"></td>
+</tr>
+<tr>
+<td >新密码:</td>
+<td class="input-text"><input class="" id="modify-pas" type="password" /></td>
+<td class="pas-err error"></td>
+</tr>
+<tr>
+<td >确认密码:</td>
+<td class="input-text"><input class="" id="modify-repas" type="password" /></td>
+<td class="repas-err error"></td>
+</tr>
+</table>
+
+<div class="account-button"><input type="submit" id="submit-input-1" value="保存" /></div>
+
+
+</div>
+<include file="Public:root" />
+
+</body>
+</html>

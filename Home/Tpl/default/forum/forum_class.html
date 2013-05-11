@@ -1,0 +1,51 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>微区-{$class}</title>
+     <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+   </script>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css_3.css">     
+  </head>
+  <body>
+        <!-- layout::public:header::60 -->
+      <div class="forum_in_center">
+    <div class="in_left_all">
+        <div class="hh"></div>
+        <div class="in_left">
+              <div class="menu"><span><strong class="s_1">欢迎来到&nbsp;&nbsp;&nbsp;</strong><strong class="s_2">{$class}</strong></span><a href="__URL__/wt_publish/_first/{$_first}/_se/{$_se}/f_s/{$_first+$_se|md}" target="_blank"  id="Publish_w">在该区内发帖</a></div>
+              <div class="in_left_content" style="margin-top:12px;">             
+              <volist name="content" id="vo">
+              <div class="every1">
+                        <div class="title"><img src="__PUBLIC__/images/button/topic.gif" /><a target="_blank" href="{:U('Forum/ewt_display',array('s_t_y'=>$vo['weitie_id'],'w_t'=>md($vo['weitie_id'])))}"  title="{$vo.title}">{$vo.title}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>
+                     
+                        <table class="show1">
+                            <tr>
+                                
+                                <td ><div class="wt_uname">{$vo.user_id|getUserSpace=uname}</div></td>
+                            </tr>
+                            <tr>
+                                <td><span>{$vo.ctime|friendlyDate}</span></td>
+                            </tr>
+                        </table>
+                               <!--   查看回复       -->
+                        <div class="answ">评论/阅读<br />({$vo.count_comment})/({$vo.read_times})</div>                                           
+                   </div>
+              </volist>                          
+              </div>
+        <div class="page_wowo" style="width:768px;text-align:center;height:40px;margin-top:35px;background-color:#fff;float:right;">{$page}</div> 
+        </div>
+    </div>
+    <div>
+    <!-- layout::public:forum_right::60 -->
+    </div>
+      </div>
+       <include file="Public:root" />
+  </body>
+</html>

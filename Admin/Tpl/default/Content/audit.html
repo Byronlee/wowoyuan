@@ -1,0 +1,33 @@
+<include file="../Public/_header" />
+<div class="so_main">
+  <div class="page_tit">审核管理 - 全站内容关键字过滤</div>
+  
+  <form method="post" action="{:U('admin/Content/doSaveAudit')}">
+  <div class="form2">
+    <dl class="lineD">
+      <dt>是否开启关键字过滤：</dt>
+      <dd>
+        <input name="open" type="radio" value="1" <eq name="open" value="1">checked</eq> >是&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="open" type="radio" value="0" <eq name="open" value="0">checked</eq> >否
+      </dd>
+    </dl>
+    <dl class="lineD">
+      <dt>敏感词：</dt>
+      <dd>
+      <textarea name="keywords" cols="50" rows="10">{$keywords}</textarea>
+      <br />(提示：多个敏感词用|号分开)
+      </dd>
+    </dl>
+    <dl class="">
+      <dt>敏感词替换为：</dt>
+      <dd>
+      <input type="Text" name="replace" value="{$replace}" />
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+  </div>
+  </form>
+</div>
+<include file="../Public/_footer" />

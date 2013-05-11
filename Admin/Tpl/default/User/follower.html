@@ -1,0 +1,27 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">粉丝榜配置</div>
+  <div class="form2">
+  	<form method="post" action="{:U('admin/User/follower')}">
+  	<dl class="lineD">
+      <dt>是否隐藏无头像的用户：</dt>
+      <dd>
+        <p><label><input type="radio" name="hide_no_avatar" value="1" <eq name="hide_no_avatar" value="1">checked</eq>>隐藏</label></p>
+        <p><label><input type="radio" name="hide_no_avatar" value="0" <neq name="hide_no_avatar" value="1">checked</neq>>显示</label></p>
+      </dd>
+    </dl>
+    <dl class="">
+      <dt>是否隐藏默认关注的用户：</dt>
+      <dd>
+        <p><label><input type="radio" name="hide_auto_friend" value="1" <eq name="hide_auto_friend" value="1">checked</eq>>隐藏</label></p>
+        <p><label><input type="radio" name="hide_auto_friend" value="0" <neq name="hide_auto_friend" value="1">checked</neq>>显示</label></p>
+      </dd>
+    </dl>
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+    </form>
+  </div>
+
+</div>
+<include file="../Public/_footer" />

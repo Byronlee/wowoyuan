@@ -1,0 +1,141 @@
+@CHARSET "UTF-8";
+/*    发出的评论          */
+.shancun_all{
+	width:1000px；
+ 	margin:0 auto;
+}
+.emit_right{
+    width:200px;
+	float:right;
+    margin-top:50px;
+	font-size:23px;	       
+}
+.emit_qb{
+	font-size:30px;
+	width:1000px;
+	height:40px;
+background-color:#009100;
+	margin-top:10px; 
+}
+#instructions{
+		height:80px;
+}
+.content_right{
+	float:right;
+}
+
+.emit_left{
+	width:744px;
+   height:1500px;
+   word-wrap:break-word;
+   border:1px #FFFFFF solid;
+  background-color:#FFFFFF;
+}
+
+.emit_part{
+		width:700px;
+	word-wrap:break-word;
+	float:left;
+	margin:o auto;
+	margin-top:0px;
+}
+.emi_some .emit_picture{
+	width:80px;
+	height:70px;
+	float:left;
+	margin-top:5px;
+}
+.emit_some .emit_picture img{
+	width:80px;
+	height:70px;
+	float:left;
+	margin-top:5px;
+}
+
+
+.emit_some .emit_name{
+	width:615px;
+	font-size:20px;
+	font-family:宋体;
+	float:right;
+}
+.emit_some .emit_name .emit_b{
+	font-size:26px;
+	font-family:宋体;
+}
+.emit_some .emit_name .emit_by{
+	font-size:17px;
+	font_family:宋体;
+	word-wrap:break-word;
+	float:left;
+}
+.emit_some .emit_name .emit_B{
+	width:615px;
+	font-size:16px;
+	font-family:宋体;
+	word-wrap:break-word;
+	float:right;
+}
+/* 收到的评论*/
+.shancun_all{
+	width:1000px；
+	 margin:0 auto;
+}
+
+.receive_qb{
+	font-size:30px;
+	width:1000px;
+	height:40px;
+    background-color:#009100;
+	margin-top:10px; 
+}
+
+.centent_left{
+	width:700px;
+}
+li{
+	height:80px;
+}
+.part{
+	width:700px;
+	word-wrap:break-word;
+	float:left;
+}
+.some .picture{
+	width:50px;
+	height:50px;
+	float:left;
+	margin-top:5px;
+
+}
+.some .picture img{
+	width:80px;
+	height:70px;
+	float:left;
+}
+.some .name{
+	width:615px;
+	font-size:20px;
+	font-family:宋体;
+	float:right;
+}
+.some .name .Byronlee{
+	font-size:21px;
+	font-family:宋体;
+}
+
+	
+.some .B{
+	width:615px;
+	font-size:16px;
+	font-family:宋体;
+	word-wrap:break-word;
+	float:right;
+}
+
+.some .By{
+	font-size:17px;
+	font_family:宋体;
+	word-wrap:break-word;
+	float:left;
+}

@@ -1,0 +1,43 @@
+  <include file="Public:header" />
+    <div id="searchBlog_div">
+    <div class="page_tit">搜索微贴</div>
+    <div class="form2">
+    <form action="__URL__/doSearchForum" method="POST">
+    <input type="hidden" name="isSearch" value="1"/>
+        <php>if($isSearch != '1') $uid = '';</php>
+        <dl class="lineD">
+          <dt>用户名:</dt>
+          <dd>
+            <input name="name" type="text" /> 
+          </dd>
+        </dl>
+        <dl class="lineD">
+          <dt>起始时间:</dt>
+          <dd>
+            <input name="stime" type="text" />
+            <p>时间格式:2011-10-25</p>
+          </dd>
+        </dl>
+        <dl class="lineD">
+          <dt>截至时间:</dt>
+          <dd>
+            <input name="etime" type="text" />
+            <p>时间格式:2011-10-28</p>
+          </dd>
+        </dl>
+        <dl class="lineD">
+        
+          <dt>内容：</dt>
+          <dd>
+            <input name="content" type="text" />
+          </dd>
+        </dl>
+       
+     
+        <div class="page_btm">
+          <input type="submit" class="btn_b" value="确定" />
+        </div>
+    </form>
+    </div>
+    </div>
+    <include file="Public:_footer" />

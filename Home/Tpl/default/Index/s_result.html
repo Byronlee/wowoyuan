@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="__PUBLIC__/javascript/jquery.form.js"></script>
+<script type="text/javascript" src="__PUBLIC__/javascript/flash.js"></script>
+<script type="text/javascript" src="__PUBLIC__/javascript/wo_s_result.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun.css" />
+<title>窝窝园 - 搜索</title>
+</head>
+<body onload=inttag_kind()>
+<include file="Public:header" />
+<div class="s_result">
+   <div class="top">  
+		   	  <div class="search_a">	
+		   	         <input type="hidden" id="select_kind" value="{$kind_tag}">	
+					   <form action="{:U('Index/s_result')}" id="quick_search" method="post">
+							     <div class="list_p"  id="list_p" style=margin-top:50px;">							        
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid="2" id="kind_2" >闪存</a>&nbsp;
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid="3" id="kind_3">用户</a>&nbsp;
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid="4" id="kind_4">宝贝</a>&nbsp;
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid="5" id="kind_5">微贴</a>
+							   </div>
+							   <input type="text" class="txt" value="{$k}" name="key" id="search_text" style="width:635px;height:35px" />
+							   <input type="hidden" id="h_input" name="tag" value="{$tag}"/>
+							   <input class="se" onclick="checkkey()" type="button" value="搜索" />
+					   </form>
+		   	</div>
+		   	<div class="count_reult">
+		            <eq name="tag" value="2"> 共搜索到相关闪存&nbsp;<font color='red'><strong>{$n_flash}</strong></font>&nbsp;条 </eq>
+		           <eq name="tag" value="3"> 共搜索到相关用户&nbsp;<font color='red'><strong>{$n_user}</strong></font>&nbsp;个   </eq>
+		           <eq name="tag" value="4">共搜索到相关商品&nbsp;<font color='red'><strong>{$n_shelve}</strong></font>&nbsp;个 </eq>
+		           <eq name="tag" value="5">共搜索到相关微贴&nbsp;<font color='red'><strong>{$n_weitie}</strong></font>&nbsp;条  </eq>	   	
+		   	</div>
+   </div>
+      <div class="s_result_content">   
+					      <div class="falshall" style="margin: 15px 27px;min-height:1000px;">
+					      <php>if(!empty($data)){</php>
+											      <php>if($kind_tag==2){</php>
+											           <ul class="feed_list" style="min-height: 800px;margin-left: -40px;"> 
+											              <volist name="data" id="vo">
+											                       <li class="Eline" id="list_{$vo.flash_id}">
+											                            <div class="headpic">{$vo.user_id|getUserSpace=uvatar}</div>
+											                            <div class="shancon">{$vo.user_id|getUserSpace=uname}：{$vo.flash_body|format}</div>
+											                            <div class="list_bot"> 
+												                            <span class="right">
+												                                <div class="time">{$vo.posttime|friendlyDate}</div>
+												                                <div class="dosth">	                                    
+												                                          {$vo.operate}                                    
+											                                         <a href="javascript:void(0)" id="comment" rel="comment" minid="{$vo.flash_id}" >评论({$vo.flash_comment_time})&nbsp;&nbsp;</a>                                          
+																               </div>					             
+																           </span> 					           
+																       </div>
+																        <div id="comment_list_{$vo.flash_id}" class="every allcomment "  minid="{$vo.flash_id}" rel="{$vo.user_id}"></div>
+																      <br />
+											                      </li>
+											            </volist>
+											         </ul>
+											          <php>}else if($kind_tag==3){</php>
+											           <ul class="feed_list" style="min-height: 800px;margin-left: -40px;"> 
+											              <volist name="data" id="vo">
+											                       <li class="Eline" id="list_{$vo.user_id}" style="width: 740px;min-height:90px;">
+											                            <div class="headpic">{$vo.user_id|getUserSpace=uvatar}</div>
+											                            
+											                            
+											                            
+											                            
+											                            
+											                            <div class="s_user_info">
+											                        <div class="shancon" style="margin-left: 0px;padding-top: 5px;width: 340px;">{$vo.user_id|getUserSpace=uname}</div>	
+											                        		<eq name="vo['user_id']" value="$uid" >&nbsp; <else />                            								                            
+											                                         <div id="follow_list_{$vo.user_id}" class="relatives" style="float: right;margin-top: -12px;font-weight: normal;">									                                        
+																	                     <script>  document.write(followState('{$vo.followState}','dolistfollow','{$vo.user_id}'));</script>					                                                
+															                         </div>  
+															                  </eq>
+											                         <span>{$vo.profession}</span><br />
+											                         <span> {$vo.academy}</span><br />	
+											                         										                         
+											                          <span>
+											                          
+											                          <a href="{:U('Space/follow',array('uid'=>$vo['user_id'],'type'=>'following','ui_'=>md($vo['user_id'])))}">关注&nbsp;<strong>{$vo.following}</strong></a>&nbsp;&nbsp;
+												                          <a href="{:U('Space/follow',array('uid'=>$vo['user_id'],'type'=>'follower','ui_'=>md($vo['user_id'])))}">粉丝&nbsp;<strong>{$vo.follower}</strong></a>&nbsp;&nbsp;
+												                          <a href="{:U('Space/index',array('uid'=>$vo['user_id'],'type'=>'flash','ui_'=>md($vo['user_id'])))}">闪存&nbsp;<strong>{$vo.flashs}</strong></a>&nbsp;&nbsp;
+												                            <a href="{:U('Space/index',array('uid'=>$vo['user_id'],'type'=>'weitie','ui_'=>md($vo['user_id'])))}">微贴&nbsp;<strong>{$vo.weities}</strong></a>
+																		</span><br/>
+																		<notempty name="vo['description']"><span>简介:{$vo.description}	</span><br /></notempty>
+											                            </div>
+																      <div class="clear"></div>
+											                      </li>
+											            </volist>
+											         </ul>
+											     <php>}else if($kind_tag==5){</php>
+						
+											                      <table class="s_wt">
+											                        <volist name="data" id="vo">                        
+											                              <tr>
+											                                  <td class="td_t">
+											                                     <div class="title"><img src="__PUBLIC__/images/button/topic.gif" />&nbsp;<a target="_blank" href="__URL__/ewt_display/s_t_y/{$vo.weitie_id}/w_t/{$vo.weitie_id|md}" title="{$vo.title}">{$vo.title|showRed=$k}</a><eq name="vo['is_photo']" value="1">&nbsp;<img src="__PUBLIC__/images/button/image_s.gif" title="附有图片" style="margin-left:7px;"/></eq></div>                    
+											                                 </td>
+											                                  <td>
+											                                  <div class="author">{$vo.user_id|getUserSpace=uname}</div>                                      
+											                                   </td>
+											                                  </tr>  
+											                           </volist>    					                    
+											                       </table>
+											                
+											     
+												     <php>}else if($kind_tag==4){</php>
+							
+												                   <div class="s_allthings" style="width: 750px;">
+														                         <volist name="data" id="vn">
+														                        <div><a href="__URL__Trade/detail/id/{$vn.goods_id}/i_/{$vn.goods_id|md}" target="_blank"><img src="__PUBLIC__/images/temp/{$vn.user_id}/thumb_{$vn.img_id|getImageById}" alt="{$vn.goods_name}" title="{$vn.goods_name}" /></a><p>{$vn.goods_name|showRed=$k}<br /><span style="color:red;">{$vn.a_price}</span>&nbsp;&nbsp;</strong>￥</p></div>
+														                        </volist>                  
+														             </div>
+												                  
+												     <php>}</php>
+					     <php>}else{</php>
+					            <div class="no_result">					                 
+					                                     <p> 抱歉，没有找到<font color="red"><strong>{$k}</strong></font>相关的结果.<p>
+                                                        <p>  建议：</p>
+                                                        <p>请尽量输入常用词</p>
+                                                        <p>请尽量使用简洁的关键词</p>
+                                                        <p>商品搜索只支持商品名称搜索</p>
+					            </div>
+					      <php>}</php>
+					       </div>
+					     
+					      <div class="page_wowo" style="width:700px;text-align:center;height:50px;background-color:#fff;float:left;">{$page}</div>
+					      <div class="clear"></div>
+					      </div>   
+                         <div class="clear"></div>
+      </div>
+<include file="Public:root" />
+</body>
+</html>

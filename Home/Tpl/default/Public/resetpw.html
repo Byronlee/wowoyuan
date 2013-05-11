@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+ <link rel="shortcut icon" href="__PUBLIC__/images/wo.png" type="image/x-icon" />
+<script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"> </script>
+<script type="text/javascript" src="__PUBLIC__/javascript/resetpw.js"> </script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/public.css"/> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/button.css"/> 
+<title>重设密码</title>
+</head>
+<body id="success-error">
+ <div id="ind_1">          	       
+                             <div>   <a href="{:SITE_URL}url=login" class="btn btn-black" id="regis">登录</a></div>               
+                </div>
+<form action="__URL__/doresetpw" method="post">
+<div class="Prompt">
+  <div class="Prompt_con">
+   
+    <div class="user">To:尊敬的用户</div>
+      <span class="ico_key">重设新密码</span><br />
+      
+        <p>当前用户名： {$email}</p>
+        <p style="margin-top:10px;"><label>输入新密码：</label><input type="password" id="modify-pas" class="text" style="width:230px;height:27px;"  name="password"/><label class="pas-err error" style="float: right;min-width: 200px;margin-top: 0px;"></label> </p>
+        <p style="margin-top:10px;"><label>确认新密码：</label><input type="password" id="modify-repas" class="text" style="width:230px;height:27px;"  name="repassword"/> <label class="repas-err error" style="float: right;min-width: 200px;margin-top: 0px;"></label></p><br />
+        
+        <input id="submit_input" type="submit" class="btn_w1" value="重设密码" />
+        <input name="code" type="hidden" value="{$code}" />
+    <div class="c"></div>
+    </div>
+   
+     <div class="from">From:窝窝园</div>
+  </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,135 @@
+
+<include file="Public:_header" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/public.css" /> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/apprise.css" /> 
+
+<div class="setAva-center">
+<!--  提示栏    -->
+<div class="setAva-class"><p>基本信息</p><div id="moban_p"></div></div>
+<form action="{:U('Index/doSaveInformation')}" id="info-form" method="post">
+<table class="tb-setInfo">
+	<tr>
+		<td style="width: 100px;">用户名:</td>
+		<td style="width: 270px;"><input type="text" id="set-nickName"
+			name="nickName" value="{$user[0]['username']}" /></td>
+		<td id="info-error" class="error"></td>
+	</tr>
+	<tr>
+		<td>学校:</td>
+		<td id="school-name">成都大学</td>
+		<td class="error"></td>
+	</tr>
+	<tr>
+		<td>所在学院:</td>
+		<td><select name="academy" id="academy" onChange="getProfession(this.options[this.selectedIndex].value)">
+            <option value="信息科学与技术学院">信息科学与技术学院</option>
+			<option value="美术学院">美术学院</option>
+			<option value="文学与新闻传播学院">文学与新闻传播学院</option>
+			<option value="外国语学院">外国语学院</option>
+			<option value="经济政法学院">经济政法学院</option>
+			<option value="电子信息工程学院">电子信息工程学院</option>
+			<option value="信息科学与技术学院">信息科学与技术学院</option>
+
+			<option value="生物产业学院">生物产业学院</option>
+			<option value="管理学院">管理学院</option>
+			<option value="工业制造学院">工业制造学院</option>
+			<option value="城乡建设学院">城乡建设学院</option>
+			<option value="旅游文化产业学院">旅游文化产业学院</option>
+			<option value="体育学院">体育学院</option>
+			<option value="国际教育学院">国际教育学院</option>
+
+			<option value="师范学院">师范学院</option>
+			<option value="艺术学院">艺术学院</option>
+			<option value="医护学院">医护学院</option>
+			<option value="学前教育学院">学前教育学院</option>
+			<option value="非本校学生">非本校学生</option>
+			<script>initOption("#academy","{$user[0]['academy']}");
+			
+			</script>
+		</select></td>
+	</tr>
+	<tr>
+		<td>专业:</td>
+		<td><select name="profession" id="profession">
+            <option value="计算机科学与技术">计算机科学与技术</option>
+			<option value="软件工程">软件工程</option>
+			<option value="网络工程">网络工程</option>
+			<option value="数字媒体技术">数字媒体技术</option>
+		</select>
+		<script>initOption("#profession","{$user[0]['profession']}");//alert("{$user[0]['profession']}");</script>
+		</td>
+	<tr>
+		<td>年级:</td>
+		<td><select name="grade" id="grade">
+             <option value="2012">2012级</option>
+			<option value="2011">2011级</option>
+			<option value="2010">2010级</option>
+			<option value="2009">2009级</option>
+			<option value="2008">2008级</option>			
+			<option value="1">2008级以前</option>
+			<script>initOption("#grade",{$user[0]['grade']});//alert({$user[0]['grade']}));
+			</script>
+		</select></td>
+	</tr>
+	<script>getProfession('{$user[0]['academy']}')</script>
+
+	<tr>
+		<td>班级:</td>
+		<td class="fill-class"><input type="text" name="class"
+			class="class" value="{$user[0]['class']}">班</td>
+		<td class="class-error error"></td>
+	</tr>
+
+	<tr>
+		<td>性别:</td>
+		<td>
+		<input type="radio" name="sex" style="height: 14px;" class="selectSex" id="nan" value="1" <eq name="user[0]['user_gender']" value="1">checked</eq> /> <label for="nan" >男 </label>  
+		 <input type="radio" name="sex" style="height: 14px;" class="selectSex" id="nv" value="0"<eq name="user[0]['user_gender']" value="0">checked</eq> > <label for="nv">女</label>
+		
+		
+		</td>
+		<td class="error"></td>
+	</tr>
+	<tr>
+		<td>生日:</td>
+		<td class="fill-birthday"><input type="text" name="year"
+			class="year" value="{$user[0]['year']}">年<input type="text"
+			name="month" class="month" value="{$user[0]['month']}">月<input
+			type="text" name="day" class="day" value="{$user[0]['day']}">日</td>
+		<td class="bir-error error"></td>
+	</tr>
+	<tr>
+		<td>QQ:</td>
+		<td><input type="text" name="qq" class="selectQQ"
+			value="{$user[0]['user_qq']}"></td>
+		<td class="qq-error error"></td>
+	</tr>
+	<tr>
+		<td>个性签名:</td>
+		<td><textarea name="description" class="descri-myself"><eq
+			name="user[0]['description']" value="">请输入50字的描述!<else />{$user[0]['description']}</eq></textarea></td>
+		<td id="descri-error" class="error"></td>
+	</tr>
+
+
+
+
+
+
+
+
+</table>
+
+<div class="account-button"><input type="submit" id="submit-input"
+	value="保存" /></div>
+</form>
+
+
+
+
+
+
+</div>
+<include file="Public:root" />
+</body>
+</html>

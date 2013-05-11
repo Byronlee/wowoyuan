@@ -1,0 +1,99 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+      <!-- layout::public:header::60 -->
+        <script type="text/javascript" src="__PUBLIC__/xheditor/xheditor-1.1.12-zh-cn.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/javascript/wo_forum_ewt_display.js"></script>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css.css"> 
+       <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/editor.css"> 
+      <title>微贴-{$every[0]['title']}</title>
+            <script language=JavaScript> 
+           
+       </script>
+</head>
+<body>
+
+
+<div id="ewt_center">
+        <div class="ewt_title">{$every[0]['title']} </div>
+         <div class="ewt_user">{$every[0]['user_id']|getUserSpace=uvatar}<div class="wt_inf">发表于：{$every[0]['ctime']|friendlyDate}&nbsp;&nbsp;&nbsp;来自：{$every[0]['user_id']|getUserSpace=uname}</div>
+          <div class="wt_class">来源：<span>&nbsp;{$every[0]['class']}</span></div>
+       </div>
+
+       <div class="ewt_cont">{$every[0]['content']}</div>
+       <div class="ewt_opereat">
+         <span class="com_num">阅读（{$every[0]['read_times']}）&nbsp;评论（{$every[0]['count_comment']}）</span>
+         <span class="com_op">
+         
+          <input type="hidden" name="x_id" value="{$every[0]['weitie_id']|md}" id="x_id"/>
+         {$every[0]['opreate']}</span>
+           <span><input type="button"" class="j_h" value="推荐为精华({$every[0]['put']})" title="推荐为精华，为更多人看到这篇微贴" onclick="put({$every[0]['weitie_id']})"/></span>
+        </div>
+        <div onselectstart = "return false"; onpaste="return false" oncopy="return false;" oncut="return false;">
+     <ul class="comment_list">
+          <volist name="data" id="vo">        
+              <li class="Ewt_line" id="list_{$vo.comment_id}">
+                            <div class="headpic">{$vo.user_id|getUserSpace=uvatar}</div>
+                            <div class="comment_time">&nbsp;{$vo.ctime|friendlyDate}&nbsp;&nbsp;{$vo.user_id|getUserSpace=uname}</div>
+                            
+                            <present name="vo['recomment']">
+                            
+                             <eq name="vo['recomment']['recomment_deleted']" value="3">
+                                <p  style="float:left;margin:30px 20px;font-size:19px;color:#999;">“此评论已被原主人删除！”</p>
+                            <else />
+                             <div class="recomment_content_t">
+                                          <p class=bingen></p>
+                                          <div class="re_inf">&nbsp;{$vo.recomment.user_id|getUserSpace=uvatar}&nbsp;{$vo.recomment.user_id|getUserSpace=uname}发表于：{$vo.recomment.ctime|friendlyDate}</div>
+                                            <div class="re_con">&nbsp;&nbsp;&nbsp;{$vo.recomment.content}<span class="end">&nbsp;&nbsp;</span> </div>  
+                             </div> 
+                             </eq>
+                             </present>
+                                                                                                            
+                            <div class="comment_con">{$vo.content}</div>                        
+	                        <div class="recomment">      
+	                              <!-- 如果是管理员或者这篇帖子的主人都有删除功能 -->
+	                              
+	                              <eq name="vo['opreate']" value="3"><a href="javascript:void(0)" onclick="deletedcomment({$vo.comment_id})">删除</a><else /><a href="javascript:void(0)" class="no_dele" style="margin-right:78px;">&nbsp;</a> </eq>
+	                                                                                  
+                                  <a href="javascript:void(0)" onclick="commentOpen({$vo.comment_id})">回复</a>    
+					       </div>
+					        <div class="rcomment_t " onselectstart = "return false"; onpaste="return false" oncopy="return false;" oncut="return false;">   
+                                      <div class="rcomment_{$vo.comment_id}" style="display:none">               
+                                       <textarea style="width:500px;height:70px;font-size:18px; font-family:kaiti;" id="recom_{$vo.comment_id}"  class="xheditor {skin:'nostyle'}" {forcePtag:true} ></textarea>
+                                       <p class="rr" ><a href="javascript:void(0);" style="align:center;" onclick="recomment({$vo.comment_id})" >回复^ _ ^</a></p>
+                                    </div>
+
+				           	</div> 
+
+               </li>
+               </volist>
+         </ul>
+
+         <div class="page_wowo" style="min-width:100px;text-align:center;height:30px;margin-right:165px;background-color:#fff;float:right;">{$page}</div>
+        <p style="padding-left:153px;float:left;width:300px; font-size:15px;margin-top:50px;">你的回应</p>
+
+     <div style="padding-left:133px;margin:50px 20px;" >
+      <form method="POST" id="wt_comment_publish" action="__URL__/do_wt_comment_publish">
+
+        <input type="hidden" name="weitie_id" value="{$every[0]['weitie_id']}" id="ewt_weitie_id"   class="weitie_id"/>
+        
+        
+        <eq name="every.0.iscomment" value="1">
+         <textarea name="comment_content" id="comment_content"   style="width:685px;height:140px;float:left;"  class="xheditor {skin:'nostyle'}" {forcePtag:true} ></textarea>
+        <div id="comment_submit"> <input  type="button" value="我来评论^ _ ^" style="margin:10px 0px" onclick="checkcomment()"></div>
+       <else />
+            <input  type="button" class="comment_submit_no" value="嘿，这篇微贴的主人说了，这篇帖子暂时不要咱们评论!" >
+       </eq>
+       </form>  
+      </div></div>
+</div>
+<include file="Public:root" />
+</body>
+</html>
+

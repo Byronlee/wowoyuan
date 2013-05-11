@@ -1,0 +1,84 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$page_title}</title>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+	<script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/javascript/jquery.form.js"></script>
+	<script type="text/javascript" src="__PUBLIC__/javascript/wo_common.js"></script> 
+	<script type="text/javascript" src="__PUBLIC__/javascript/wo_flash_index.js"></script> 
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun.css" />
+	<script>
+	$(document).ready(function(){	
+	     userAutoTips({id:'content_publish'});
+	 });
+		 
+</script>
+</head>
+<body onload="onload_init()">
+ <include file="Public:header" /> 
+<div class="flash_all">            
+  <div class="flash_content">
+  <div class="centent_left">
+           <div class="talkBox">
+               <form method="post" action="__URL__/publish" id="miniblog_publish" >
+                   <h2> <div class="wordNum">你还可以输入<strong id="strconunt">140</strong>字</div> <span>成大的你，快來说点什么吧……</span></h2>
+                   <div class="cntBox">
+                       <textarea name="content" id="content_publish" style="width: 590px; height: 102px;font-family: Tahoma, 宋体; padding: 5px 5px;"></textarea>
+                   </div>
+                   <input type="button" id="dem" onclick="do_publish()" value="" class="publish_handle" title="闪存发布按钮"/>
+                   <div id="publish_type_content_before" >
+                   <a href='javascript:void(0)' class="biaoqing"  onclick="show_div('content')" >表情</a>
+                   </div>
+             </form>
+           </div>               
+       <div class="qb">
+       
+                  <a class="<eq name='type' value='all_flash'>on</eq>" href="{:U('ShanCun/index',array('t_'=>'all_flash'))}">全园闪存</a>
+                  <a class="<eq name='type' value='friend_flash'>on</eq>" style="margin-left: 40px;" href="{:U('ShanCun/index',array('t_'=>'friend_flash'))}">好友闪存</a>
+       </div>   <!--主页全部 闪存    左边     列表 -->
+         <div class="falshall">
+           <ul class="feed_list" style="min-height: 800px;"> 
+              <volist name="data" id="vo">
+                       <li class="Eline" id="list_{$vo.flash_id}">
+                            <div class="headpic">{$vo.user_id|getUserSpace=$uvatar}</div>
+                            <div class="shancon">{$vo.user_id|getUserSpace=$uname}：{$vo.flash_body|format}</div>
+                            <div class="list_bot"> 
+	                            <span class="right">
+	                                <div class="time">{$vo.posttime|friendlyDate}</div>
+	                                <div class="dosth">	                                    
+	                                          {$vo.operate}                                    
+                                         <a href="javascript:void(0)" id="comment" rel="comment" minid="{$vo.flash_id}" >评论({$vo.flash_comment_time})&nbsp;&nbsp;</a>                                          
+					               </div>					             
+					           </span> 					           
+					       </div>
+					        <div id="comment_list_{$vo.flash_id}" class="every allcomment "  minid="{$vo.flash_id}" rel="{$vo.user_id}"></div>
+					      <br />
+                      </li>
+            </volist>
+         </ul>
+          <div class="page_wowo" style="width:700px;text-align:center;height:30px;background-color:#fff;float:left;">{$page}</div>
+      </div>   
+  </div>
+                  <div class="flash_right">
+                       <div><include file="Public:apps" /></div>
+                       <div class=instructions>
+                        <a href="{:U('Shancun/comment',array('type'=>1))}">收到的评论</a><br />
+                        <a href="{:U('Shancun/comment/type/2')}">发出的评论</a><br />
+                       <a href="{:U('Shancun/at_me')}">@提到我的</a><br />
+                       <p>WOWOYUAN<strong>&#8226;</strong>SHANCUN</p>
+                      </div>
+                  </div>  
+</div>
+</div>
+<div style="margin:0 auto;"><include file="Public:root" /></div>
+</body>
+</html>
+
+
+

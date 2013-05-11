@@ -1,0 +1,111 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>微区-{$class}</title>
+     <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+       <script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+       <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css_3.css"> 
+        <link rel="stylesheet" href="__PUBLIC__/style/wowobang.css" type="text/css" media="all" />
+         <script language=JavaScript>        
+         function make_form()
+            {           	
+            	$('.make_teacher').toggle(500);
+            }             
+         function paingming(m,p){     
+        	 var a=parseInt(m);
+        	 var b=parseInt(p);
+        	 var t=(a+b); 
+         	if(t<=5){       	
+        			 html='<img src="/Public/images/button/'+t+'.png"/>';       	 
+       			  }else{
+        				 html=t;       			
+        	      }
+         	return html;
+           }      
+         function make_teacher(){
+		        	var teacher_name=$('.teacher_name').val();
+		        	var teacher_xueyuan=$('.teacher_xueyuan').val();
+		        	var _first=$('._first').val();
+		        	var _se=$('._se').val();
+		       	if(teacher_name==""||teacher_xueyuan==""){
+		       		apprise('嘿，老师的信息没有填完整哦！。');
+		       		return false;	
+		        	}else{
+		        	 $.post(SITE_URL+"Forum/put_teacher",{teacher_name:teacher_name,teacher_xueyuan:teacher_xueyuan},function(txt){	
+		        		 if(txt==3){
+		        			 apprise('你填写的老师姓名或学院太长了哦！。');
+		    		     }else if(txt==2){
+		    		    	 apprise('嘿，该老师已经被创建了,仔细找找吧！');
+		    		     }
+		    		     else if(txt==1){
+		    		    	 alert('创建失败，稍后再试！');
+		    		     } else{
+		   		 	         apprise('创建成功了，马上为你心仪的老师投上一票吧！');
+		    		    	 window.location.href=SITE_URL+"Forum/vote_teacher/_first/"+_first+"/_se/"+_se+"/_teacher/"+txt;
+		    		     }
+		        	 });
+		        }
+         }
+           </script>
+  </head>
+  <body>
+        <!-- layout::public:header::60 -->
+      <div class="forum_in_center">
+      <!-- layout::Public:forum_right::60 -->
+    <div class="in_left_all">
+        <div class="hh"></div>
+        <div class="in_left">
+              <div class="menu"><span><strong class="s_1">欢迎来到&nbsp;&nbsp;&nbsp;</strong><strong class="s_2">{$class}</strong></span></div>
+              <div class="in_left_content" style="margin-top:12px;">   
+              
+             
+              <div class="head8">只需为心仪的老师投票即可，若下面没有你心仪老师的席位，<span><a href="javascript:void(0)" style="color:red;" class="tt_ret" onclick="make_form()" >请点击这里</a></span></div>
+              <input type="hidden" value={$_first} class="_first"><input type="hidden" value={$_se} class="_se">
+              <div class="make_teacher" style="display:none;"><label>教师姓名：</label><input type="text" class="teacher_name"/><label>所在学院：</label><input type="text" class="teacher_xueyuan" /><input type="button" value="为老师创建席位" class="t_but" onclick="make_teacher()"></div>
+                    <div class="head9"><div class="paiming">排名</div><div class="name">姓名</div><div class="t_zhishu">喜欢指数</div><div class="xueyuan">所在学院</div><div class="t_visit">最新投票</div></div>                 
+                    <php>$m=1;</php>
+                   <volist name="data" id="vo">
+                <div class="fan_data">
+                        <div class="data_paiming" id=list_{$vo.teacher_id}"">  
+                         <script>document.write(paingming('{$m}','{$vo.p_m_times}'));</script>                      
+                            <php>$m++;</php>                             
+                       </div>
+                       <div class="data_name">
+                           <a href="__URL__/vote_teacher/_first/{$_first}/_se/{$_se}/_teacher/{$vo.teacher_id}">{$vo.teacher_name}</a>
+                      </div>
+                      <div class="t_data_zhishu">
+                           {$vo.put}
+                      </div>
+                      <div class="data_xueyuan">
+                              {$vo.xueyuan}
+                                                                                 
+                      </div>
+                      <div class="t_data_visit">                      
+                      <present name="vo['last_comment']"><font color="#eee;">{$vo.last_comment}</font><else />“还没人投票!”</present>                        
+                     </div>
+                </div>                
+                    </volist>                                                
+              </div>              
+        <div class="page_wowo" style="width:768px;text-align:center;height:40px;margin-top:35px;background-color:#fff;float:right;">{$page}</div> 
+          <div class="clear"></div>
+        </div>
+    </div>
+     <div class="clear"></div>
+    
+      </div>
+       <include file="Public:root" />
+  </body>
+</html>
+
+
+
+
+
+
+
+

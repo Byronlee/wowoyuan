@@ -1,0 +1,104 @@
+<include file="Public:header" />
+<div class="so_main">
+  
+  <div class="page_tit">微社管理</div>
+  <form action="__URL__/doDeleteWeitie" method="POST">
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+   <button class="btn_a" type="submit" >删除微贴</button>
+  </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;">
+        <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+        <label for="checkbox"></label>
+    </th>
+    <th class="line_l">ID</th>
+    <th class="line_l">来自</th>
+    <th class="line_l">微贴标题</th>
+  
+   <th class="line_l">阅读次数丨回复次数</th>
+   <th class="line_1">被推荐精华次数</th>
+   <th class="line_1">时间</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <volist id="vo" name="data">
+      <tr overstyle='on' id="{$vo.weitie_id}">
+        <td><input type="checkbox" name="checkbox[]" id="checkbox2" onclick="checkon(this)" value="{$vo.weitie_id}"></td>
+        <td>{$vo.weitie_id}</td>
+        <td>{$vo.user_id|getUsername}</td>
+        <td>{$vo.title|getShort=36}</td>
+        <td>{$vo.read_times}|{$vo.count_comment
+        }</td>
+        <td>{$vo.put}</td>
+        <td>{$vo.ctime|date="Y-m-d H:i",###}</td>
+        <td>
+            <a href="{:SITE_URL}Forum/ewt_display/s_t_y/{$vo.weitie_id}/w_t/{$vo.weitie_id|md}" target="_blank">查看</a>
+          
+             <a href="javascript:void(0);" onclick="deleteWeitie({$vo.weitie_id})">删除</a> 
+        </td>
+      </tr>
+  </volist>
+  </table>
+  </div>
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+    <button class="btn_a" type="submit" >删除微贴</button>
+  </div>
+  </form>
+</div>
+
+<script>
+    //鼠标移动表格效果
+    $(document).ready(function(){
+        $("tr[overstyle='on']").hover(
+          function () {
+            $(this).addClass("bg_hover");
+          },
+          function () {
+            $(this).removeClass("bg_hover");
+          }
+        );
+    });
+    
+    function checkon(o){
+        if( o.checked == true ){
+            $(o).parents('tr').addClass('bg_on') ;
+        }else{
+            $(o).parents('tr').removeClass('bg_on') ;
+        }
+    }
+    
+    function checkAll(o){
+        if( o.checked == true ){
+            $('input[name="checkbox"]').attr('checked','true');
+            $('tr[overstyle="on"]').addClass("bg_on");
+        }else{
+            $('input[name="checkbox"]').removeAttr('checked');
+            $('tr[overstyle="on"]').removeClass("bg_on");
+        }
+    }
+
+    //获取已选择用户的ID数组
+    function getChecked() {
+        var ids = new Array();
+        $.each($('table input:checked'), function(i, n){
+            ids.push( $(n).val() );
+        });
+        return ids;
+    }
+    
+    function deleteWeitie(sid){
+    	 
+  	   if(sid==null)alert('没有选中选项!');
+  	   else {
+  		   flag = confirm('删除成功后将无法恢复，确认继续？');
+  		   if(flag ==true) location.href = "__URL__/doDeleteWeitie/id/"+sid;
+  	   }
+  	   // alert(sid);
+     }
+   
+
+</script>
+<include file="Public:_footer" />

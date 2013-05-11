@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+ <link rel="shortcut icon" href="__PUBLIC__/images/wo.png" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/public.css"/> 
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/button.css"/> 
+<title>找回密码</title>
+</head>
+<body id="success-error">
+ <div id="ind_1">                   
+                             <div>   <a href="{:SITE_URL}url=login" class="btn btn-black" id="regis">登录</a></div>               
+                </div>
+<form action="__URL__/doSendMail" method="post">
+<div class="Prompt">
+  <div class="Prompt_con">
+   
+    <div class="user">To:尊敬的用户</div>
+      <span class="ico_key">取回密码</span><br />
+      
+        <span class="not">请输入您注册时所使用的Email，我们会将该密码修复链接发送到该邮箱。<span style="color:#999;">（注意：有可能被放到垃圾邮箱，请注意查收。）</span></span>
+        <p>Email：<input type="text" class="text" style="width:260px;height:27px;"  name="email"/> </p><input type="submit" class="btn_w" value="取回密码" />
+        
+    
+    <div class="c"></div>
+    </div>
+   
+     <div class="from">From:窝窝园</div>
+  </div>
+</form>
+</body>
+</html>

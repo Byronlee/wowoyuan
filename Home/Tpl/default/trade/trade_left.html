@@ -1,0 +1,86 @@
+   <!--  *******************中间 ,右边**************************  -->
+                <div class="center-right">
+                    <div class="center-right-in">
+                        <include file="Public:apps" />
+                    </div>
+             
+                
+                
+                <div id="bufentongji">
+                
+                <!--            最近上架的宝贝                                             -->
+                    <div class="right-bottom">
+                        <div class="showall_4 tt_mm">
+                         
+                                <a class="<eq name='type' value='shelve'>on</eq>" href="{:U('Trade/manage',array('type'=>'shelve'))}" target="_blank">最新上架宝贝</a>
+                            
+                        </div>
+                        <php>$k=7;</php>
+                        <volist name="on_list" id="vo">
+                        <div id="showall_7">
+                    <div class="showall_6">
+                                <a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank"><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}" title="{$vo.goods_name}" /></a>
+                            </div>
+                            <table class="showall_5" cellspacing="0">
+                                <tr>
+                                    <td><div class="fuck">
+                                        名称：<a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank">{$vo.goods_name}</a>
+                                    </div></td>
+                                </tr>
+                                <tr>
+                                    <td><div class="fuck">
+                                             物主：{$vo.user_id|getUserSpace=uname}
+                                  </div>  </td>
+                                </tr>
+                                <tr>
+                                    <td class="price"><div class="fuck">
+                                        价钱：{$vo.a_price}&nbsp;￥
+                                   </div> </td>
+                                </tr>
+                            </table>
+                            
+                        </div>
+                        <php>$k++;</php>
+                        </volist>  
+                    </div>
+                    
+    <!--     最近卖出的物品              -->                
+                    <div id="showall_12" class="right-bottom">
+                        <table class="showall_4">
+                            <tr>
+                                <td class="showall_3 tt_mm"> <a class="<eq name='type' value='marketed'>on</eq>" href="{:U('Trade/manage',array('type'=>'marketed'))}" target="_blank">最新卖出宝贝</a></td>
+                            </tr>
+                        </table>
+                        
+                        <php>$k=7;</php>
+                        <volist name="off_list" id="vo">
+                        <div id="showall_7">
+                        <div class="showall_6">
+                                <a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}"><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}" title="{$vo.goods_name}" /></a>
+                            </div>
+                            <table class="showall_5" cellspacing="0" >
+                                <tr>
+                                    <td><div class="fuck">
+                                        名称：<a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}">{$vo.goods_name}</a>
+                                   </div> </td>
+                                </tr>
+                                <tr>
+                                    <td><div class="fuck">
+                                        物主：{$vo.user_id|getUserSpace=uname}</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="price"><div class="fuck">
+                                        价钱：{$vo.a_price}&nbsp;￥</div>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                           
+                        </div>
+                        <php>$k++;</php>
+                        </volist>
+                    </div>
+<!--     结束            -->
+                </div>
+   </div>

@@ -1,0 +1,55 @@
+
+<include file="Public:_header" />
+ <script type="text/javascript" src="__PUBLIC__/javascript/jquery.Jcrop.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/public.css" /> 
+ <link rel="stylesheet" href="__PUBLIC__/style/jquery.Jcrop.css" type="text/css" />
+ 
+<div class="setAva-center">
+<!--  提示栏    -->
+<div class="setAva-class"><p>头像修改</p><div id="moban_p"></div></div>
+
+ <div  class="reg_pic_left">                        
+      
+           
+        
+           <form class="selectpic" action="{:U('Index/avatar',array('type'=>'upload'))}" method="post" enctype="multipart/form-data" id="form1">
+           
+            <span>修改头像</span>
+            <input  type="file" class="upload" name="uping" onchange="up()" id="uping" /><br />
+            <p>仅支持JPG、GIF、PNG图片文件，且小于5M</p>
+            
+            </form>
+                       <div class="upload_img" >
+                       <div id="yulan"><span>预览</span></div>
+                         <div >
+                          </div>
+                          <table  id="photo" class="same">
+                          <tr>
+                          <td align="center" id="photo_1">
+                          <img id="crop_preview1" src="" />
+                          </td>
+                          
+                          
+                          </tr></table>
+                         <div id="pre">
+                        <span id="previewImg1" class="same"><img id="crop_preview1" src="__PUBLIC__/images/uploads/avatar/{$uid}/big.jpg" /></span>
+                         <span id="previewImg2" class="same"><img id="crop_preview2" src="__PUBLIC__/images/uploads/avatar/{$uid}/middle.jpg" /><br /></span>
+                        <span id="previewImg3" class="same"><img id="crop_preview3" src="__PUBLIC__/images/uploads/avatar/{$uid}/small.jpg" /></span>
+                       </div>
+                     </div>
+                <form action="{:U('Index/avatar',array('type'=>'save'))}" method="post" id="form2" >
+                       <input type="hidden" name="pic_url" />
+                       <input type="hidden" name="x1" />
+                       <input type="hidden" name="y1" />
+                       <input type="hidden" name="x2" />
+                       <input type="hidden" name="y2" />
+                       <input type="hidden" name="w" />
+                       <input type="hidden" name="h" />
+                       <input type="submit" id="submit-input" value="保存" />
+
+              </form>
+            </div>
+</div>
+<include file="Public:root" />
+</body>
+</html>

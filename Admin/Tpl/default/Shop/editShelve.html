@@ -1,0 +1,47 @@
+<include file="Public:header" />
+<div class="so_main">
+
+  <div class="page_tit">编辑宝贝</div>
+  <form method="post" action="{:U('Shop/doEditShelve')}">
+  	<input type="hidden" name="uid" value="{$g[0][goods_id]}" />
+  </eq>
+  
+  <div class="form2">
+    <dl class="lineD">
+      <dt>宝贝名称:</dt>
+      <dd>
+        <input name="name" id="email" type="text" onblur="" style="width:200px" value="{$g[0][goods_name]}" />
+     
+    </dl>
+	
+    <dl class="lineD">
+      <dt>宝贝信息:</dt>
+      <dd>
+        <textarea name="detail" id="detail" type="text" onblur="" style="height:100px;width:200px" >{$g[0][goods_detail]}</textarea>
+        
+    </dl>
+	
+    <dl class="lineD">
+      <dt>上架时间:</dt>
+      <dd>
+        <input name="stime" id="uname" type="text" onblur="" value="{$g[0][shelve_time]|date='Y-m-d H:i',###}" disabled />
+       
+    </dl>
+  
+  
+	<dl class="lineD">
+      <dt>状态:</dt>
+      <dd>
+        <label><input name="isSale" type="radio" value="1" <eq name="g[0]['is_Sale']" value="1">checked</eq> />成功交易</label>
+        <label><input name="isSale" type="radio" value="2" <eq name="g[0]['is_Sale']" value="2">checked</eq> />待售</label>
+        <label><input name="isSale" type="radio" value="3" <eq name="g[0]['is_Sale']" value="3">checked</eq> />谈判中</label>
+    </dl> 
+	
+	
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+  </div>
+  </form>
+</div>
+<include file="Public:footer" />

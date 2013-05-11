@@ -1,0 +1,119 @@
+<include file="Public:_header" />
+    <!--
+          ------------------------卖家物品上架页面--------------------------
+     -->
+    <body onload="sendHttp($('#doublecombo').val()-1,1)">
+      <script type="text/javascript">
+        function preview(path){
+        	var preview = document.getElementById('preview');
+        	 preview.innerHTML = '<img style="border:1px solid #878787;" src="/Public/images/temp/{$uid}/thumb_'+path+'"/>';      	
+        }                   
+        </script>
+    
+     <!--    ******  引入top文件     ******    -->
+           <link rel="stylesheet" href="__PUBLIC__/style/shelve.css" type="text/css" media="all" />  
+           <script type="text/javascript"  src="__PUBLIC__/javascript/shelve.js"></script>     
+
+        <script type="text/javascript"  src="__PUBLIC__/javascript/Ajax.js"></script>             
+        <div class="center">       
+                <div class="shelve">
+                    <div class="shelve-left">
+                        <!--    中间,横条       -->
+                        <div class="bar-1"><present name="every">宝贝详细资料修改<else />窝窝园上架专区</present></div>
+                        <!--      填写信息表单          -->
+                      
+                            <!--    文本框层        -->
+                            <div class="allinput">
+                        
+                              <form action="__URL__/doShelve" method="post" id="shelve">
+                                 <input type="text" class="gs_id" name="gs_id" value="{$every[0]['goods_id']}" style="display :none ;" />
+                                <div><span>商品名称:</span><input type="text" id="goods_name" name="goods_name" value={$every[0]['goods_name']}></div>
+                              <div class="cal"><span>商品分类:</span>                                
+                                <present name="every.0.class"><p>{$every[0]['class']}</p><else />                                
+                                    <!--    第一级菜单            -->
+                                    <select id="doublecombo" name="class_first" onchange="sendHttp(this.options.selectedIndex,1)">
+                                        <option value="1" >电子商品</option>
+                                        <option value="2" >书籍文刊</option>
+                                        <option value="3" >生活超市</option>
+                                        <option value="4" >服装服饰</option>
+                                        <option value="5" >休闲娱乐</option>
+                                    </select>
+                                    <!--     第二级菜单           -->
+                                    <select id="stage" name="class_second">                                        
+                                    </select>                                    
+                                </present>                                                       
+                            </div>
+                                <div><span style="float:left;margin:25px 0px;">商品详细:</span><textarea name="goods_detail" id="goods_detail"/>{$every[0]['goods_detail']}</textarea>                                   
+                                </div>                                  
+                                <div class="pritable" style="margin-top:20px;"><span>竞拍价格:</span><input id="a_price" type="text" name="a_price" value={$every[0]['a_price']}>&nbsp;&nbsp;&nbsp;<strong>￥</strong></div>
+                                 <div class="pritable"><span>市场价格:</span><input id="b_price" type="text" name="b_price" value={$every[0]['b_price']}>&nbsp;&nbsp;&nbsp;<strong>￥</strong></div>
+                               
+                                <!--     交易组合按钮          -->
+                                <div class="trade-way">
+                                    <span>交易方式:</span>
+                                    <input type="button" class="T_way" value="{$every[0]['trade_way']}" style="display :none ;"/>
+                                    <input type="radio" name="trade_way" value="1" />现金
+                                    <input type="radio" name="trade_way" value="2" />以物易物
+                                    <input type="radio" name="trade_way" value="3" />任意一种
+                                </div>
+                                <div><span>联系QQ&nbsp;:</span><input id="qq" type="text" name="seller_qq"  value={$every[0]['seller_qq']}></div>
+                                <div><span>联系电话:</span><input id="tel" type="text" name="tell" value={$every[0]['seller_tel']}></div>
+                                
+                                 </form>
+                             
+                        
+                       <!--           子 表单            -->
+                         <form action="__URL__/preview" id="subForm" name="sub" target="imgFrame" method="post" enctype="multipart/form-data" >
+                                
+                                <div>
+                                <span>物品照片:</span><notpresent name="every"><input type="file" id="file" name="image" onchange="subSubmit()"/></notpresent>                              
+                                <table><tr><td id="preview"><present name='every.0.img_id'><img src="__PUBLIC__/images/temp/{$every[0]['user_id']}/thumb_{$every.0.img_id|getImageById}"/><else />请选择小于1M的jpg,gif<br /></>png,jpeg格式的图片</present></td></tr></table>
+                                                             
+                                <iframe src="" name="imgFrame" style="display:none"></iframe>      
+                               
+                            </div>
+                                   </form>
+                                   
+                                  <div> <input type="submit" class="button" id="out-btn" name="submit" value="<present name='every'>保存信息<else />开始拍卖吧</present>" onclick="psubmit()" />
+                                   </div>
+                                   
+                
+                    </div>
+                    </div>
+                    <!--   上架,右边,-->
+                    <div class="shelve-right">
+                        <div class="right-head"><img src="__PUBLIC__/images/button/xxxxxx.png" />&nbsp;他们在上架</div>
+                       <volist name="data" id="vo">
+                        <div id="showall_7">
+                             <div class="showall_6">
+                                <a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank"><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="" /></a>
+                            </div>
+                            <table cellspacing="0" style="height:60px; float:left;">
+                                <tr>
+                                    <td><div class="tes">名称：<a href="__URL__/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank">{$vo.goods_name}</a></div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> <div class="tes">物主：{$vo.user_id|getUserSpace=uname}</div></td>
+                                </tr>
+                                <tr>
+                                    <td class="price">
+                                    <div class="tes">
+                                        价钱：{$vo.a_price}&nbsp;￥</div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                        <php>$k++;</php>
+                        </volist>              
+                    </div>
+                </div>
+                 
+            </div>
+        
+         <include file="Public:root" />
+    </body>
+
+
+</html>

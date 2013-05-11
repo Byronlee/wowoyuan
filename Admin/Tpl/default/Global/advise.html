@@ -1,0 +1,55 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">意见管理</div>
+  <!-------- 用户列表 -------->
+  <form action="doDeleteUser" name="deleUser" method="post">
+  <div class="Toolbar_inbox">
+  	
+  <!-- 详细的用户列表      -->
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+   
+    <th class="line_l">ID</th>
+    <th class="line_l">用户</th>
+  
+  
+    <th class="line_l">意见</th>
+    <th class="line_l">提交时间</th>
+    
+  </tr>
+
+  <!--  -------- 输出用户的信息  - - - -- -         -->
+  
+  <volist id="vo" name="data">
+	  <tr overstyle='on' id="user_{$vo.user_id}">
+	  	
+	   
+	    <td>{$vo.advise_id}</td>
+	    <td>
+			<div style="float:left;margin-right:10px;border:1px solid #8098A8;height:30px;padding:1px;width:30px;""><img src="__PUBLIC__/images/uploads/avatar/{$vo.user_id}/small.jpg" width="30"></div>
+			<div style="float:left"><space uid="vo.uid" class="fn" target="_blank"><a href="{:SITE_URL}/index.php/space/index/uid/{$vo.user_id}" target="_blank">{$vo.user_id|getUserName}</a></space></div></td>
+	     <td>{$vo['advise']}</td>
+	    <td>{$vo['posttime']|date="Y-m-d H:i",###}</td>
+	  
+	    <td>
+			
+			
+			
+			
+	    	</if>
+		</td>
+	  </tr>
+  </volist>
+
+  </table>
+  </div>
+ 
+
+ 
+  </form>
+</div>
+
+
+
+<include file="Public:_footer" />

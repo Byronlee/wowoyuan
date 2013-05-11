@@ -1,0 +1,65 @@
+<include file="Public:header" />
+
+<!-- 编辑器样式文件 -->
+<link href="__PUBLIC__/js/editor/editor/theme/base-min.css" rel="stylesheet"/>
+<!--[if lt IE 8]>
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-min-mhtml.css" rel="stylesheet"/>
+<![endif]-->
+<!--[if gte IE 8]><!-->
+<link href="__PUBLIC__/js/editor/editor/theme/cool/editor-pkg-min-datauri.css" rel="stylesheet"/>
+<!--<![endif]-->
+
+<include file="__THEME__/editor" />
+
+<div class="so_main">
+  <div id="editTpl_div">
+  	<div class="page_tit"><eq name="type" value="edit">编辑<else/>添加</eq>文章</div>
+	
+	<div class="form2">
+	<form method="post" action="{:U('admin/Global/doEditDocument')}">
+	<eq name="type" value="edit"><input type="hidden" name="document_id" value="{$document_id}"></eq>
+    <dl class="lineD">
+      <dt>标题：</dt>
+      <dd>
+        <input name="title" type="text" value="{$title}"> *
+	  </dd>
+    </dl>
+	
+    <dl class="lineD">
+      <dt>是否有效：</dt>
+      <dd>
+        <input type="radio" name="is_active" value="0" <neq name="is_active" value="1">checked</neq>>否<br />
+		<input type="radio" name="is_active" value="1" <eq name="is_active" value="1">checked</eq>>是
+	  </dd>
+    </dl>
+
+	<dl class="lineD">
+      <dt>是否在页脚显示：</dt>
+      <dd>
+        <input type="radio" name="is_on_footer" value="0" <neq name="is_on_footer" value="1">checked</neq>>否<br />
+		<input type="radio" name="is_on_footer" value="1" <eq name="is_on_footer" value="1">checked</eq>>是
+	  </dd>
+    </dl>
+
+    <dl class="">
+      <dt>内容：</dt>
+      <dd>
+      	<textarea name="content" id="content" style="width:780px;height:200px">{$content}</textarea>
+		<p>以“ftp://”，“http://””，“https://”，“mailto://”开始，则直接跳转至该链接</p>
+	  </dd>
+    </dl>
+	
+    <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+    </div>
+	</form>
+  </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+	//E	=	KISSY.Editor( "content" );
+	loadEditor("content");
+});
+</script>
+<include file="../Public/_footer" />

@@ -1,0 +1,178 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>宝贝--{$every[0]['goods_name']}</title>
+         <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+         <script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+         <script type="text/javascript" src="__PUBLIC__/javascript/apprise-1.5.full.js"></script>
+         <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/apprise.css" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/qiantai_1.css">
+    </head>
+                <script type="text/javascript">
+
+$(document).ready(function(){	   
+  	$('.get_it').live('click',function(){	      
+		    var goods_id= $(".get_rrr_it").val();
+		    var host_id= $(".get_host_it").val();		    
+     apprise('马上联系卖家，得到它？', {'confirm':true},function(r){		
+	if(r){					
+		$.post("/Trade/make_trade",{goods_id:goods_id,host_id:host_id},function(txt){	
+			$('.ss_t').html("<input type=\"button\" value=\"谈判中...\"  class=\"statu issa\"/>");	
+			$('.rr_tt').html("<input type=\"button\" class=\"cannt_it\" value=\"哦！不能再交易了!\">");					
+		});
+	}	
+});			
+});
+});
+
+</script>
+    <body>          
+                <!-- layout::public:header::60 -->          
+        <div id="detail_center">
+           <div id="allcentent">   
+             <div class="allcentent—left"> 
+                  <div id="wpname">
+                        所选物品的详细信息
+                    </div>        
+                <div id="moban_p"></div>
+                <div>
+                    <table id="wpdetail">
+                        <tr>
+                            <td class="specoal" colspan="3";>
+                                                                                         图片展示                          
+                            </td>
+                        </tr>
+                        <tr>
+                            <td rowspan="9" style="height: 355px;width: 380px; border:solid 1px paleGoldenrod;">
+                                <img src="__PUBLIC__/images/temp/{$every[0]['host_id']}/thumb_{$every[0]['img_id']|getImageById}"/>
+                            </td>
+                          <td>名称:</td><td><div>{$every[0]['goods_name']}</div></td>
+                        </tr>
+
+                        <tr>      
+                             <td>上架时间:</td><td><div>{$every[0]['shelve_time']|date="Y-m-d",###}</div></td>
+                        </tr>
+                        <tr>
+
+                            <td>拍卖价格:</td><td><div><span>{$every[0]['a_price']}</span> 元</div></td>
+                        </tr>
+                        <tr>
+                            <td>市场价格:</td><td><div><span>{$every[0]['b_price']}</span> 元</div></td>
+                        </tr>
+                        <tr>
+                            <td>物品种类:</td><td><div>{$every[0]['class']}</div></td>
+                        </tr>
+                        <tr>
+                           <td>交易方式:</td><td><div>{$every[0]['trade_way']}</div></td>
+                        </tr>
+                        <tr>
+                            <td>交易状态:</td><td><div style="padding-top:10px;"><span class="ss_t">{$every[0]['is_sale']}</span></div></td>
+                        </tr>   
+                         <tr>
+                            <td colspan="3"; class="rr_tt">
+                            <php>if($mid!=$every[0]['host_id']){</php>
+                            <input type="button" style="display:none;" class="get_rrr_it" value="{$every[0]['goods_id']}">
+                            <eq name='every.0.is_sale_t' value='2'><input type="button" class="get_it" value="联系卖家，得到它"><else/><input type="button" class="cannt_it" value="哦！不能再交易了!"></eq>                           
+                            <php>}else{</php>
+                             <input type="button" class="cannt_it" value="嘿！留给他人买吧!"><php>}</php>
+                            </td>
+                        </tr>                         
+                    </table>
+                
+                </div> 
+                </div>
+                <div id="mjxq">
+                   <div class="shu"></div>
+                      <div id="wzxx">
+                      <div></div>
+                              <span> 物主信息</span>     
+                        </div>  
+                        <table>
+                        <tr>
+                            <td colspan="2" >
+                                {$every[0]['host_id']|getUserSpace=uvatar}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="left">
+                               <input type="button" style="display:none;" class="get_host_it" value="{$every[0]['host_id']}">
+                                {$every[0]['host_id']|getUserSpace=uname}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>学院</td><td><div>
+                            <present name='every.0.host_academy'>{$every[0]['host_academy']}<else />未填写</present>
+                           </div> </td>
+                        </tr>
+                        <tr>
+                            <td>年级</td><td><div>
+                           <present name='every.0.host_grade'>{$every[0]['host_grade']}<else />未填写</present>
+                            </div> </td>
+                        </tr>
+                        <tr>
+                            <td>专业</td><td><div>
+                          <present name='every.0.host_profession'>{$every[0]['host_profession']}<else />未填写</present>
+                             </div></td>
+                        </tr>
+                        <tr>
+                            <td>QQ</td><td><div>
+                            <present name='every.0.seller_qq'>{$every[0]['seller_qq']}<else />未填写</present>
+                             </div></td>
+                        </tr>
+                        <tr>
+                            <td>Mail</td><td><div>
+                            <present name='every.0.host_mailadres'>{$every[0]['host_mailadres']}<else />未填写</present>
+                            </div> </td>
+                        </tr>
+                        <tr>
+                            <td>手机</td><td><div>
+                           <present name='every.0.seller_tel'>{$every[0]['seller_tel']}<else />未填写</present>
+                            </div> </td>
+                        </tr>
+                    </table>                    
+                </div>
+                <div id="bbxq" >
+                    <table>
+                        <tr>
+                            <td><label>宝贝介绍</label></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+
+                            <td>
+                                <div id="bbxq_in">
+                                    <p>
+                                       &nbsp;&nbsp;&nbsp;&nbsp;{$every[0]['goods_detail']}
+                                    </p>                              
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="trade-intr">
+                <div class="fxb"></div>
+                <div class="trade-intr-con">
+                   <strong>窝窝园特色交易  提示</strong>
+                  <p>
+
+                     {$every[0]['looking']}
+                    </p>
+                
+                </div>
+                 
+            </div>
+                  
+        </div>
+        </div>
+        <include file="Public:root" />
+    </body>
+</html>

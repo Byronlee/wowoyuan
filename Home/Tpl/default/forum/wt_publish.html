@@ -1,0 +1,124 @@
+
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+        <title>窝窝园微贴发布</title>
+             <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+   </script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
+        <!--加载编辑器-->
+        <!-- layout::public:header::60 -->
+        <script type="text/javascript" src="__PUBLIC__/xheditor/xheditor-1.1.12-zh-cn.min.js"></script>
+        <script type="text/javascript" src="__PUBLIC__/javascript/jquery.form.js"></script>
+        <script type="text/javascript"  src="__PUBLIC__/javascript/Ajax.js"></script>  
+        <meta name="wowoyuan" content="窝窝园"/>
+        <meta name="keywords" content="窝窝，窝窝园，园，窝园，微贴"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css.css"> 
+        <script language=JavaScript> 
+        
+        $(document).ready(function(){     	
+    	//对是否允许评论 动态的设置初始化值
+        var selects = document.getElementsByName("iscomment"); 
+        var T_way=$("#iscomment").val();
+        if(T_way==""){
+       	 selects[0].checked= true; 
+         }
+        else{
+        for (var i=0; i<selects.length; i++){  
+            if (selects[i].value==T_way) {  
+                selects[i].checked= true;  
+                break;  
+            }         
+        }  
+       }
+        });
+        
+       function newwtFrom()
+        {
+	
+	      var content = $("#wt_publish").find('textarea[name=content]').val();
+	      var title = $("#wt_publish").find('input[name=title]').val();
+	      if(title == '' || content == ''){
+	  	  apprise('嘿，亲，标题和内容必填不可哦');
+		    return false;
+		     }
+	     else{
+		      $("#wt_publish").submit();
+		     $(that).find('.submit').val('正在提交^_^').attr('disabled',true);
+	      }	
+      }
+
+       </script>
+       </head>
+    <body >     
+        <div class="wt_P_center"  onselectstart = "return false"; onpaste="return false" oncopy="return false;" oncut="return false;"> 
+            <div id="wt_P_content">
+                <div id="wt_P_left">
+                      <div class="kind_area"><present name="every">窝窝园 &nbsp;微贴修改<else />窝窝园 &nbsp;微贴发布</present></div>          
+                     
+                       <form method="POST" id="wt_publish" action="__URL__/do_wt_publish" >
+                        <input type="text"  name="p_weitie_id" value="{$every[0]['weitie_id']}" style="display :none ;" />
+                         <table class="P_table">
+                            <tbody>
+                            <tr>
+                               <td width="50"><span class="tt">标题：</span></td>
+                           <td>
+                           <input style="padding:3px 0;width:400px; height:27px;" type="text" value="{$every[0]['title']}" maxlength="100" size="50" name="title">
+                           </td>
+                           </tr>
+                           <tr>
+                           <td height="50"><span class="tt">分类：</span>
+                           </td>
+                          <td>                                                    
+                               <present name="every.0.class">
+                               <span class="P_class">&nbsp;&nbsp;&nbsp;&nbsp;{$every[0]['class']}</span>
+                          <else />    
+                          
+                                           
+                          <span class="P_class">&nbsp;&nbsp;&nbsp;&nbsp;{$class}</span>
+                           
+                           <input type="hidden" name="w_class_first"  value="{$_first}"  />
+                           <input type="hidden" name="w_class_second"  value="{$_se}" />                                   
+                            </present>  
+                            <span style="font-size: 12px;float: right;margin-right: 300px;margin-top: 4px;"  class="p_picture"><a target="_blank"  href="{:SITE_URL}Forum/ewt_display/s_t_y/25/w_t/f33eec6c4675604eb04264ba75b23701">如何，在帖子里面添加图片？</a></span>                         
+                          </td>
+                      </tr>
+                      <tr>
+                         <td valign="top">
+                                                                          <span class="tt">内容：</span>
+                        </td>
+                        <td>
+                            <textarea name="content" style="width:800px;height:450px;"class="xheditor {skin:'nostyle'}" >&nbsp;&nbsp;&nbsp;&nbsp;{$every[0]['content']}</textarea>
+                        </td>
+                     </tr> 
+                     <tr>
+                         <td style="height:60px;">评论：</td>
+                         <td>
+                         <input type="button" id="iscomment" value="{$every[0]['iscomment']}" style="display :none ;"/>
+                         &nbsp;&nbsp;<input type="radio"  name="iscomment" value="1" />允许&nbsp;&nbsp; <input type="radio" name="iscomment" value="0" />不允许
+                         </td>
+                     </tr>      
+                    <tr><td></td>
+                         <td class="b_return">
+                            <input class="submit" type="button" value="<present name='every'>保存信息<else />好了，发布</present>" onclick="newwtFrom()">
+                            <a href="__URL__/forum_class/_first/{$_first}/_se/{$_se}/class_fs/{$_first+$_se|md}">返回该微区首页</a>
+                        </td>
+                    </tr>
+                 </tbody>
+             </table>
+        </form>    
+    </div>                   
+                    </div>
+                </div>
+<include file="Public:root" />
+    </body>
+</html>
+
+
+
+
+

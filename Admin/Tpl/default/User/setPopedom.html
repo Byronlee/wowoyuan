@@ -1,0 +1,36 @@
+<div>
+将{$count}个节点的查看权限设置为: 
+</div>
+{:W('SelectUserGroup',array('user_group_id'=>$user_group))}
+<div class="page_btm">
+	<input type="button" class="btn_b" onclick="doSetPopedom(this)" value="确定" />
+	<input type="button" class="btn_w" onclick="cancel(this)" value="取消" />
+</div>
+
+<script type="text/javascript">
+function doSetPopedom(_this) {
+	var gid = $('#user_group_id').val();
+	var nid = "{$nids}";
+	if(gid == '') {
+		ui.error('请至少选择一个用户组');
+		return false;
+	}
+
+	if(!confirm('设置成功后，已选择节点原来的权限信息将被覆盖，确定继续？')) return false;
+
+	//提交修改
+	$.post("{:U('admin/User/doSetPopedom')}", {gid:gid, nid:nid}, function(res){
+		if(res == '1') {
+			ui.box.close();
+			ui.success('保存成功');
+		}else {
+			ui.box.close();
+			ui.error('保存失败');
+		}
+	});
+}
+
+function cancel(_this) {
+	ui.box.close();
+}
+</script>

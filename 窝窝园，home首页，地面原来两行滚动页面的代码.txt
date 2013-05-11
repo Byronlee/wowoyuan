@@ -1,0 +1,94 @@
+ <div id="home_zhongjian_bottom">
+                    <div id="bottom_title"><a href="javascript:void(0);">园内最新上架宝贝</a></div>
+                   <div id="scrollbody" style="display:none">
+                        <table>
+                            <tr>
+                                <td id="scroll1" >
+                                    <table>
+                                        <tr>
+                                        <php>$m=1;</php>
+                                        
+                                        <volist name="new_goods" id="vo">
+                                          <php>if($m<10){</php>
+                                            <td><div class="Pic"><a href="{:SITE_URL}Trade/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank" title={$vo.goods_name}><img src="__PUBLIC__/images/temp/{$vo.host_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}"/></a></div></td>
+                                        <php>$m++;</php>
+                                        <php>}if($m==10){</php>
+                                         <td><div class="Pic"><a href="{:SITE_URL}Trade/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank" title={$vo.goods_name}><img src="__PUBLIC__/images/temp/{$vo.host_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}"/></a></div></td>                                                                                
+                                         </tr>
+                                    </table>
+                                </td>
+                                <td id="scroll2">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="scrollbody1">
+                        <table>
+                            <tr>
+                                <td id="scroll3">
+                                    <table>
+                                        <tr>
+                                        <php>$m++;</php>
+                                                    <php>}else{</php>                                                                
+                                             <td><div class="Pic1"><a href="{:SITE_URL}Trade/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank" title={$vo.goods_name}><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}"/></a></div></td>
+                                     <php>$m++;</php>
+                                      <php>}</php> 
+                                          </volist>                          
+                               
+                               </tr>
+                                    </table>
+                                </td>
+                                <td id="scroll4">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                                   
+                </div>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="home_zhongjian_bottom">
+                    <div id="bottom_title"><a href="javascript:void(0);">园内最新上架宝贝</a></div>
+                  
+                   <div id="scrollbody1">
+                        <table>
+                            <tr>
+                             <volist name="new_goods" id="vo">
+                                <td id="scroll3">
+                                    <table>
+                                        <tr>
+                                                                                                        
+                                             <td><div class="Pic1"><a href="{:SITE_URL}Trade/detail/id/{$vo.goods_id}/i_/{$vo.goods_id|md}" target="_blank" title={$vo.goods_name}><img src="__PUBLIC__/images/temp/{$vo.user_id}/thumb_{$vo.img_id|getImageById}" alt="{$vo.goods_name}"/></a></div></td>                     
+                                                                  
+                               
+                                          </tr>
+                                    </table>
+                                </td>
+                                </volist>  
+                                <td id="scroll4">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>                                   
+                </div>    
+
+
+
+
+
+
+  

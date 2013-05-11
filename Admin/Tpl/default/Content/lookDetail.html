@@ -1,0 +1,22 @@
+<php>
+echo '操作位置：';
+$info = unserialize($data);
+if( $type=='1' ){
+	echo '增加的内容:'.$info['1'];
+}
+if( $type == '2' ){
+	echo '删除的内容：'.$info['1'];
+}
+if( $type == '3' ){
+	if( is_array($info['1'])){
+		echo '原修改的内容:'.dump($info['1']);
+	}else{
+		echo '原修改的内容:'.$info['1'];
+	}
+	if( is_array($info['2']) ){
+		echo '修改后的内容:'.dump($info['2']);
+	}else{
+		echo '修改后的内容:'.$info['2'];	
+	}
+}
+</php>

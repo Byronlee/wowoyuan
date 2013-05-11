@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$title}</title>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+<script type="text/javascript" src="__PUBLIC__/javascript/wo_flash_comment.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun.css" />
+</head>
+<body>
+  
+<include file="Public:header" />
+<div class="shancun">                  
+  <div class="flash_right">
+                       <div><include file="Public:apps"/></div>
+                       <div class=instructions>
+                        <a href="{:U('Shancun/comment',array('type'=>1))}">收到的评论</a><br />
+                        <a href="{:U('Shancun/comment/type/2')}">发出的评论</a><br />
+                        <a href="{:U('Shancun/at_me')}">@提到我的</a><br />
+                       <p>WOWOYUAN<strong>&#8226;</strong>SHANCUN</p>
+                      </div>
+  </div>              
+   <div class="centent_left">
+       <div class="type_comment">
+       <php>if($type==1){</php>我收到的评论
+       <php>}else if($type==3){</php>@提到我的
+       <php>}else{</php>我发出的评论<php>}</php>
+       </div>
+      <div class="comment_content">
+      <php>if($data){</php>
+       <php>if($type==1){</php>
+        <ul>
+           <volist name="data" id="vo">        
+                 <li class="Eline" id="list_{$vo.comment_id}">
+                            <div class="headpic">{$vo.user_id|getUserSpace=uvatar}</div>
+                            <div class="shancon" style="overflow: hidden;"><span>{$vo.user_id|getUserSpace=uname}</span>：{$vo.comment_body|format}&nbsp;&nbsp;<span class="comment_time" style="font-size:13px;color:#999;">({$vo.ctime|friendlyDate})</span>
+                            <empty name="vo['recomment_id']"><div class="B">评论<strong>我</strong>的闪存: {$vo.flash_body}</div>
+                            <else /> 
+                            <div class="B">回复<strong>我</strong>的评论：{$vo.recomment_body}</div>                          
+                            </empty>
+                             
+                            </div>
+                            
+                            <div class="list_bot"> 
+	                            <span class="right">	                               
+	                                <div class="dosth">	  
+	                                 <present name="vo['opreate']">{$vo.opreate}<else />&bnsp;</present>    	                                	                                                                                                         
+                                              <a href="javascript:void(0)" id="comment" rel="comment" onclick="commentOpen('{$vo.user_id|getUserName}',{$vo.comment_id})">回复&nbsp;&nbsp;&nbsp;&nbsp;</a>                                          
+					               </div>					     
+					           </span> 
+					           
+					       </div>
+					        <div id="comment_list_{$vo.comment_id}" style="display:none">
+					        <div>
+									<div class="jj"><img src="__PUBLIC__/images/button/jj.png"/></div>
+									<div class="addcomment addcomment_{$vo.comment_id}"  minid="{$vo.flash_id}" rel="{$vo.comment_id}" rell="{$vo.user_id}">
+									<form  rel="miniblog_comment"  method="post" style="float: right;">																	
+									          <textarea class="left text" id="comment_{$vo.comment_id}_publish" name="comment_content" rows="1" style="resize: none; margin-left:20px;line-height:20px; height: 20px;width:400px;"></textarea>                  
+									               <input type="button" id="bu" value="确定" class="N_but" onclick="AddComment({$vo.comment_id})"/>
+									               <div id="publish_type_comment_{$vo.comment_id}_before" class="expression">
+									                <a  href='javascript:void(0)' onclick="show_div('comment_{$vo.comment_id}')" >表情</a>
+									                </div>     
+										  </form>										    
+									</div>	   	 
+									</div>
+												        
+					        <div class="clear"></div>
+					        </div>
+					      <br />
+                  </li>
+           </volist> 
+           </ul>
+           <php>}else{</php>          
+           <ul>
+           <volist name="data" id="vo">        
+                 <li class="Eline" id="list_{$vo.comment_id}" style="padding-bottom:10px;">
+                            <div class="headpic"><empty name="vo['recomment_user_id']">{$vo.receive_user_id|getUserSpace=uvatar} <else />{$vo.recomment_user_id|getUserSpace=uvatar}</empty></div>
+                            <div class="shancon" style="overflow: hidden;">{$vo.comment_body|format}&nbsp;&nbsp;<span class="comment_time" style="font-size:13px;color:#999;">({$vo.ctime|friendlyDate})</span>
+                            <empty name="vo['recomment_id']"><div class="B">评论<strong>{$vo.receive_user_id|getUserSpace=uname}</strong>的闪存: {$vo.flash_body}</div>
+                            <else /> 
+                            <div class="B">回复<strong>{$vo.recomment_user_id|getUserSpace=uname}</strong>的评论：{$vo.recomment_body}</div>                          
+                            </empty>                            
+                            </div>                            
+                            <div class="list_bot"> 
+	                            <span class="right">	                               
+	                                <div class="dosth">	  
+	                                 <present name="vo['opreate']">{$vo.opreate}<else />&bnsp;</present>    	                                	                                                                                                                                                        
+					               </div>					     
+					           </span> 					           
+					       </div>
+					       <div class="clear"></div>
+                  </li>
+           </volist> 
+       </ul>
+           <php>}</php> 
+
+      <php>}else{</php>
+      <span class="no_user">
+         <php>if($type==1){</php>
+                                  还没收到任何评论呢.....
+       <php>}else{</php>
+                                你还没发出任何任何评论呢.....
+       <php>}</php>    
+      </span>
+      <php>}</php>       
+       </div>
+      <div class="page_wowo" style="width:700px;text-align:center;height:30px;background-color:#fff;float:left;">{$page}</div>
+    </div>
+   <div class="clear"></div>
+</div>
+     <include file="Public:root" />
+</body>
+</html>

@@ -1,0 +1,27 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+   <div class="content_right"> 
+       <div class="user_head">{$user[0]['user_id']|getUserSpace=uvatar}</div>
+       <div class="user_info">
+                                    <div class="username" style="margin-bottom:10px;width: 200px;text-align: left;">
+                                     <present name='user.0.username'>{$user[0]['username']}<else />未填写</present>
+                                    
+                                    </div><br/>
+                                    <div class="us">
+                                     <present name='user.0.profession'>{$user[0]['profession']}<else />未填写</present>
+                                    
+                                    </div>
+                                    <div class="us">
+                                     <present name='user.0.grade_class'>{$user[0]['grade_class']}<else />未填写</present>
+                      
+                                    </div>   
+                                    <div class="us">
+                                     <present name='user.0.academy'> {$user[0]['academy']}<else />未填写</present>                                  
+                                    </div>
+                                    <div class="LR">
+                                     <span class="lineR"><a href="{:U('Space/follow',array('type'=>'following', 'uid'=>$uid,'ui_'=>md($uid)))}"><strong>{$user[0]['following']}</strong><br />关注</a></span>
+                                     <span class="lineR"><a href="{:U('Space/follow',array('type'=>'follower', 'uid'=>$uid,'ui_'=>md($uid)))}"><strong>{$user[0]['follower']}</strong><br />粉丝</a></span>
+                                     <span class="lineR"><a href="{:U('space/index',array('uid'=>$uid,'type'=>'flash','ui_'=>md($uid)))}"><strong id="miniblog_count">{$user[0]['flashs']}</strong><br />闪存</a></span>
+                                     <span class="lineR ov"><a href="{:U('space/index',array('uid'=>$uid,'type'=>'weitie','ui_'=>md($uid)))}"><strong id="miniblog_count">{$user[0]['weities']}</strong><br />微贴</a></span>                         
+                                     </div>
+       </div>
+   </div>

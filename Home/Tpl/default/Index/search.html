@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="__PUBLIC__/javascript/jquery.form.js"></script>
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun.css" />
+<title>窝窝园--搜索</title>
+<script>
+
+   function inttag_kind(){
+		var mun='kind_1';
+	    document.getElementById(mun).className = "seleced";  
+   }
+function checkkey(){
+	  var u=$('#search_text').val();
+	if(u==''){
+		 apprise('输入点东西再搜索吧！');
+		 return false;
+	 }else if(u.length>20){
+		 apprise('请缩短关键字的长度，尽量用常用字，简洁！');
+		 return false;
+	 }else{	 
+		 var o=$('#hidden_input').val();
+		 if(o==1){
+			 
+		 }
+		 $('#quick_search').submit();
+	 }
+}
+
+function select_kind(o){
+	 var number = $(o).attr('minid');
+	 $('#hidden_kind').val(number);		
+	 var getdiv= document.getElementById('list_p');
+	    var getdiva = new Array();
+	    getdiva=getdiv.getElementsByTagName("A");
+	    for (i = 0; i < getdiva.length; i++)
+	    {
+	        getdiva[i].className = "";
+	    }
+	    o.className ='seleced'; 
+}
+
+function view_s_reult(o){
+	 $('#view_s_reult_'+o).submit();
+}
+
+</script>
+</head>
+<body onload=inttag_kind()>
+<include file="Public:header" />
+<div class="search_all">
+
+<div class="content">
+            <div class="logo"><em><strong>窝窝园&nbsp;&#8226;&nbsp;搜索</strong></em></div>
+	  <div class="search_a">
+			   <form action="{:U('Index/s_result')}" id="quick_search" method="post">
+							     <div class="list_p"  id="list_p" style="margin-top: 70px;">	
+							     		<a href="javascript:void(0);" onclick="select_kind(this)" minid=1 id="kind_1" >全部</a>&nbsp;				        
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid=2 id="kind_2" >闪存</a>&nbsp;
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid=3 id="kind_3">用户</a>&nbsp;
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid=4 id="kind_4">宝贝</a>&nbsp;
+									  <a href="javascript:void(0);" onclick="select_kind(this)" minid=5 id="kind_5">微贴</a>
+							   </div>
+							   <input type="text" class="txt" value="{$k}" name="key" id="search_text" style="width:635px;height:35px" />
+							   <input type="hidden" id="hidden_kind" name="tag" value="1"/>
+							   <input class="se" onclick="checkkey()" type="button" value="搜索" />
+			</form>
+   	</div>
+   	<div id="all_result">
+   	
+   	
+   	   	
+   	<php>if(!!empty($k)){</php>
+   	               <span>请输入简洁，常用词的关键词,进行搜索</span><br />
+   	<php>}else{</php>
+                	<div class="a_title">全部搜索结果</div>
+				   	<php>if($n_flash==0&&$n_user==0&&$n_shelve==0&&$n_weitie==0){</php>
+				    <p>抱歉,没有搜索到相关信息</p>
+				   	<span>请输入常用词</span><br />
+				   	<span>请尽量使用简洁的关键词</span><br />
+				   	<span>商品搜索只支持商品名称搜索</span><br />
+				   	<php>}else{</php>
+				   	
+							   	<div class="a_every">闪存：共搜索到&nbsp;<font color="red">{$n_flash}</font>&nbsp;条
+							   	<neq name="n_flash" value="0">,点击&nbsp;
+									   	<form action="{:U('Index/s_result')}" id="view_s_reult_2" method="post">
+									   	 <input type="hidden"  value="{$k}" name="key" />
+									     <input type="hidden"  name="tag" value="2"/>
+									   	<a href="javascript:void(0);" onclick="view_s_reult(2)">此处查看</a>			   	
+							   	</neq>
+							   	</form>
+							   	</div>
+							    <div class="a_every">用户：共搜索到&nbsp;<font color="red">{$n_user}</font>&nbsp;个
+							    <neq name="n_user" value="0">,点击&nbsp;
+							    
+							    <form action="{:U('Index/s_result')}" id="view_s_reult_3" method="post">
+							   	 <input type="hidden"  value="{$k}" name="key" />
+							     <input type="hidden"  name="tag" value="3"/>
+							   	<a href="javascript:void(0);" onclick="view_s_reult(3)">此处查看</a>	
+							    	</form>
+							    </neq></div>
+							    <div class="a_every">商场：共搜索到&nbsp;<font color="red">{$n_shelve}</font>&nbsp;件
+							    <neq name="n_shelve" value="0">,点击&nbsp;
+							    
+							   <form action="{:U('Index/s_result')}" id="view_s_reult_4" method="post">
+							   	 <input type="hidden"  value="{$k}" name="key" />
+							     <input type="hidden"  name="tag" value="4"/>
+							   	<a href="javascript:void(0);" onclick="view_s_reult(4)">此处查看</a>	
+							    	</form>
+							    </neq></div>
+							    <div class="a_every" id="a_every_a">微贴：共搜索到&nbsp;<font color="red">{$n_weitie}</font>&nbsp;条
+							    <neq name="n_weitie" value="0">,点击&nbsp;
+							    
+							  <form action="{:U('Index/s_result')}" id="view_s_reult_5" method="post">
+							   	 <input type="hidden"  value="{$k}" name="key" />
+							     <input type="hidden"  name="tag" value="5"/>
+							   	<a href="javascript:void(0);" onclick="view_s_reult(5)">此处查看</a>	
+							    	</form>
+							    
+							    
+							    </neq></div>
+				   	<php>}</php>
+   	
+   	<php>}</php>
+   	</div>
+   	<div class="copy">&copy;&nbsp;WOWOYUAN 2012  NOON</div>
+</div>
+
+</div>
+
+</body>
+</html>
+

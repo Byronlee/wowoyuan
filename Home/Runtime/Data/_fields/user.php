@@ -1,0 +1,25 @@
+<?php
+return array (
+  0 => 'user_id',
+  1 => 'username',
+  2 => 'password',
+  3 => 'mailadres',
+  4 => 'isAdmin',
+  5 => 'user_qq',
+  6 => 'description',
+  7 => 'academy',
+  8 => 'profession',
+  9 => 'class',
+  10 => 'grade',
+  11 => 'follower',
+  12 => 'year',
+  13 => 'month',
+  14 => 'day',
+  15 => 'userlock',
+  16 => 'user_gender',
+  17 => 'regtime',
+  18 => 'is_set_avatar',
+  '_autoinc' => true,
+  '_pk' => 'user_id',
+);
+?>

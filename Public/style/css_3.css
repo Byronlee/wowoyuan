@@ -1,0 +1,143 @@
+@CHARSET "ISO-8859-1";
+
+
+
+
+
+/*-----------------------------forum_right  css------------------------------*/
+
+
+.navbox {	position: relative;	float: right;}
+ul.nav {list-style: none;border-left:1px solid #999;display: block;width: 160px;position: relative;	top: 20px;right:10px;padding: 15px 0 30px 0;background: url(/Public/images/button/shad2.png) no-repeat;	-webkit-background-size: 50% 100%;}
+.navbox li {margin: 3px 0 0 0;min-height:0px !important;border-bottom: hidden !important;width:100px;}
+
+ul.nav li a {
+	-webkit-transition: all 0.3s ease-out;
+	background: #cbcbcb ;
+	color: #174867;
+	padding: 7px 15px 7px 15px;
+	-webkit-border-top-right-radius: 5px;
+ 	-webkit-border-bottom-right-radius: 5px;
+	width: 85px;
+	display: block;
+	text-decoration: none;
+	-webkit-box-shadow: 2px 2px 4px #888;
+}
+
+ul.nav li a:hover {  background: #ebebeb ;	color: #67a5cd;	padding: 7px 15px 7px 30px;}
+.class_all{   border-bottom:1px solid #999;   margin-left:-30px;	color: #888;	font-size:23px;font-weight:bold;font-family:kaiti;	padding: 7px 15px 7px 30px;	margin-bottom:40px !important;}
+#class_first{	margin-bottom:5px !important;background: #999;	height:17px;	padding: 7px 15px 7px 15px;	-webkit-border-top-right-radius: 5px;	-webkit-border-bottom-right-radius: 5px;}
+/*---------------forum   index css-----------------*/
+.forum_in_center{
+	width: 1000px;
+  margin: 0 auto;
+  min-height: 1510px;
+   margin-top: 20px;
+   background-color: white;
+   -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   padding: 5px;
+}
+.t_forum_in_center{
+	
+	width: 1000px;
+  margin: 0 auto;
+  min-height: 3000px;
+   margin-top: 20px;
+   background-color: white;
+   -moz-border-radius: 5px;
+  -khtml-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   padding: 5px;
+}
+.in_left_all{	width:815px;float:left;border-top:1px solid #999;	margin-top:91px;	margin-left: 5px;	background:#fff;}
+.hh{	height: 150px;   width: 20px; border-left: solid 1px #999;   float: left;   margin-top: -55px;  margin-left: 20px;}
+.in_left{width:790px; margin-left: -20px;min-height:800px;float:left;margin-top:-50px;}
+.t_in_left{min-height:2860px !important;overflow:hidden;}
+.in_left .menu span{ margin-left: 17px;color: #888; float:left;  margin-top:16px;font-size:23px;font-weight:bold;font-family:kaiti;}
+.in_left .menu span .s_1{font-size:28px;}
+.in_left .menu span .s_2{	font-size:23px;	color: #999 ;}
+#Publish_w{	
+	float:right;
+    background:green;
+    height:30px;
+    width:130px;
+    color:#fff;
+    margin-top:15px;
+    font-size:16px;
+   -moz-border-radius: 3px;
+  -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+}
+#Publish_w:hover{	background-color:#0A6A3f !important;}
+.in_left .menu a{
+	width: 140px;
+	height:30px;
+	color: #174867;
+	line-height:33px;
+   font-size: 21px;
+   font-family: '宋体';
+   margin-left: 17px;
+/*   border: 1px solid black;*/
+/*   background-color: #E7E8E9;*/
+   background: #cbcbcb ;
+   margin-top:19px;
+   text-align:center;
+   float:left;
+}
+.in_left .menu a:hover{background-color:#999 !important;	-webkit-transition: background-color .5s linear;}
+.menu_on{background-color:#999 !important;}
+.in_left_content{	width:765px;	 margin-left: 23px;	min-height:1320px;	float:left;	margin-top:10px;}
+/*  每一条记录     */
+.every1{
+	width:770px;
+	height:37px;
+	margin-left:-10px;
+	border-bottom: 1px solid #f3f3f1;
+	float:left;
+	text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+    overflow: hidden;
+}
+.every1:hover{
+/*	background-color:#EEEEE0;*/
+}
+/*    每一条记录的标题       */
+.title{
+	max-width:530px;
+	height:30px;
+	line-height:30px;
+	font-size:19px;
+	color:#343434;
+	font-family:sans-serif;
+	float:left;
+	margin-top:9px;
+	margin-left:8px;
+    text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+    overflow: hidden;
+
+	
+}
+.title .no_read{	color:red !important;}
+.title img{	float:left;	margin-top:7px;	width:14px;	height:17px;}
+.title a{	color:#006699;	margin-left:7px;	float:left;	font-family:kaiti;}
+/*  每一条记录的table  */
+.show1{	float:right;	width:120px;	position:relative;	top:0px;line-height: 13px;}
+.show1 .avatar img{	width:25px;height:23px;}
+.show1 a{	color:green;	font-size:13px;}
+.show1 a:hover,.title a:hover{	text-decoration: underline;}
+.show1 .wt_uname{	width:115px;	 text-overflow: ellipsis;  white-space: nowrap;   overflow: hidden;}
+.show1 span{	color:#999;	font-size:14px;}
+.answ{float:right;	color:#888;	font-family:kaiti;   max-width:100px;	 text-overflow: ellipsis;white-space: nowrap;   overflow: hidden;}
+
+
+
+
+
+
+

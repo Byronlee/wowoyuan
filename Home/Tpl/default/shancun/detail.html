@@ -1,0 +1,105 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>闪存详情</title>
+ <script>
+	var _PUBLIC_  = '__PUBLIC__';
+	var SITE_URL  = '{:SITE_URL}'; 
+</script>
+<script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/javascript/apprise-1.5.full.js"></script>
+<script type="text/javascript" src="__PUBLIC__/javascript/wo_flash_detail.js"></script>
+<link rel="shortcut icon" href="__PUBLIC__/images/wo.png" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/shancun.css" />
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/style/apprise.css" />
+<style>#face_list{margin: 20px 102px !important;};</style>
+</head>
+<body onload="initAddComment()">
+  <!-- layout::Public:header::60 -->
+  <div class="shancun"> 
+    <div class="flash_right">
+                       <div><include file="Public:apps" /></div>
+                       <div class=instructions>
+                        <a href="{:U('Shancun/comment',array('type'=>1))}">收到的评论</a><br />
+                        <a href="{:U('Shancun/comment/type/2')}">发出的评论</a><br />
+                       <a href="{:U('Shancun/at_me')}">@提到我的</a><br />
+                       <p>WOWOYUAN<strong>&#8226;</strong>SHANCUN</p>
+                      </div>
+  </div>
+ <div class="centent_left" >
+         <div class="detail_body">    
+         <div class="head">{$data_flash.user_id|getUserSpace=uvatar}</div>
+         <div class="con"><span class="f_b">{$data_flash.user_id|getUserSpace=uname}:{$data_flash.flash_body|format}</span><br />
+                              <div class="shu">
+                                   <span class="time">{$data_flash.posttime|friendlyDate}</span>
+	                                <span class="dosth">
+	                                         {$data_flash.operate}
+                                      <a href="javascript:void(0)" id="doi" id="comment" rel="comment" minid="{$data_flash.flash_id}" >评论({$data_flash.flash_comment_time})&nbsp;&nbsp;</a>                                    
+					               </span>
+					             </div>					         
+         </div>            
+         </div>
+          <div id="comment_list_{$data_flash.flash_id}" class="every"  minid="{$data_flash.flash_id}" rel="{$data_flash.user_id}">
+         <div class="add_comment" >
+					         <form  rel="miniblog_comment"  method="post">	
+					
+					      <input type="hidden" name="reply_comment_id" class="reply_comment_id" id="replay_{$data_flash.flash_id}"/>
+					
+							<textarea class="left text" id="comment_{$data_flash.flash_id}_publish" name="comment_content" rows="1" style="resize: none; margin-left:110px;overflow-x: hidden; line-height:20px;overflow-y: hidden; height: 50px;width:610px;"></textarea>                  
+					                   <input type="button" id="bu" value="评论" class="N_but"  style="margin-top: 20px;margin-right: 54px" />
+					                     <div id="publish_type_comment_{$data_flash.flash_id}_before" class="expression">
+					                   <a  href='javascript:void(0)' class="k K_detail" onclick="show_div('comment_{$data_flash.flash_id}')" >表情</a></div>     
+						  </form>
+						  </div>
+         <div class="t_t">所有评论</div>
+         <div class="comment_all_flash">
+         <php>if($data_c){</php>
+       <div class="falshall" style="margin-left: 70px;min-height: 1000px;">
+           <ul class="feed_list" id="allComment"> 
+              <volist name="data_c" id="vo">
+                   <div class="everylist">
+                       <li class="Eline" id="list_{$vo.comment_id}">
+                            <div class="headpic">{$vo.user_id|getUserSpace=uvatar}</div>
+                            <div class="shancon" style="width: 430px;">{$vo.user_id|getUserSpace=uname}：{$vo.comment_body|format}</div>
+                            <div class="list_bot"> 
+	                            <span class="right">
+	                                <div class="time">{$vo.ctime|friendlyDate}</div>
+	                                <div class="dosth">	                                    
+	                                      {$vo.operate}	                                    
+                                          <a href="javascript:void(0)" onclick="reply('{$vo.user_id|getUserName}',{$data_flash.flash_id},{$vo.comment_id})">回复</a>                                         
+					               </div>					             
+					           </span> 					           
+					       </div>
+					      <br />
+                      </li>
+                   </div>
+            </volist>
+         </ul>
+      </div>
+      <php>}else{</php>
+      <span class="no_user">
+       还没有任何评论呢.....
+      </span>
+      <php>}</php>
+ </div>
+
+ </div>
+ </div>
+  <div class="clear"></div>
+</div>
+  <!-- layout::Public:root::60 -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

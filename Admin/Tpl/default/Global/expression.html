@@ -1,0 +1,135 @@
+<include file="Public:header" />
+<div class="so_main">
+  <!-------- 表情列表 -------->
+  <form action="doDeleteExpression" method="post">
+  <div class="page_tit">表情管理</div>
+  <div class="Toolbar_inbox">
+  
+  	<div class="page right">{$html}</div>
+	<a href="{:U('Global/addExpression')}" class="btn_a"><span>添加表情</span></a>
+	<button  class="btn_a" ">删除表情</button>
+	</a>
+  </div>
+  
+  <div class="list">
+  	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;">
+		<input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+    	<label for="checkbox"></label>
+	</th>
+    <th class="line_l">ID</th>
+    <th class="line_l">名称</th>
+    <th class="line_l">类型</th>
+    <th class="line_l">缩写</th>
+    <th class="line_l">文件名</th>
+	<th class="line_l">预览</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <volist id="vo" name="data">
+	  <tr overstyle='on' id="tpl_{$vo['expression_id']}">
+	    <td><input type="checkbox" name="checkbox[]" id="checkbox2" onclick="checkon(this)" value="{$vo.expression_id}"></td>
+	    <td>{$vo.expression_id}</td>
+	    <td>{$vo.title}</td>
+		<td>{$vo.type}</td>
+	    <td>{$vo.emotion}&nbsp;</td>
+	    <td>{$vo.filename}</td>
+		<td>
+			<div style="float:left;margin-right:10px;border:1px solid #8098A8;padding:1px;"">
+				<img src="__PUBLIC__/images/expression/{$vo.filename}">
+			</div>
+		</td>
+	    <td>
+			<a href="{:U('Global/editExpression',array('id'=>$vo['expression_id']))}">编辑</a> 
+	    	<a href="doDeleteExpression/id/{$vo['expression_id']}" onclick="confirm('删除将不能恢复,是否删除!');">删除</a>
+		</td>
+	  </tr>
+  </volist>
+  
+    </table>
+
+  </div>
+  <div class="list_btm">选择：<a href="javascript:void(0)">全部</a> - <a href="#">反选</a> - <a href="#">不选</a></div>
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	<a href="javascript:void(0);" class="btn_a" onclick="window.open('{:U("admin/Content/addExpression")}','_self');"><span>添加表情</span></a>
+	<button  class="btn_a" ">删除表情</button>
+	
+  </div>
+  </form>
+</div>
+
+<script>
+	//鼠标移动表格效果
+	$(document).ready(function(){
+		$("tr[overstyle='on']").hover(
+		  function () {
+		    $(this).addClass("bg_hover");
+		  },
+		  function () {
+		    $(this).removeClass("bg_hover");
+		  }
+		);
+	});
+	
+	function checkon(o){
+		if( o.checked == true ){
+			$(o).parents('tr').addClass('bg_on') ;
+		}else{
+			$(o).parents('tr').removeClass('bg_on') ;
+		}
+	}
+	
+	function checkAll(o){
+		if( o.checked == true ){
+			$('input[name="checkbox"]').attr('checked','true');
+			$('tr[overstyle="on"]').addClass("bg_on");
+		}else{
+			$('input[name="checkbox"]').removeAttr('checked');
+			$('tr[overstyle="on"]').removeClass("bg_on");
+		}
+	}
+
+	//获取已选择用户的ID数组
+	function getChecked() {
+		var ids = new Array();
+		$.each($('table input:checked'), function(i, n){
+			ids.push( $(n).val() );
+		});
+		return ids;
+	}
+	
+	//删除用户
+	function deleteExpression(expression_ids) {
+		expression_ids = expression_ids ? expression_ids : getChecked();
+		expression_ids = expression_ids.toString();
+		if(expression_ids == '' || !confirm('删除成功后将无法恢复，确认继续？')) return false;
+		$.post("{:U('admin/Content/doDeleteExpression')}", {expression_id:expression_ids}, function(res){
+			if(res == '1') {
+				expression_ids = expression_ids.split(',');
+				for(i = 0; i < expression_ids.length; i++) {
+					$('#tpl_'+expression_ids[i]).remove();
+				}
+				ui.success('删除成功～');
+			}else {
+				ui.success('删除失败～');
+			}
+		});
+	}
+	
+	//添加模板
+	var isSearchHidden = <neq name="type" value="searchUser">1<else/>0</neq>;
+	function searchUser() {
+		if(isSearchHidden == 1) {
+			$("#searchUser_div").slideDown("fast");
+			$(".searchUser_action").html("隐藏搜索");
+			isSearchHidden = 0;
+		}else {
+			$("#searchUser_div").slideUp("fast");
+			$(".searchUser_action").html("搜索用户");
+			isSearchHidden = 1;
+		}
+	}
+</script>
+
+<include file="Public:footer" />

@@ -1,0 +1,94 @@
+<include file="Public:header" />
+<div class="so_main">
+  <div class="page_tit">上架宝贝</div>
+  <!-------- 用户列表 -------->
+  <form action="doDeleteShelve" name="deleShelve" method="post">
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+	<button class="btn_a" type="submit" >删除宝贝</button>
+  </div>
+ 
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;">
+		<input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+    	<label for="checkbox"></label>
+	</th>
+    <th class="line_l">ID</th>
+    <th class="line_l">卖家</th>
+    <th class="line_l">宝贝名称</th>
+    <th class="line_l">宝贝信息</th>
+    <th class="line_l">竞拍价格</th>
+    <th class="line_l">市场价格</th>
+    <th class="line_l">上架时间</th>
+    <th class="line_l">状态</th>
+    <th class="line_l">操作</th>
+  </tr>
+
+  <!--  -------- 输出用户的信息  - - - -- -         -->
+  
+  <volist id="vo" name="res">
+	  <tr overstyle='on' id="user_{$vo.goods_id}">
+	    	<td><input type="checkbox" name="checkbox[]" id="checkbox2" value="{$vo.goods_id}" ></td>
+	    </if>
+	    <td>{$vo.goods_id}</td>
+	    <td>{$vo.user_id|getUserName}</td>
+	    <td>
+			{$vo.goods_name}
+	
+	    <td>
+			{$vo.goods_detail|getShort}
+			
+		</td>
+		<td>{$vo.a_price}</td>
+		<td>{$vo.b_price}</td>
+	    <td>{$vo['shelve_time']|date="Y-m-d H:i",###}</td>
+	   <!--   <td><eq name="vo['is_Sale']" value="1">交易成功<else/>卖出</eq></td>-->
+	   <td><php>if($vo['is_Sale']==1){</php>交易成功
+	   <php>}else if($vo['is_Sale']==2){</php>待售
+	   <php>}else{</php>谈判中<php>}</php></td>
+	    <td>
+	        <a href="{:SITE_URL}Trade/detail/id/{$vo['goods_id']}/i_/{$vo.goods_id|md}" target="_blank">查看</a>
+			<a href="{:U('shop/editShelve', array('uid'=>$vo['goods_id']))}">编辑</a>		
+	    	<!--  	<a href="__URL__/doDeleteShelve/id/{$vo['goods_id']}" onclick="confirm('删除成功后将无法恢复，确认继续？')">删除</a>-->
+	    		<a href="javascript:void(0);" onclick="deleteShelve({$vo['goods_id']})">删除</a> 
+    	
+		</td>
+	  </tr>
+  </volist>
+
+  </table>
+  </div>
+ 
+
+  <div class="Toolbar_inbox">
+	<div class="page right">{$html}</div>
+	<button class="btn_a" type="submit" >删除宝贝</button>
+  </div>
+  </form>
+</div>
+<script>
+	//鼠标移动表格效果
+	$(document).ready(function(){
+		$("tr[overstyle='on']").hover(
+		  function () {
+		    $(this).addClass("bg_hover");
+		  },
+		  function () {
+		    $(this).removeClass("bg_hover");
+		  }
+		);
+	});
+	
+   function deleteShelve(sid){
+	 
+	   if(sid==null)alert('没有选中选项!');
+	   else {
+		   flag = confirm('删除成功后将无法恢复，确认继续？');
+		   if(flag ==true) location.href = "__URL__/doDeleteShelve/id/"+sid;
+	   }
+	  
+   }
+	</script>
+<include file="Public:footer" />

@@ -1,0 +1,265 @@
+
+/*home页面的  css*/
+
+
+
+#home_center{
+    width: 1000px;
+    margin: 0 auto;
+    min-height: 1430px;
+    margin-top:20px;
+    background-color:#fff;
+    -moz-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;padding:5px;
+    padding-bottom:30px;
+}
+
+#home_right{width:235px;height:1000px;margin-left:40px;margin-top:10px;float:right;}
+#home_right div{float:left;}
+#home_zhongjian{
+ 
+    width:730px;
+    float: left;
+    margin-left: 10px;
+  /*  height: 1390px;  */
+}
+
+.home_left{
+	width:240px;
+	height:1200px;
+	float:right;
+	border-left:1px solid #999;
+}
+.scoll strong{
+	float:left;
+	font-size:20px;
+	margin:15px 10px;
+}
+.scoll .Euser{
+	float:left;
+	width:240px;
+	padding-left:10px;
+}
+.scoll .Euser img{widht:60px;height:60px;float:left;}
+.scoll .Euser  .user_in{float:left;height:70px;width:150px;font-size:14px;margin-top:5px;line-height:20px;}
+.scoll .Euser  .user_in span{width:150px;text-overflow: ellipsis;       /*强制一行显示*/ white-space: nowrap;overflow: hidden;}
+.scoll .Euser  .user_in a{color:green;}
+.scoll .Euser  .user_in a:hover{text-decoration: underline;}
+.shixing{float:left;margin:65px 10px;color:#999;}
+.shixing img{width:15px;height:15px;float:left;}
+
+/*--------------------------------- 中间的   top 菜单----------------------*/
+.tttt{
+	margin-top:40px;
+	float:left;
+}
+#home_zhongjian_top{height:590px;} 
+#sc1 A,#sc2 A{
+	float:left;
+    width:120px;
+    font-size: 19px;
+    font-family: '宋体';
+    margin-left: 40px;
+    line-height:30px;
+   background-color:#bbb;
+   color: #174867;
+   text-align:center;
+    -moz-border-radius-topleft:2px;
+    -webkit-border-top-left-radius: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;  
+}
+#bottom_title a{
+	float:left;
+    width:170px;
+    font-size: 19px;
+    font-family: '宋体';
+    margin-left: 35px;
+    line-height:30px;
+   background-color:#bbb;
+   color: #174867;
+   text-align:center;
+    -moz-border-radius-topleft:2px;
+    -webkit-border-top-left-radius: 2px;
+    -moz-border-radius-topright: 2px;
+    -webkit-border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;  
+}
+.top_content {
+    display: none;
+    width: 730px;
+    height:468px;
+    z-index: 25;
+    float:left;
+    margin-top: 0px;
+    padding-top: 15px;
+    border-top: solid #333 1px;
+}
+
+.top_content .lines,.center_content .lines{
+	height:200px;
+	width:20px;
+	border-left:solid 1px #333;	
+	float:left;
+	margin-top:-65px;
+	margin-left:20px;
+}
+.center_content .lines{margin-top:-40px;}
+
+
+
+
+.top_content td a{
+    color: #000;
+    font-size: 18px;
+}
+.on{ 	color:#fff !important;
+	background-color:#333 !important;
+	-webkit-transition: background-color .5s linear;
+}
+.top_content .td_t:hover {
+  
+     background-color: #dedede;
+     -webkit-transition: background-color .5s linear;
+     transition: background-color .5s linear;
+}
+.top_content .title a{font-family: serif;}
+.title{
+	
+	
+    width: 580px;
+    height: 25px;
+   line-height: 25px;
+    font-size: 17px;
+    font-family: sans-serif;
+   float: left;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+}
+.title a{color: #999; float: left;margin-left:7px;font-family: sans-serif;}
+.title img {
+float: left;
+margin-top: 2px;
+width: 14px;
+height: 17px;
+}
+.author{
+    width: 100px;
+    text-align:center;
+     text-overflow: ellipsis;
+   white-space: nowrap;
+   overflow: hidden;
+}
+.author a{ color:green !important;}
+.author a:hover{text-decoration: underline;}
+
+
+/*---------------------------------中间的  中间菜单————————————————————————————————*/
+
+#home_zhongjian_center{
+	float:left;
+	margin-top:50px;
+}
+
+
+#sc2{
+    margin-top: -30px;
+}
+.center_content {
+    display: none;
+    width:730px;  
+ /*  background-color: #009900;*/
+  min-height: 591px;
+    border-top: solid #000 1px;
+}
+.IndexEline{
+     min-height: 100px;
+/*    width: 790px;*/
+    border-bottom: solid 1px #f3f3f1;
+}
+
+.IndexEline .headpic_s img{
+	float:left;
+	width:50px;
+	height:50px;
+	margin-top:15px;
+}
+.IndexEline {width:690px !important}
+.IndexEline .shancon{float:left;margin-left:15px;overflow: hidden;font-size:15px;margin-top:15px;width:610px;color:#3d3d3d;}
+.IndexEline .shancon span a,.IndexEline .shancon a{color:#369;font-family: 黑体;}
+.IndexEline .shancon span a:hover,.IndexEline .shancon a:hover{text-decoration: underline;}
+.IndexEline .shancon  img{vertical-align: text-top;}
+.IndexEline .dosth{float:left;margin-left: 490px;margin-top:15px;color:#9d9d9d;}
+
+
+
+
+/*---------------------------------中间的  底部滚动条的css————————————————————————————————*/
+
+
+
+
+#bottom_title{
+     margin-top: 5px;
+     padding-top: 10px;
+    font-size: 26px;
+    font-family: kaiti;
+    width: 690px;
+    height: 30px;
+    padding-left: 5px;
+    border-bottom-style: hidden;
+}
+#bottom_title img{
+    float: right;
+    margin-top: -30px;
+}
+/*滚动列表ss*/
+
+table{border-collapse:collapse;
+      border-spacing:0;
+}
+#scrollbody ,#scrollbody1{
+    float:right;
+    overflow:hidden;
+    width:689px;
+    height:136px;
+    white-space:nowrap;
+    text-align:center;
+}
+#scrollbody td,#scrollbody1 td{
+    padding:0px;
+    border:-1px;
+    text-align: center;
+    border-spacing:0px;
+    vertical-align:bottom;
+    padding-left:-1px;
+    border-style: hidden;
+}
+.Pic,.Pic1{display:inline;
+           margin:0;
+           width:146px;
+           margin-bottom:0px;
+           display:block;
+           border-style: hidden;
+}
+.Pic img,.Pic1 img{ width:146px;
+                    height:166px;
+                    padding:0px;
+                    border-style: hidden;
+}
+.root{
+    border-top: #000 1px solid;
+    margin-top:10px;
+	padding-top:20px;
+   width:740px;
+    z-index:1;
+   float:left;
+    font-size: 14px;
+    font-family: kaiti;
+}

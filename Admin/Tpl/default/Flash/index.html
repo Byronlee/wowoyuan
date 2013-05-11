@@ -1,0 +1,77 @@
+<include file="Public:header" />
+<div class="so_main">
+    <include file="_tab" />
+    
+
+    
+    <div class="Toolbar_inbox">
+        <div class="page right">{$list.html}</div>
+        <form action="__URL__/deleteFlash" name="deleFlash" method="post">
+        <button type="submit" class="btn_a" onclick="">删除微博</button>
+    </div>
+  
+    <div class="list">
+        <table id="blog_list" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+		    <th style="width:30px;">
+		        <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+		        <label for="checkbox"></label>
+		    </th>
+		    <th class="line_l">ID</th>
+		    <th class="line_l">用户ID</th>
+		    <th class="line_l">用户名</th>
+            <th class="line_l">内容</th>
+            <th class="line_l">评论数</th>
+            <th class="line_l">发布时间</th>
+            <th class="line_l">操作</th>
+        </tr>
+        <volist id="vo" name="list">      
+	      	<tr overstyle='on' id="weibo_list_{$vo.flash_id}">
+		        <td><input type="checkbox" name="checkbox[]" id="checkbox2" onclick="checkon(this)" value="{$vo.flash_id}"></td>
+		        <td><a href="{:SITE_URL}Shancun/detail/f_/{$vo['flash_id']}/u_/{$vo.user_id}/f_u/{$vo['flash_id']+$vo.user_id|md}" target="_blank">{$vo.flash_id}</a></td>
+		        <td>{$vo.user_id}</td>
+		        <td><space uid="vo.uid" target="_blank">{$vo.username}</space></td>
+		        <td>{$vo.flash_body|getShort=36}</td>
+		       
+		         <td>{$vo.flash_comment_time}</td>
+		        <td>{$vo.posttime}</td>
+		        <td>
+		        <a href="{:SITE_URL}Shancun/detail/f_/{$vo['flash_id']}/u_/{$vo.user_id}/f_u/{$vo['flash_id']+$vo.user_id|md}" onclick="" target="_blank">查看</a>
+		        <a href="javascript:void(0);" onclick="deleteFlash({$vo['flash_id']})">删除</a> 
+		        </td>
+	      	</tr>
+		</volist>
+        </table>
+    </div>
+    
+    <div class="Toolbar_inbox">
+        <div class="page right">{$list.html}</div>
+       
+        <button type="submit" class="btn_a" onclick="confirm("是否删除所选!")">删除微博</button>
+        </form>
+    </div>
+</div>
+<script>
+//鼠标移动表格效果
+    $(document).ready(function(){
+        $("tr[overstyle='on']").hover(
+          function () {
+            $(this).addClass("bg_hover");
+          },
+          function () {
+            $(this).removeClass("bg_hover");
+          }
+        );
+    });
+	
+    function deleteFlash(sid){
+ 	 
+ 	   if(sid==null)alert('没有选中选项!');
+ 	   else {
+ 		   flag = confirm('删除成功后将无法恢复，确认继续？');
+ 		   if(flag ==true) location.href = "__URL__/doDeleteFlash/id/"+sid;
+ 	   }
+ 	   // alert(sid);
+    }
+    </script>
+<include file="Public:_footer" />

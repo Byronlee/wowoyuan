@@ -1,0 +1,6 @@
+@CHARSET "ISO-8859-1";
+
+/*自己对编译器的修改*/
+.xheBtnCut,.xheBtnCopy,.xheBtnBlocktag,.xheBtnFullscreen,.xheBtnPreview,.xheBtnFontSize,.xheBtnOutdent,.xheBtnIndent,.xheBtnFlash,.xheBtnMedia,.xheBtnHr{
+display:none !important;
+}

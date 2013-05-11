@@ -1,0 +1,117 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+    <head>
+         <script type="text/javascript" src="__PUBLIC__/javascript/jquery-1.4.2.min.js"></script>
+          <link rel="stylesheet" href="__PUBLIC__/style/AllSheet.css" type="text/css"  />
+        <link rel="stylesheet" href="__PUBLIC__/style/style.css" type="text/css" media="all" />
+        <title>窝窝园-宝贝分内</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="wowoyuan" content="窝窝园"/>
+        <meta name="keywords" content="窝窝，窝窝园，园，窝园"/>
+        <link rel="stylesheet" type="text/css" href="__PUBLIC__/style/css.css">        
+        <script language=JavaScript>      
+                          
+            var previoustab = "";
+            //初始化电子产品的 分类
+            function initial(){             	            	        
+            	var first='sclink'+$('.first').val();
+            	var firstcon='sc'+$('.first').val();
+            	var second='second'+$('.first').val()+$('.second').val();
+                document.getElementById(first).className = "current";               
+                document.getElementById(firstcon).style.display = "block";
+                document.getElementById(second).className = 'now';
+                previoustab =firstcon;
+            }
+            function expandcontent(cid, aobject)
+            {             
+                highlighttab(aobject);
+                if (previoustab != ""){
+                    document.getElementById(previoustab).style.display = "none";
+                    document.getElementById(cid).style.display = "block";
+                    previoustab = cid;
+                }
+            }       
+            function highlighttab(aobject)
+            {            
+                if (typeof tabobjlinks == "undefined")
+                {
+                    collectddimagetabs();
+                }
+                for (i = 0; i < tabobjlinks.length; i++)
+                {
+                    tabobjlinks[i].className = "";
+                }
+                aobject.className = "current";
+            }
+            function collectddimagetabs()
+            {
+                var tabobj = document.getElementById("ddimagetabs");
+                tabobjlinks = tabobj.getElementsByTagName("A");
+            }           
+        </script>
+    </head>
+    <body onload="initial()">
+     <!-- layout::public:header::60 -->
+        <!--
+              --------------------------有持续的展示所有物品信息----------------------
+        -->
+      <div class="center">
+       <div class="border">
+       <div class="center-left">
+       <div class="showall_center-left" style="height:1372px;">                 
+            <div class="cx_tabmenu" id="cx_tabmenu">
+                <div id="ddimagetabs">
+                <input class="first" style="display:none;" value={$first} />               
+                <php>$k=1;</php>
+                <php>foreach($menu as $key =>$value){</php>
+                    <A  id=sclink{$k} onclick="expandcontent('sc{$k}',this)" href="__URL__/showall/first/{$k}/a_d/{$k|md}">{$key}</A>
+                    <php>$k++;</php>
+                     <php>}</php>                  
+                </div>
+                <BR style="CLEAR: left">                
+             <!--   分类栏      -->   
+                <div id=tabcontentcontainer>
+               <input class="second" style="display:none;" value={$second} />
+                <php>$i=1;$atnn=array();$k=0;</php>
+               <php>foreach($menu as $key =>$value){</php>
+                <div class=tabcontent id=sc{$i}>  
+                      <php>$a=1;</php>            
+                        <A id=second{$i}0 onclick="showdetaildiv('at{$i}0','sc{$i}',this)"   href="__URL__/showall/first/{$i}/a_d/{$i|md}">全部</A>  
+                           <php>$atnn[$k]=$i.'0';$k++;</php>                                        
+
+                          
+                         <php>foreach($value as $keys => $values){</php>                   
+
+       
+                         <A id=second{$i}{$a} onclick="showdetaildiv('at{$i}{$a}','sc{$i}',this)"   href="__URL__/showall/first/{$i}/second/{$a}/a_d/{$i+$a|md}">{$values}</A>
+                         <php>$atnn[$k]=$i.$a;$k++;</php> 
+                         <php>$a++;}</php>
+                    </div>
+                    <php>$i++;}</php>              
+                </div>              
+               </div>
+                 <!--         显示全部的图片信息 结束                         -->         
+            <!--       分类栏结束                      -->
+                
+                <!--         显示全部的图片信息                         -->
+                <div id="showallcontent">
+                   <div class="allthings">
+                         <volist name="class" id="vn">
+                        <div><a href="__URL__/detail/id/{$vn.goods_id}/i_/{$vn.goods_id|md}" target="_blank"><img src="__PUBLIC__/images/temp/{$vn.user_id}/thumb_{$vn.img_id|getImageById}" alt="{$vn.goods_name}" title="{$vn.goods_name}" /></a><p>{$vn.goods_name}<br /><span style="color:red;">{$vn.a_price}</span>&nbsp;&nbsp;</strong>￥</p></div>
+                        </volist> 
+                                          
+                    </div>
+                    </div>           
+            </div>   
+                   <div class="page_wowo" style="width:768px;text-align:center;height:30px;background-color:#fff;">{$page}</div>            
+       </div>
+       <include file="trade:trade_left" />
+       </div>
+      </div>
+        <include file="Public:root" />
+    </body>
+</html>

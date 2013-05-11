@@ -1,0 +1,23 @@
+<include file="Public:header" />
+<script>
+function fold(index) {
+  	$('#app_'+index).slideToggle('fast');
+}
+</script>
+<div id="container" class="so_main">
+   
+    <div class="form2">
+  
+        <php>$id = 0;</php>
+        <volist name="statistics" id="channel">
+            <php>$index = $id++;</php>
+            <h3 onclick="fold('{$index}');">{$key}</h3>
+            <div id="app_{$index}">
+            <volist name="channel" id="vo">
+                <dt><strong>{$key}：</strong></dt><dd>{$vo}</dd>
+		    </volist>
+            </div>
+        </volist>
+    </div>
+</div>
+<include file="Public:footer" />

@@ -1,0 +1,126 @@
+<include file="../Public/_header" />
+<div class="so_main">
+  
+  <div class="page_tit">评论管理</div>
+  <div class="tit_tab">
+    <ul>
+    <li><a <eq name="from_app" value="weibo"><neq name="recycle" value="1">class="on"</neq></eq> href="{:U('admin/Content/comment','from_app=weibo')}">微博</a></li>
+    <li><a <eq name="from_app" value="weibo"><eq name="recycle" value="1">class="on"</eq></eq> href="{:U('admin/Content/comment','from_app=weibo&recycle=1')}">微博评论回收站</a></li>
+    <li><a <eq name="from_app" value="other">class="on"</eq> href="{:U('admin/Content/comment','from_app=other')}">其它应用</a></li>
+    </ul>
+  </div>
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+    <a href="javascript:void(0);" class="btn_a" onclick="deleteComment();"><span>删除评论</span></a>
+  </div>
+  <div class="list">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <th style="width:30px;">
+        <input type="checkbox" id="checkbox_handle" onclick="checkAll(this)" value="0">
+        <label for="checkbox"></label>
+    </th>
+    <th class="line_l">ID</th>
+    <th class="line_l">来自</th>
+    <th class="line_l">目的</th>
+    <th class="line_l">时间</th>
+    <th class="line_l">内容</th>
+    <th class="line_l">操作</th>
+  </tr>
+  <volist id="vo" name="data">
+      <tr overstyle='on' id="{$vo.comment_id}">
+        <td><input type="checkbox" name="checkbox" id="checkbox2" onclick="checkon(this)" value="{$vo.comment_id}"></td>
+        <td>{$vo.comment_id}</td>
+        <td>{$vo.uid|getUserName}</td>
+        <td>{$vo.to_uid|getUserName}</td>
+        <td>{$vo.ctime|date="Y-m-d H:i",###}</td>
+        <td>{$vo.content|getShort=36}</td>
+        <td>
+            <a href="{$vo.url}" target="_blank">查看</a>
+            <a href="javascript:void(0);" onclick="deleteComment('{$vo.comment_id}')">删除</a>
+        </td>
+      </tr>
+  </volist>
+  </table>
+  </div>
+  <div class="Toolbar_inbox">
+  	<div class="page right">{$html}</div>
+    <a href="javascript:void(0);" class="btn_a" onclick="deleteComment();"><span>删除评论</span></a>
+  </div>
+</div>
+
+<script>
+    //鼠标移动表格效果
+    $(document).ready(function(){
+        $("tr[overstyle='on']").hover(
+          function () {
+            $(this).addClass("bg_hover");
+          },
+          function () {
+            $(this).removeClass("bg_hover");
+          }
+        );
+    });
+    
+    function checkon(o){
+        if( o.checked == true ){
+            $(o).parents('tr').addClass('bg_on') ;
+        }else{
+            $(o).parents('tr').removeClass('bg_on') ;
+        }
+    }
+    
+    function checkAll(o){
+        if( o.checked == true ){
+            $('input[name="checkbox"]').attr('checked','true');
+            $('tr[overstyle="on"]').addClass("bg_on");
+        }else{
+            $('input[name="checkbox"]').removeAttr('checked');
+            $('tr[overstyle="on"]').removeClass("bg_on");
+        }
+    }
+
+    //获取已选择用户的ID数组
+    function getChecked() {
+        var ids = new Array();
+        $.each($('table input:checked'), function(i, n){
+            ids.push( $(n).val() );
+        });
+        return ids;
+    }
+    
+    function deleteComment(ids) {
+        var length = 0;
+        var from_app = "{$from_app}";
+        if(ids) {
+            length = 1;
+        }else {
+            ids    = getChecked();
+            length = ids[0] == 0 ? ids.length - 1 : ids.length;
+            ids    = ids.toString();
+        }
+        if(ids=='') {
+            ui.error('请先选择一个评论');
+            return ;
+        }
+        if(confirm('您将删除'+length+'条记录，删除后无法恢复，确定继续？')) {
+            $.post("{:U('admin/Content/doDeleteComment')}",{ids:ids,from_app:from_app},function(res){
+                if(res=='1') {
+                    ui.success('删除成功');
+                    removeItem(ids);
+                }else {
+                    ui.error('删除失败');
+                }
+            });
+        }
+    }
+    
+    function removeItem(ids) {
+        ids = ids.split(',');
+        for(i = 0; i < ids.length; i++) {
+            $('#'+ids[i]).remove();
+        }
+    }
+
+</script>
+<include file="../Public/_footer" />

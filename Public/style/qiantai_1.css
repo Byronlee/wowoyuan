@@ -1,0 +1,422 @@
+/* 
+    Document   : qiantai_1
+    Created on : 26-Sep-2011, 23:13:21
+    Author     : Byron Lee
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+
+/*------------------------------------detail椤甸潰鐨刢ss-----------------------------*/
+#detail_center{
+  width: 1000px;
+margin: 0 auto;
+min-height: 1160px;
+margin-top: 20px;
+background-color: white;
+-moz-border-radius: 5px;
+-khtml-border-radius: 5px;
+-webkit-border-radius: 5px;
+border-radius: 5px;
+padding: 5px;
+}
+
+#allcentent{
+    margin: 10px auto;
+    width: 100%;
+    min-height: 720px;
+}
+.allcentent—left{
+	float:left;
+	width:670px;
+	height:590px;
+	border-bottom:1px solid #f1f1f1;
+}
+#moban_p{
+	background:url('/Public/images/bottom/bg-box-line.jpg');
+    margin-left: 35px ;
+    margin-top:0px;
+    height:30px;
+    width: 575px;
+}
+#wpname{
+   
+   width:300px;
+   folat:left;
+   margin-top:45px;
+   margin-left:170px;
+    font-size:28px;
+    color: #EE7600;
+}
+
+#wpdetail{
+   float:left;
+   margin-left:45px;
+    font-size:18px;
+    height: 385px;
+    width:620px;
+    text-align:center;
+}
+#wpdetail td{
+    height: 15px;
+    font-size: 18px;
+    border-bottom:1px solid #f1f1f1;
+}
+#wpdetail td img{
+
+	max-width:315px;
+	max-height:382px
+}
+#wpdetail td div{
+	text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+     overflow: hidden;
+     line-height:33px;
+     width:184px;height:35px;
+}
+
+#wpdetail .specoal{
+	text-align:left !important;
+	color:firebrick;
+	font-size:20px;
+	border-bottom:hidden;
+}
+#wpdetail .get_it,#wpdetail .cannt_it{
+	height: 43px;
+    width: 170px;
+    cursor: pointer;
+    margin: 30px 60px;
+    background-color: green;
+   border-style: hidden;
+   font-size: 18px;
+   -moz-border-radius: 3px;
+   -khtml-border-radius: 3px;
+   -webkit-border-radius: 3px;
+   border-radius: 3px;
+   font-weight:bold;	
+}
+#wpdetail .cannt_it{
+	background-color: #bebebe;
+}
+#wpdetail .get_it:hover{
+	color:#fff;
+}
+
+#wpdetail td span{
+    color: red;
+}
+
+
+#mjxq{
+    float:left;
+    font-size:26px;
+    font-family: kaiti;
+    height: 530px;
+    width:300px;
+
+}
+#wzxx{ 
+	float:left;
+	margin:40px 0px;
+	width:200px;
+	height:35px;
+    font-size:25px;
+    color: #000;
+}
+#wzxx div{flaot:left;background:url('/Public/images/bottom/yuan.png');width:43px;height:35px;}
+#wzxx span{float:left;margin:-30px 50px;width:110px;height:25px;border-bottom:1px solid #DAA520}
+#mjxq .shu{
+	background:url('/Public/images/bottom/shu.jpg');
+    float:left;
+    height:530px;
+    width: 25px;
+}
+#mjxq table{float:left;margin-left:40px;width:235px;}
+#mjxq td{
+
+    height: 30px;
+    font-size:18px;
+}
+
+#mjxq td div{
+	     width:174px;
+	      height:30px;
+	      line-height:30px;
+     text-overflow: ellipsis;       /*强制一行显示*/
+    white-space: nowrap;
+     overflow: hidden;
+	      
+}
+
+#mjxq table img{
+    height: 130px;
+    width: 130px;
+    border:2px solid #f3f3f1;
+    -khtml-border-radius: 4px;
+    -moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+}
+#mjxq table img:hover{
+	border:2px solid paleGoldenrod;
+}
+#mjxq table a{color:green;
+
+}
+#mjxq table a:hover{
+	 text-decoration : underline;
+}
+#bbxq{
+     float:left;
+     margin-left:50px;
+    
+}
+#bbxq label{
+ 
+    font-size: 25px;
+    width: 120px;
+    text-shadow:0 0 20px green; color:green;
+}
+#bbxq_in{
+    width: 425px;
+    min-height: 420px;
+    font-size: 18px;
+    float:left;
+    margin-top:-70px;
+    padding-top:150px;
+    padding-left:10px;
+    border-left:solid 1px #f1f1f1;
+    color:green;
+
+}
+.trade-intr{
+	float:right;
+	width:400px;
+	height:470px;
+}
+.trade-intr .fxb{
+	background:url('/Public/images/bottom/fxb.png');width:203px;height:98px;
+	float:left;
+}
+.trade-intr .trade-intr-con{
+	width:225px;
+	height:440px;
+	border-left:1px solid red;
+	float:left;
+	margin:60px -80px;
+	
+}
+.trade-intr .trade-intr-con strong{
+	font-size:20px;
+	color:#EE7600;
+}
+.trade-intr .trade-intr-con p{
+	margin-left:3px;
+	line-height:22px;
+}
+.trade-intr .trade-intr-con span{
+color:#EE7600;
+}
+
+
+
+
+/*-----------------------货物统计 css:  hwtj---------------------*/
+#center_hwtj{ 
+    width: 1000px;
+   margin: 0 auto;
+   height: 2150px;
+   margin-top: 20px;
+   background-color: white;
+   -moz-border-radius: 5px;
+   -khtml-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   padding: 5px;
+}
+#all{
+}
+#hwtj_left{
+    width: 200px;
+    height: 982px;
+    margin-top: 60px;
+    padding-top:5px;
+    float: left;
+    border-top:1px solid #bebebe;
+}
+#hwtj_left_div{
+    width: 200px;
+    height: 466px;
+    padding-top: 17px;
+  margin-top:-51px;
+    margin-left: 0px;
+}
+#hwtj_left_div table{
+	border-left:1px solid #bebebe;
+	margin-left:35px;
+}
+#hwtj_left_div td{
+	text-align:center;
+}
+
+.aa_t{
+	 width:130px;
+	 float:left;
+	 margin:-220px 40px;
+	 line-height:25px;
+	 color:#999;
+	 font-size:14px;
+}
+.aa_t .tttt_q{
+/*	color:#EE7600;*/
+	font-weight:bold;
+	font-size:20px;
+	/*text-decoration : underline ;*/
+    padding-left:52px;
+    line-height:45px;
+/*background: url('/Public/images/bottom/yuan.png') no-repeat;*/
+width: 140px;
+height: 45px;
+float:right;
+margin-right:5px;
+}
+}
+.aa_t  p{
+	width:120px;
+	margin-left:20px;
+	font-size:11px !important;
+}
+.aa_t  div{
+	border-left:1px solid #bebebe;
+}
+
+
+
+.spanwowo_a{
+    font-size: 23px;
+    width: 200px;
+  /*  border-bottom: 1px solid #EE7600;*/
+    color:#EE7600;
+    font-weight:bold;
+
+}
+.spanwowo_b{
+    font-size: 23px;
+    color: #3c3c3c;
+    border-bottom: 1px solid #bebebe;
+
+}
+.spanwowo_b img{
+	width:20px;
+	height:20px;
+}
+.on{
+	color:red !important;
+}
+#spanwowo_1 a, #spanwowo_2 a, #spanwowo_3 a ,#spanwowo_4 a{
+    font-size: 20px;
+    line-height:35px;
+    color: green;
+    font-weight:bold;
+}
+#hwtj_left_div td a:hover,.master_g a:hover{
+	text-decoration :underline;
+}
+.hwtj_right{
+    width: 795px;
+    float: right;
+    margin-top: 20px;
+
+}
+
+#feny img{
+    margin-left: 30px;
+}
+.hw_tupian img{
+    width: 90px;
+    height: 90px;
+    border:10px solid #fff;
+
+}
+
+.hwtj_right td{
+    width: 120px;
+   /* border-right: 1px solid #f3f3f1;*/
+    border-bottom: 1px solid #f3f3f1;
+    text-align:center;
+}
+.hw_caidan{
+    font-size: 19px;
+    font-weight: bolder;
+    	border-right:hidden !important;
+    	/*background:url('/Public/images/bottom/mang.png')*/
+    	color:#EE7600;
+    	width:120px;height:30px;
+    border-right:hidden !important;
+    border-bottom:hidden !important;
+  /*  text-decoration: underline;*/
+}
+.tra_way{
+	color:#36C;
+	font-weight:bold;
+	font-size:14px;
+}
+.statu{
+      width:65px;
+	height:23px;
+	background-color:#f2f2f2;
+	border-style:hidden;
+	/* chrome浏览器识别 */ 
+    -webkit-border-radius :2px;
+    /*     IE浏览器识别                  */
+    -khtml-border-radius: 2px;
+    /*      FF浏览器识别                  */
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.succ{
+	width:65px;
+	height:23px;
+	background-color:#FF7256;
+	border-style:hidden;
+	/* chrome浏览器识别 */ 
+    -webkit-border-radius :2px;
+    /*     IE浏览器识别                  */
+    -khtml-border-radius: 2px;
+    /*      FF浏览器识别                  */
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+.down{
+	
+}
+.succ_down,.spedd{
+	color:red;
+}
+.master_g{
+	max-width:105px;
+	max-height:105px; 
+	overflow:hidden;
+/*	background-color:red;*/
+	
+}
+.master_g span{
+	font-size:11px;
+}
+.master_g a{
+	color:#EE7600;
+}
+.canl{
+	text-decoration : line-through ;
+}

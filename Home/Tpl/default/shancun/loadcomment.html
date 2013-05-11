@@ -1,0 +1,32 @@
+<div>
+<div class="jj"><img src="__PUBLIC__/images/button/jj.png"/></div>
+<div class="addcomment" >
+<form  rel="miniblog_comment"  method="post" style="float: right;">	
+
+      <input type="hidden" name="reply_comment_id" class="reply_comment_id" id="replay_{$flash_id}"/>
+
+		<textarea class="left text" id="comment_{$flash_id}_publish" name="comment_content" rows="1" style="resize: none; margin-left:20px;overflow-x: hidden; line-height:20px;overflow-y: hidden; height: 20px;width:400px;"></textarea>                  
+                   <input type="button" id="bu" value="确定" class="N_but" />
+                     <div id="publish_type_comment_{$flash_id}_before" class="expression">
+                   <a  href='javascript:void(0)' onclick="show_div('comment_{$flash_id}')" >表情</a></div>     
+	  </form>
+	  <ul id="allComment" style="float: left;">
+	   <volist id="vo" name="data">
+	         <li class="Ecomm" id="list_{$vo.comment_id}"  style="width: 483px;">
+                            <div class="headpic">{$vo.user_id|getUserSpace=uvatar}</div>
+                            <div class="shancon" style="width: 430px;">{$vo.user_id|getUserSpace=uname}：{$vo.comment_body|format}</div>
+                            <div class="list_bot"> 
+	                            <span class="right">
+	                                <div class="time">{$vo.ctime|friendlyDate}</div>
+	                                <div class="dosth">	                                    
+	                                           {$vo.operate}
+	                                           <a href="javascript:void(0)" onclick="reply('{$vo.user_id|getUserName}',{$flash_id},{$vo.comment_id})">回复</a>
+	                                </div>					             
+					           </span> 					           
+					       </div>					       
+					      <br />
+                 </li>
+                       </volist>
+           </ul>	  
+</div>	   	 
+</div>
